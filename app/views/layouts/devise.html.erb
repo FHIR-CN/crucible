@@ -3,10 +3,6 @@
 <head>
   <title>Guardian</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <!-- FIXME: Replace this with better mechanism for embedding Ember with authentication -->
-  <% if user_signed_in? %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <% end %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -15,7 +11,11 @@
     <% if user_signed_in? %>
       <%= render 'layouts/header' %>
     <% end %>
-    <%= yield %>
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4">
+        <%= yield %>
+      </div>
+    </div>
   </div>
 
 </body>
