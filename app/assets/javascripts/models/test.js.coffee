@@ -1,4 +1,4 @@
-Guardian.Test = DS.Model.extend
+Crucible.Test = DS.Model.extend
   title: DS.attr('string')
   author: DS.attr('string')
   description: DS.attr('string')

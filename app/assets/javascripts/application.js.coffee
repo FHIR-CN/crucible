@@ -6,9 +6,9 @@
 #= require ember
 #= require ember-data
 #= require_self
-#= require guardian
+#= require crucible
 #= require_tree .
 #= require bootstrap-sprockets
 
 # for more details see: http://emberjs.com/guides/application/
-window.Guardian = Ember.Application.create()
+window.Crucible = Ember.Application.create()

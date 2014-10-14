@@ -1,4 +1,4 @@
-# Guardian #
+# Crucible #
 
 A simple Rails app for evaluating FHIR.
 
@@ -13,7 +13,7 @@ A simple Rails app for evaluating FHIR.
 ## Getting Started ##
 
 ### OSX ###
-- Checkout Guardian:
+- Checkout Crucible:
 - Install dependencies with Bundler: ```bundle install```
 - Start MongoDB: ```mongod```
 - Launch the Rails server: ```bundle exec rails server```
