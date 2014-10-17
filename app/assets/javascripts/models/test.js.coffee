@@ -3,3 +3,4 @@ Crucible.Test = DS.Model.extend
   author: DS.attr('string')
   description: DS.attr('string')
   tests: DS.attr()
+  result: DS.attr('string')

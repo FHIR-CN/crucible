@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
+
   devise_for :users
+
+  get 'tests/execute_all' => 'tests#execute_all', defaults: { format: :json }
+  get 'tests/execute/:title' => 'tests#execute', defaults: { format: :json }
+
   resources :tests, defaults: { format: :json }
 
   root to: "home#index"

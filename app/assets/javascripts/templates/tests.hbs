@@ -2,12 +2,13 @@
 
 <ul>
   {{#each}}
-    <li>{{title}} by {{author}}. {{description}}</li>
+    <li>{{title}} by {{author}}. {{description}} <button class="btn btn-primary" {{action 'execute' title}}>Run test</button></li>
     <ul>
       {{#each tests}}
         <li>{{this}}</li>
       {{/each}}
     </ul>
+    {{#if result}}<li>{{result}}</li>{{/if}}
   {{else}}
     <li>There are no tests.</li>
   {{/each}}
