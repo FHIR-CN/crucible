@@ -1,14 +1,27 @@
 <h1>Tests</h1>
 
+<form class="form-horizontal" role="form">
+  <div class="form-group">
+    <label for="inputUrl" class="col-sm-2 control-label">Server URL</label>
+    <div class="col-sm-10">
+      {{input name='test-url' class="form-control" value="http://fhir.healthintersections.com.au/open"}}
+      <span class="help-block">http://fhir.healthintersections.com.au/open, http://bonfire.mitre.org:8080/fhir</span>
+    </div>
+  </div>
+</form>
+
 <ul>
   {{#each}}
-    <li>{{title}} by {{author}}. {{description}} <button class="btn btn-primary" {{action 'execute' title}}>Run test</button></li>
+    <li>{{title}} by {{author}}. {{description}} <button class="btn btn-primary pull-right" {{action 'execute' title}}>Run test</button></li>
     <ul>
-      {{#each tests}}
+      {{#each results}}
         <li>{{this}}</li>
+      {{else}}
+        {{#each tests}}
+          <li>{{this}}</li>
+        {{/each}}
       {{/each}}
     </ul>
-    {{#if result}}<li>{{result}}</li>{{/if}}
   {{else}}
     <li>There are no tests.</li>
   {{/each}}

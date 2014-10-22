@@ -20,7 +20,7 @@ class TestsController < ApplicationController
     # }
 
     Crucible::Tests::Executor.list_all.each do |k,v|
-      list << {id: index+=1, author: v[:author], description: v[:description], title: v[:title], tests: v[:tests]}
+      list << {id: index+=1}.merge(v)
     end
     tests = {tests: list}
     respond_with JSON.pretty_generate(tests)
@@ -48,8 +48,8 @@ class TestsController < ApplicationController
   end
 
   def execute_all
-    # params[:url] ||= 'http://fhir.healthintersections.com.au/open' # valid endpoint, commented to prevent spamming
-    params[:url] ||= 'http://fhir.healthintersections.com.au/'
+    params[:url] ||= 'http://fhir.healthintersections.com.au/open' # valid endpoint, commented to prevent spamming
+    # params[:url] ||= 'http://fhir.healthintersections.com.au/'
     val = { debug: params, results: Crucible::Tests::Executor.new(FHIR::Client.new params[:url]).execute_all }
     respond_with JSON.pretty_generate(val)
 
@@ -96,9 +96,9 @@ class TestsController < ApplicationController
   end
 
   def execute
-    # params[:url] ||= 'http://fhir.healthintersections.com.au/open' # valid endpoint, commented to prevent spamming
+    params[:url] ||= 'http://fhir.healthintersections.com.au/open' # valid endpoint, commented to prevent spamming
     params[:title] ||= 'BaseTest'
-    params[:url] ||= 'http://fhir.healthintersections.com.au/'
+    # params[:url] ||= 'http://fhir.healthintersections.com.au/'
     val = { debug: params, results: Crucible::Tests.const_get(params[:title]).new(FHIR::Client.new params[:url]).execute }
     respond_with JSON.pretty_generate(val)
 
