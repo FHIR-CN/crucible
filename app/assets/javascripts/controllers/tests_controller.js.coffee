@@ -14,6 +14,6 @@ Crucible.TestController = Ember.ObjectController.extend
         console.log @get('tests')
         tests = []
         for test in @get('tests')
-          tests.push "#{response.results[test]?.test_method}: #{response.results[test]?.status}. #{response.results[test]?.result}"
+          tests.push JSON.stringify(response.results[test])
         @set('results', tests)
       )
