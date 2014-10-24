@@ -47,6 +47,12 @@ class TestsController < ApplicationController
     # }
   end
 
+  def conformance
+    params[:url] ||= 'http://fhir.healthintersections.com.au/open' # valid endpoint, commented to prevent spamming
+    val = { debug: params, results: JSON.parse(FHIR::Client.new(params[:url]).conformanceStatement.to_json)}
+    respond_with JSON.pretty_generate(val)
+  end
+
   def execute_all
     params[:url] ||= 'http://fhir.healthintersections.com.au/open' # valid endpoint, commented to prevent spamming
     # params[:url] ||= 'http://fhir.healthintersections.com.au/'
