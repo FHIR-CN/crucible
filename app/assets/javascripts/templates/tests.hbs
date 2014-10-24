@@ -3,22 +3,67 @@
 <form class="form-horizontal" role="form">
   <div class="form-group">
     <label for="inputUrl" class="col-sm-2 control-label">Server URL</label>
-    <div class="col-sm-10">
+    <div class="col-sm-8">
       {{input name='test-url' class="form-control" value="http://fhir.healthintersections.com.au/open"}}
-      <span class="help-block">http://fhir.healthintersections.com.au/open, http://bonfire.mitre.org:8080/fhir</span>
+      <span class="help-block">http://fhir.healthintersections.com.au/open, http://fhirtest.uhn.ca/base, http://bonfire.mitre.org:8080/fhir</span>
+    </div>
+    <div class="col-sm-2">
+      <button class="btn btn-info pull-right" {{action 'getConformance'}}>Conformance</button>
     </div>
   </div>
 </form>
+
+{{#if conformance}}
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Conformance Report</h3>
+  </div>
+  <div class="panel-body">
+    {{{conformance}}}
+  </div>
+</div>
+{{/if}}
 
 <ul>
   {{#each}}
     <li>{{title}} by {{author}}. {{description}} <button class="btn btn-primary pull-right" {{action 'execute' title}}>Run test</button></li>
     <ul>
       {{#each results}}
-        <li>{{this}}</li>
+        <li class="col-md-11">
+          <div class="panel panel-{{../panelStatus this}}">
+            <div class="panel-heading">
+              <h3 class="panel-title">{{test_method}}</h3>
+            </div>
+            <div class="panel-body">
+              <ul class="list-group">
+                <li class="list-group-item">
+                  <span class="label label-default">ID</span> {{id}}
+                </li>
+                <li class="list-group-item">
+                  <span class="label label-default">Description</span> {{description}}
+                </li>
+                <li class="list-group-item">
+                  <span class="label label-default">Message</span> {{message}}
+                </li>
+                <li class="list-group-item">
+                  <span class="label label-default">Status</span> {{status}}
+                </li>
+                <li class="list-group-item">
+                  <span class="label label-default">Data</span> {{data}}
+                </li>
+              </ul>
+            </div>
+          </div>
+        </li>
       {{else}}
         {{#each tests}}
-          <li>{{this}}</li>
+          <li class="col-md-11">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">{{this}}</h3>
+            </div>
+          </div>
+        </li>
         {{/each}}
       {{/each}}
     </ul>
