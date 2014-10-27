@@ -26,10 +26,10 @@
 
 <ul>
   {{#each}}
-    <li>{{title}} by {{author}}. {{description}} <button class="btn btn-primary pull-right" {{action 'execute' title}}>Run test</button></li>
+    <li>{{title}} by {{author}}. {{description}} <button class="btn btn-primary pull-right" {{action 'execute' title resource_class}}>Run test</button></li>
     <ul>
       {{#each results}}
-        <li class="col-md-11">
+        <li>
           <div class="panel panel-{{../panelStatus this}}">
             <div class="panel-heading">
               <h3 class="panel-title">{{test_method}}</h3>
@@ -57,7 +57,7 @@
         </li>
       {{else}}
         {{#each tests}}
-          <li class="col-md-11">
+          <li>
           <div class="panel panel-default">
             <div class="panel-heading">
               <h3 class="panel-title">{{this}}</h3>

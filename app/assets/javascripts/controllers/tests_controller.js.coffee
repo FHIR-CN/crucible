@@ -3,7 +3,7 @@ Crucible.TestsController = Ember.ArrayController.extend
   actions:
     getConformance: ->
       results = $.ajax(
-        url: "/tests/conformance",
+        url: "/tests/conformance"
         type: "GET"
         data: {'url' : $('input[name="test-url"]').val()}
       ).then( (response) =>
@@ -15,11 +15,13 @@ Crucible.TestsController = Ember.ArrayController.extend
 Crucible.TestController = Ember.ObjectController.extend
   needs: ['tests']
   actions:
-    execute: (title) ->
+    execute: (title, resourceClass) ->
       results = $.ajax(
-        url: "/tests/execute/#{title}",
+        url: "/tests/execute/#{title}"
         type: "GET"
-        data: {'url' : $('input[name="test-url"]').val()}
+        data:
+          'url': $('input[name="test-url"]').val()
+          'resource_class': resourceClass
       ).then( (response) =>
         console.log response
         tests = []

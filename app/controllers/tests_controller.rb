@@ -105,7 +105,9 @@ class TestsController < ApplicationController
     params[:url] ||= 'http://fhir.healthintersections.com.au/open' # valid endpoint, commented to prevent spamming
     params[:title] ||= 'BaseTest'
     # params[:url] ||= 'http://fhir.healthintersections.com.au/'
-    val = { debug: params, results: Crucible::Tests.const_get(params[:title]).new(FHIR::Client.new params[:url]).execute }
+    test = Crucible::Tests.const_get(params[:title]).new(FHIR::Client.new params[:url])
+    test.resource_class = params[:resource_class].constantize if params[:resource_class]
+    val = { debug: params, results: test.execute }
     respond_with JSON.pretty_generate(val)
 
     # Returns:
