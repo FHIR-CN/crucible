@@ -1,7 +1,7 @@
 #= require jquery
+#= require underscore
 #= require jquery_ujs
 #= require turbolinks
-#= require jquery
 #= require handlebars
 #= require ember
 #= require ember-data

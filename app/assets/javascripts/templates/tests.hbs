@@ -24,12 +24,26 @@
 </div>
 {{/if}}
 
+{{#if hasResults}}
+<ul>
+  {{#each controller}}
+    {{#if hasResult}}
+  <li>{{resultSummary.name}}:
+    {{#each resultSummary.results}}
+      <i class="fa {{../../iconStatus this}}"></i>
+    {{/each}}
+  </li>
+    {{/if}}
+  {{/each}}
+</ul>
+{{/if}}
+
 <ul>
   {{#each}}
-    <li>{{title}} by {{author}}. {{description}} <button class="btn btn-primary pull-right" {{action 'execute' title resource_class}}>Run test</button></li>
-    <ul>
+    <li>
+      <span><span class="label label-default">{{title}}{{#if resource_class}}: {{resource_class}}{{/if}}</span> <small>{{description}}</small> <button class="btn btn-sm btn-primary" {{action 'execute' title resource_class}}>Run test</button>
+    </li>
       {{#each results}}
-        <li>
           <div class="panel panel-{{../panelStatus this}}">
             <div class="panel-heading">
               <h3 class="panel-title">{{test_method}}</h3>
@@ -37,36 +51,36 @@
             <div class="panel-body">
               <ul class="list-group">
                 <li class="list-group-item">
-                  <span class="label label-default">ID</span> {{id}}
+                  <span class="label label-info">ID</span> {{id}}
                 </li>
                 <li class="list-group-item">
-                  <span class="label label-default">Description</span> {{description}}
+                  <span class="label label-info">Description</span> {{description}}
                 </li>
                 <li class="list-group-item">
-                  <span class="label label-default">Message</span> {{message}}
+                  <span class="label label-info">Message</span> {{message}}
                 </li>
                 <li class="list-group-item">
-                  <span class="label label-default">Status</span> {{status}}
+                  <span class="label label-info">Status</span> {{status}}
                 </li>
                 <li class="list-group-item">
-                  <span class="label label-default">Data</span> {{data}}
+                  <span class="label label-info">Data</span> {{data}}
                 </li>
               </ul>
             </div>
           </div>
-        </li>
       {{else}}
         {{#each tests}}
-          <li>
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">{{this}}</h3>
+          {{#if ../resource_class}}
+            {{!-- TODO: Render something better than redundant resource methods... --}}
+          {{else}}
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">{{../this}}</h3>
+              </div>
             </div>
-          </div>
-        </li>
+          {{/if}}
         {{/each}}
       {{/each}}
-    </ul>
   {{else}}
     <li>There are no tests.</li>
   {{/each}}

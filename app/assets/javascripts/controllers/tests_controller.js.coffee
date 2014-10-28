@@ -12,6 +12,10 @@ Crucible.TestsController = Ember.ArrayController.extend
         @set('conformance', conformance.replace('<table class="grid">','<table class="table table-bordered table-condensed">'))
       )
 
+  hasResults: ( ->
+    @filter((t) -> t.get('results')?.length)?.length > 0
+  ).property('@each.results')
+
 Crucible.TestController = Ember.ObjectController.extend
   needs: ['tests']
   actions:
@@ -34,7 +38,23 @@ Crucible.TestController = Ember.ObjectController.extend
       )
 
   panelStatus: ->
-      switch @status
-        when 'passed' then 'success'
-        when 'failed' then 'danger'
-        else 'warning'
+    switch @status
+      when 'passed' then 'success'
+      when 'failed' then 'danger'
+      else 'warning'
+
+  iconStatus: ->
+    switch @toString()
+      when 'passed' then 'fa-check-circle-o'
+      when 'failed' then 'fa-times-circle-o'
+      else 'fa-circle-o'
+
+  resultSummary: ( ->
+    summary =
+      name: @get('resource_class') || @get('title')
+      results: ( (_.filter(@get('results'), (r) => r.test_method == t))?[0]?.status for t in @get('tests') )
+  ).property('results')
+
+  hasResult: ( ->
+    @get('results')?.length
+  ).property('results')
