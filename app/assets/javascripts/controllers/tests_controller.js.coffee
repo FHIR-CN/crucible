@@ -11,6 +11,12 @@ Crucible.TestsController = Ember.ArrayController.extend
         conformance = response.results.text.div
         @set('conformance', conformance.replace('<table class="grid">','<table class="table table-bordered table-condensed">'))
       )
+    goToLink: (item, anchor) ->
+      $elem = $(anchor)
+      $scrollTo = $('body').scrollTop($elem.offset().top)
+      @transitionToRoute(item.route).then($scrollTo)
+    goToTest: (test) ->
+      @send('goToLink','tests', "##{test.resource_class?.split('::')?[1]||''}-#{test.test_method}")
 
   hasResults: ( ->
     @filter((t) -> t.get('results')?.length)?.length > 0
@@ -33,6 +39,7 @@ Crucible.TestController = Ember.ObjectController.extend
           # tests.push JSON.stringify(response.results[test])
           result = response.results[test]
           result['test_method'] = test
+          result['resource_class'] = resourceClass if resourceClass
           tests.push result
         @set('results', tests)
       )
@@ -44,15 +51,17 @@ Crucible.TestController = Ember.ObjectController.extend
       else 'warning'
 
   iconStatus: ->
-    switch @toString()
+    switch @status
       when 'passed' then 'fa-check-circle-o'
       when 'failed' then 'fa-times-circle-o'
       else 'fa-circle-o'
 
+  panelAnchor: -> "#{@resource_class?.split('::')?[1]||''}-#{@test_method}"
+
   resultSummary: ( ->
     summary =
       name: @get('resource_class') || @get('title')
-      results: ( (_.filter(@get('results'), (r) => r.test_method == t))?[0]?.status for t in @get('tests') )
+      results: ( (_.filter(@get('results'), (r) => r.test_method == t))?[0] for t in @get('tests') )
   ).property('results')
 
   hasResult: ( ->

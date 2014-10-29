@@ -30,7 +30,7 @@
     {{#if hasResult}}
   <li>{{resultSummary.name}}:
     {{#each resultSummary.results}}
-      <i class="fa {{../../iconStatus this}}"></i>
+      <i class="fa {{../../iconStatus status}}" {{action 'goToTest' this}}></i>
     {{/each}}
   </li>
     {{/if}}
@@ -44,7 +44,7 @@
       <span><span class="label label-default">{{title}}{{#if resource_class}}: {{resource_class}}{{/if}}</span> <small>{{description}}</small> <button class="btn btn-sm btn-primary" {{action 'execute' title resource_class}}>Run test</button>
     </li>
       {{#each results}}
-          <div class="panel panel-{{../panelStatus this}}">
+          <div class="panel panel-{{../panelStatus this}}" id="{{../panelAnchor this}}">
             <div class="panel-heading">
               <h3 class="panel-title">{{test_method}}</h3>
             </div>
