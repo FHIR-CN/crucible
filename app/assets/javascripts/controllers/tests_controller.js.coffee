@@ -17,6 +17,9 @@ Crucible.TestsController = Ember.ArrayController.extend
       @transitionToRoute(item.route).then($scrollTo)
     goToTest: (test) ->
       @send('goToLink','tests', "##{test.resource_class?.split('::')?[1]||''}-#{test.test_method}")
+    executeAll: ->
+      @forEach (test) ->
+        test.send('execute')
 
   hasResults: ( ->
     @filter((t) -> t.get('results')?.length)?.length > 0
@@ -25,21 +28,20 @@ Crucible.TestsController = Ember.ArrayController.extend
 Crucible.TestController = Ember.ObjectController.extend
   needs: ['tests']
   actions:
-    execute: (title, resourceClass) ->
+    execute: ->
       results = $.ajax(
-        url: "/tests/execute/#{title}"
+        url: "/tests/execute/#{@get('title')}"
         type: "GET"
         data:
           'url': $('input[name="test-url"]').val()
-          'resource_class': resourceClass
+          'resource_class': @get('resource_class')
       ).then( (response) =>
         console.log response
         tests = []
         for test in @get('tests')
-          # tests.push JSON.stringify(response.results[test])
           result = response.results[test]
           result['test_method'] = test
-          result['resource_class'] = resourceClass if resourceClass
+          result['resource_class'] = @get('resource_class') if @get('resource_class')
           tests.push result
         @set('results', tests)
       )

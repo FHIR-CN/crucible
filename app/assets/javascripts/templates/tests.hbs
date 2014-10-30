@@ -3,12 +3,13 @@
 <form class="form-horizontal" role="form">
   <div class="form-group">
     <label for="inputUrl" class="col-sm-2 control-label">Server URL</label>
-    <div class="col-sm-8">
+    <div class="col-sm-7">
       {{input name='test-url' class="form-control" value="http://fhir.healthintersections.com.au/open"}}
       <span class="help-block">http://fhir.healthintersections.com.au/open, http://fhirtest.uhn.ca/base, http://bonfire.mitre.org:8080/fhir</span>
     </div>
-    <div class="col-sm-2">
-      <button class="btn btn-info pull-right" {{action 'getConformance'}}>Conformance</button>
+    <div class="col-sm-3">
+      <button class="btn btn-info" {{action 'getConformance'}}>Conformance</button>
+      <button class="btn btn-danger" {{action 'executeAll'}}>Execute All Tests!</button>
     </div>
   </div>
 </form>
@@ -41,7 +42,7 @@
 <ul>
   {{#each}}
     <li>
-      <span><span class="label label-default">{{title}}{{#if resource_class}}: {{resource_class}}{{/if}}</span> <small>{{description}}</small> <button class="btn btn-sm btn-primary" {{action 'execute' title resource_class}}>Run test</button>
+      <span><span class="label label-default">{{title}}{{#if resource_class}}: {{resource_class}}{{/if}}</span> <small>{{description}}</small> <button class="btn btn-sm btn-primary" {{action 'execute'}}>Run test</button>
     </li>
       {{#each results}}
           <div class="panel panel-{{../panelStatus this}}" id="{{../panelAnchor this}}">
