@@ -1,6 +1,6 @@
 GIT
   remote: https://gitlab.mitre.org/tof/plan_executor.git
-  revision: dbfeab4f3586fdfad136843e406baeedd8e580b6
+  revision: 8abbacc33dcca218326768bcfd0080f7ab4d537c
   branch: master
   specs:
     plan_executor (1.0.0)

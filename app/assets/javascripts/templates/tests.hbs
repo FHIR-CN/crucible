@@ -27,17 +27,20 @@
 {{/if}}
 
 {{#if hasResults}}
-<ul>
-  {{#each controller}}
-    {{#if hasResult}}
-  <li>{{resultSummary.name}}:
-    {{#each resultSummary.results}}
-      <i class="fa {{../../iconStatus status}}" {{action 'goToTest' this}}></i>
+<table class="table table-striped table-bordered table-condensed">
+  <tbody>
+    {{#each controller}}
+      {{#if hasResult}}
+    <tr>
+      <td class="col-md-3">{{resultSummary.name}}</td>
+      {{#each resultSummary.results}}
+        <td class="{{../../panelStatus status}} summary-cell"><i class="fa {{../../iconStatus status}}" {{action 'goToTest' this}}></i></td>
+      {{/each}}
+    </tr>
+      {{/if}}
     {{/each}}
-  </li>
-    {{/if}}
-  {{/each}}
-</ul>
+  </tbody>
+</table>
 {{/if}}
 
 <ul>
