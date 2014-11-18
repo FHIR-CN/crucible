@@ -1,5 +1,5 @@
 class Server
   include Mongoid::Document
-  field :ip, type: String
+  field :url, type: String
   belongs_to :user
 end

@@ -11,5 +11,5 @@ Crucible.ApplicationAdapter = DS.ActiveModelAdapter.extend({
   namespace: "api"
 })
 
-Crucible.ApplicationSerializer = DS.ActiveModelSerializer.extend
-  primaryKey: "_id"
+# Crucible.ApplicationSerializer = DS.ActiveModelSerializer.extend
+#   primaryKey: "_id"

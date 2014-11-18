@@ -18,6 +18,11 @@ module Api
       end
     end
 
+    def show
+      server = Server.find(params[:id])
+      respond_with server
+    end
+
     def update
       server = Server.find(params[:id])
       server.update(server_params)
@@ -34,9 +39,10 @@ module Api
 
       respond_with server, location: api_servers_path
     end
+
   private
     def server_params
-      params.require(:server).permit(:ip)
+      params.require(:server).permit(:url)
     end
 
   end
