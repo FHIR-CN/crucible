@@ -67,6 +67,7 @@ GEM
       execjs
     coffee-script-source (1.8.0)
     connection_pool (2.0.0)
+    date_time_precision (0.8.0)
     devise (3.3.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -195,6 +196,7 @@ DEPENDENCIES
   autoprefixer-rails
   bootstrap-sass
   coffee-rails (~> 4.0.0)
+  date_time_precision
   devise
   ember-rails
   ember-source

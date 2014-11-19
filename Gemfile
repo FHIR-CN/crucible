@@ -50,6 +50,8 @@ gem 'plan_executor', :git => 'https://gitlab.mitre.org/tof/plan_executor.git', :
 gem 'nokogiri'
 gem 'fhir_model', path: '../tof/implementations/ruby/output/model/'
 gem 'fhir_client', path: '../tof/implementations/ruby/output/client/'
+# used by model for impercise datetimes
+gem 'date_time_precision'
 gem 'rest-client'
 gem 'mongoid-history'
 gem 'active_model_serializers'
