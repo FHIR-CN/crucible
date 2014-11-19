@@ -1,5 +1,9 @@
 <h1>Servers</h1>
 
+<ul>
 {{#each server in controller}}
-  {{server.url}}
+  <li>{{server.url}}</li>
+{{else}}
+  <li>You have no saved servers. Please run a test first!</li>
 {{/each}}
+</ul>
