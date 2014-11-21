@@ -1,19 +1,19 @@
 GIT
-  remote: https://gitlab.mitre.org/tof/plan_executor.git
-  revision: c5cb4c4126d8d90a7b461c56b0fbdad9778ee7e1
+  remote: https://gitlab.mitre.org/tof/fhir_client.git
+  revision: a254c39f59fa033570c89dbbf46bf65577536f7c
   branch: master
-  specs:
-    plan_executor (1.0.0)
-
-PATH
-  remote: ../tof/implementations/ruby/output/client/
   specs:
     fhir_client (1.0.0)
 
 PATH
-  remote: ../tof/implementations/ruby/output/model/
+  remote: ../fhir_dstu1/implementations/ruby/output/model/
   specs:
     fhir_model (1.0.0)
+
+PATH
+  remote: ../plan_executor/
+  specs:
+    plan_executor (1.0.0)
 
 GEM
   remote: https://rubygems.org/
@@ -58,6 +58,10 @@ GEM
       sass (~> 3.2)
     bson (2.3.0)
     builder (3.2.2)
+    byebug (3.5.1)
+      columnize (~> 0.8)
+      debugger-linecache (~> 1.2)
+      slop (~> 3.6)
     coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -66,8 +70,10 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.8.0)
+    columnize (0.8.9)
     connection_pool (2.0.0)
     date_time_precision (0.8.0)
+    debugger-linecache (1.2.0)
     devise (3.3.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -131,6 +137,9 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    pry-byebug (2.0.0)
+      byebug (~> 3.4)
+      pry (~> 0.10)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -210,6 +219,7 @@ DEPENDENCIES
   nokogiri
   plan_executor!
   pry
+  pry-byebug
   rails (= 4.1.6)
   rest-client
   sass-rails (~> 4.0.3)
