@@ -1,19 +1,21 @@
 GIT
   remote: https://gitlab.mitre.org/tof/fhir_client.git
-  revision: a254c39f59fa033570c89dbbf46bf65577536f7c
+  revision: 09891639964c9e276d5cf6867bfd0ec6396ec044
   branch: master
   specs:
     fhir_client (1.0.0)
+
+GIT
+  remote: https://gitlab.mitre.org/tof/plan_executor.git
+  revision: e21519ac178d39f620268a657b56bbe62c0696d3
+  branch: master
+  specs:
+    plan_executor (1.0.0)
 
 PATH
   remote: ../fhir_dstu1/implementations/ruby/output/model/
   specs:
     fhir_model (1.0.0)
-
-PATH
-  remote: ../plan_executor/
-  specs:
-    plan_executor (1.0.0)
 
 GEM
   remote: https://rubygems.org/

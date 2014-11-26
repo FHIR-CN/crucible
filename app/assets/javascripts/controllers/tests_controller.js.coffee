@@ -39,7 +39,9 @@ Crucible.TestController = Ember.ObjectController.extend
         console.log response
         tests = []
         for test in @get('tests')
-          result = response.results[test]
+          title = @get('title')
+          title += "_#{_this.get('resource_class').split('::')[1]}" if @get('resource_class')?
+          result = response.results[0][title].tests[test]
           result['test_method'] = test
           result['resource_class'] = @get('resource_class') if @get('resource_class')
           tests.push result
@@ -48,14 +50,14 @@ Crucible.TestController = Ember.ObjectController.extend
 
   panelStatus: ->
     switch @status
-      when 'passed' then 'success'
-      when 'failed' then 'danger'
+      when 'pass' then 'success'
+      when 'fail' then 'danger'
       else 'warning'
 
   iconStatus: ->
     switch @status
-      when 'passed' then 'fa-check-circle-o text-success'
-      when 'failed' then 'fa-times-circle-o text-danger'
+      when 'pass' then 'fa-check-circle-o text-success'
+      when 'fail' then 'fa-times-circle-o text-danger'
       else 'fa-circle-o text-warning'
 
   panelAnchor: -> "#{@resource_class?.split('::')?[1]||''}-#{@test_method}"
