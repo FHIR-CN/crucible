@@ -64,9 +64,18 @@ Crucible.TestController = Ember.ObjectController.extend
 
   panelAnchor: -> "#{@resource_class?.split('::')?[1]||''}-#{@test_method}"
 
+  summaryName: (title, resource_class) ->
+    tests =
+      ResourceTest: 'CRUD'
+      SearchTest: 'Search'
+    if resource_class
+      "#{tests[title]} - #{resource_class.split('::')[1]}"
+    else
+      title
+
   resultSummary: ( ->
     summary =
-      name: @get('resource_class') || @get('title')
+      name: @summaryName(@get('title'), @get('resource_class'))
       results: ( (_.filter(@get('results'), (r) => r.test_method == t))?[0] for t in @get('tests') )
   ).property('results')
 
