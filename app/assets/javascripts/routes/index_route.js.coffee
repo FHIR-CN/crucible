@@ -1,13 +1,4 @@
-Crucible.ServersRoute = Ember.Route.extend
-  model: ->
-    @store.findAll('server')
-
-
-Crucible.ServerRoute = Ember.Route.extend
-  model: (params) ->
-    @store.find('server', params.server_id)
-  
-Crucible.ServersNewRoute = Ember.Route.extend
+Crucible.IndexRoute = Em.Route.extend
   actions:
     submit: ->
       server = @get('currentModel')

@@ -2,6 +2,10 @@
 <html>
 <head>
   <title>Crucible</title>
+  <% if user_signed_in? %>
+    <meta name="current-user" content="<%= current_user.to_json(root: false)  %>"/>
+
+  <% end %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <!-- FIXME: Replace this with better mechanism for embedding Ember with authentication -->
   <% if user_signed_in? %>
@@ -10,14 +14,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-  <div class="container">
-    <% if user_signed_in? %>
-    <meta name="current-user" content="<%= current_user.to_json(root: false)  %>"/>
-      <%= render 'layouts/header' %>
-    <% end %>
-    <%= yield %>
-  </div>
-
+  <%= render 'layouts/header' %>
+  <%= yield %>
+  <%#= render 'layouts/footer' %>
 </body>
 </html>

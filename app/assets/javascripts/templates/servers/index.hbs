@@ -1,0 +1,16 @@
+<h1>Servers</h1>
+
+<table class="table">
+  <tbody>
+    {{#each server in controller}}
+      <tr>
+          <td>
+            {{server.url}}
+          </td>
+          <td>
+            {{#link-to "server" server}}<button class="btn btn-primary">Test</button>{{/link-to}}
+          </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
