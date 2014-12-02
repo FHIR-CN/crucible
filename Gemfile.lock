@@ -1,13 +1,13 @@
 GIT
   remote: https://gitlab.mitre.org/tof/fhir_client.git
-  revision: d3d42f67ea45c00d4de20fecccd414134b25bd50
+  revision: 196381a3d3237ffdaaeba08ae3a881d697859401
   branch: master
   specs:
     fhir_client (1.0.0)
 
 GIT
   remote: https://gitlab.mitre.org/tof/plan_executor.git
-  revision: 7c7b8e04c3f278deac0a341469609f9a942d013a
+  revision: 63b103c42a1499cb32419accc0766c8d97fbfee0
   branch: master
   specs:
     plan_executor (1.0.0)

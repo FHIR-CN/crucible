@@ -52,12 +52,14 @@ Crucible.TestController = Ember.ObjectController.extend
     switch @status
       when 'pass' then 'success'
       when 'fail' then 'danger'
+      when 'skip' then 'info'
       else 'warning'
 
   iconStatus: ->
     switch @status
       when 'pass' then 'fa-check-circle-o text-success'
       when 'fail' then 'fa-times-circle-o text-danger'
+      when 'skip' then 'fa-arrow-circle-o-right text-info'
       else 'fa-circle-o text-warning'
 
   panelAnchor: -> "#{@resource_class?.split('::')?[1]||''}-#{@test_method}"
