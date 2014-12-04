@@ -41,8 +41,8 @@ Crucible.TestController = Ember.ObjectController.extend
         for test in @get('tests')
           title = @get('title')
           title += "_#{_this.get('resource_class').split('::')[1]}" if @get('resource_class')?
-          result = response.results[0][title].tests[test]
-          result['test_method'] = test
+          result = _(response.results[0][title].tests).findWhere({test_method: test})
+          result['test_method'] ?= test
           result['resource_class'] = @get('resource_class') if @get('resource_class')
           tests.push result
         @set('results', tests)
