@@ -5,3 +5,6 @@ Crucible.Test = DS.Model.extend
   resource_class: DS.attr('string')
   tests: DS.attr()
   results: DS.attr()
+  running: DS.attr("boolean", defaultValue: false)
+  active:  DS.attr("boolean", defaultValue: false)
+  reference: (-> @get('id').replace("::", "_")).property("id")

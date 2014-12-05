@@ -1,0 +1,339 @@
+
+
+
+{{log model}}
+  <div class="col-md-12 tab-content-holder">
+    <div class="metadata-expand-container">
+      <div role="tab" id="metadata-heading">
+          <h4 class="panel-title">
+            <a class="collapsed" data-toggle="collapse" href="#metadata" aria-expanded="false" aria-controls="metadata">
+              <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+              View Conformance Meta-data
+            </a>
+          </h4>
+      </div>
+      <div id="metadata" class="panel-collapse collapse" role="tabpanel" aria-labelledby="metadata-heading">
+        <!-- METADATA  -->
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-3">
+              <div><label>NAME:</label></div>
+            </div>
+            <div class="col-md-9">
+              <div>{{name}}</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <div><label>IDENTIFIER:</label></div>
+            </div>
+            <div class="col-md-9">
+              <div>{{identifier}}</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <div><label>VERSION:</label></div>
+            </div>
+            <div class="col-md-9">
+              <div>{{versionNum}}</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <div><label>PUBLISHER INFORMATION:</label></div>
+            </div>
+            <div class="col-md-9">
+              <div>{{publisher}}</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <div><label>DESCRIPTION:</label></div>
+            </div>
+            <div class="col-md-9">
+              <div>{{description}}</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <div><label>STATUS:</label></div>
+            </div>
+            <div class="col-md-9">
+              <div>{{status}}</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <div><label>EXPERIMENTAL:</label></div>
+            </div>
+            <div class="col-md-9">
+              <div>{{#if experimental}}Yes{{else}}No{{/if}}</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <div><label>DATE:</label></div>
+            </div>
+            <div class="col-md-9">
+              <div>{{date}}</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <div><label>SOFTWARE:</label></div>
+            </div>
+            <div class="col-md-9">
+              <div>What field do I pull from?</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <div><label>IMPLEMENTATION:</label></div>
+            </div>
+            <div class="col-md-9">
+              <div>Um</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <div><label>FHIR VERSION:</label></div>
+            </div>
+            <div class="col-md-9">
+              <div>FHIR {{fhirVersion}}</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <div><label>ACCEPT UNKNOWN:</label></div>
+            </div>
+            <div class="col-md-9">
+              <div>{{#if acceptUnknown}}Yes{{else}}No{{/if}}</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <div><label>FORMATS SUPPORTED:</label></div>
+            </div>
+            <div class="col-md-9">
+              <div>{{#each f in format}}{{f}} {{/each}}</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <div><label># OF PROFILES SUPPORTED:</label></div>
+            </div>
+            <div class="col-md-9">
+              <div>Placeholder</div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+    <!-- REST Meta Data -->
+
+
+
+
+
+
+
+      </div>
+    </div>
+
+
+        <div class="sub-metadata">
+
+
+          <!-- REST STUFF -->
+          <div id="rest-container">
+            <div role="tab" id="metadata-heading-rest">
+              <h4 class="metadata-title">REST</h4>
+              <h4 class="panel-title">
+                <a class="collapsed" data-toggle="collapse" href="#metadata-rest" aria-expanded="false" aria-controls="metadata">
+                  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                  View REST Meta-data
+                </a>
+              </h4>
+            </div>
+            <div id="metadata-rest" class="panel-collapse collapse" role="tabpanel" aria-labelledby="metadata-heading-rest">
+              <!-- METADATA  -->
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-3">
+                    <div><label>PUBLISHER INFORMATION:</label></div>
+                  </div>
+                  <div class="col-md-9">
+                    <div>publisher</div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-3">
+                    <div><label>EXPERIMENTAL:</label></div>
+                  </div>
+                  <div class="col-md-9">
+                    <div>{{#if experimental}}Yes{{else}}No{{/if}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="resource-chart">
+              <div class="col-md-12 tab-content-holder">
+                {{#each r in rest}}
+                  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel-heading">
+                      <h4 class="panel-title test-panel-heading">
+                        Resource
+                        <span class="test-circle-holder">
+                          <span class="">read</span> &nbsp
+                          <span class="">vread</span> &nbsp
+                          <span class="">update</span> &nbsp
+                          <span class="">delete</span> &nbsp
+                          <span class="">history-instance</span> &nbsp
+                          <span class="">validate</span> &nbsp
+                          <span class="">history-type</span> &nbsp
+                          <span class="">create</span> &nbsp
+                          <span class="">search-type</span> &nbsp
+
+                        </span>
+                      </h4>
+                    </div>
+                    {{#each res in r.resource}}
+                      <div class="panel">
+                        <div class="panel-heading" role="tab">
+                            <h4 class="panel-title">
+                              <a class="collapsed" data-toggle="collapse" data-parent="#accordion" aria-expanded="false" data-target="#resource{{unbound res.fhirType}}">{{res.fhirType}}</a>
+                              <span class="test-circle-holder">
+                                <span class="circle-empty test-circle-empty"></span> &nbsp
+                                <span class="circle-filled test-circle-filled"></span> &nbsp
+                                <span class="circle-empty test-circle-empty"></span> &nbsp
+                                <span class="circle-filled test-circle-filled"></span> &nbsp
+                                <span class="circle-empty test-circle-empty"></span> &nbsp
+                                <span class="circle-filled test-circle-filled"></span> &nbsp
+                                <span class="circle-empty test-circle-empty"></span> &nbsp
+                                <span class="circle-filled test-circle-filled"></span> &nbsp
+                                <span class="circle-filled test-circle-filled"></span> &nbsp
+                              </span>
+                            </h4>
+                        </div>
+                        <div id="resource{{unbound res.fhirType}}" class="panel-collapse collapse">
+                          <div class="panel-body">
+                            Conforms to <a {{bind-attr href="{{res.profile.reference}}"}}>{{res.profile.reference}}</a>
+
+                            <table class="table">
+                              <thead>
+                                <th>
+                                  Search Param
+                                </th>
+                                <th>
+                                  Type
+                                </th>
+                                <th>
+                                  Description
+                                </th>
+                              </thead>
+                              <tbody>
+                                {{#each param in res.searchParam}}
+                                <tr>
+                                  <td>
+                                    {{param.name}}
+                                  </td>
+                                  <td>
+                                    {{param.fhirType}}
+                                  </td>
+                                  <td>
+                                    {{param.documentation}}
+                                  </td>
+                                </tr>
+                                {{/each}}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    {{/each}}
+                  </div>
+                {{/each}}
+              </div>
+          </div>
+
+
+          <!-- DOCUMENT STUFF -->
+          <div id="document-container">
+            <div role="tab" id="metadata-heading-document">
+              <h4 class="metadata-title">DOCUMENT</h4>
+              <h4 class="panel-title">
+                <a class="collapsed" data-toggle="collapse" href="#metadata-document" aria-expanded="false" aria-controls="metadata">
+                  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                  View DOCUMENT Meta-data
+                </a>
+              </h4>
+            </div>
+            <div id="metadata-document" class="panel-collapse collapse" role="tabpanel" aria-labelledby="metadata-heading-document">
+              <!-- METADATA  -->
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-3">
+                    <div><label>DOC INFO:</label></div>
+                  </div>
+                  <div class="col-md-9">
+                    <div>Whats up doc</div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-3">
+                    <div><label>EXPERIMENTAL:</label></div>
+                  </div>
+                  <div class="col-md-9">
+                    <div>No</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- MESSAGING STUFF -->
+          <div id="messaging-container">
+            <div role="tab" id="metadata-heading-messaging">
+              <h4 class="metadata-title">MESSAGING</h4>
+              <h4 class="panel-title">
+                <a class="collapsed" data-toggle="collapse" href="#metadata-messaging" aria-expanded="false" aria-controls="metadata">
+                  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                  View MESSAGING Meta-data
+                </a>
+              </h4>
+            </div>
+            <div id="metadata-messaging" class="panel-collapse collapse" role="tabpanel" aria-labelledby="metadata-heading-messaging">
+              <!-- METADATA  -->
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-3">
+                    <div><label>MSG INFO:</label></div>
+                  </div>
+                  <div class="col-md-9">
+                    <div>Call me</div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-3">
+                    <div><label>EXPERIMENTAL:</label></div>
+                  </div>
+                  <div class="col-md-9">
+                    <div>No</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+      </div>
+
+  </div>
+</div>
