@@ -25,10 +25,38 @@ Crucible.TestsController = Ember.ArrayController.extend
     @filter((t) -> t.get('results')?.length)?.length > 0
   ).property('@each.results')
 
+  total: ( ->
+    # @get('model').get('length')
+    # Toggle above for Test Suite totals, below for test methods total
+    @get('model').reduce(((s,m) -> s + m.get('tests').length), 0)
+  ).property('@each')
+
+  totalResults: ( ->
+    # @filter((t) -> t.get('results')?.length)?.length
+    # Toggle above for Test Suite totals, below for test methods total
+    @filter((t) -> t.get('results')?.length).reduce(((s,t) -> s + t.get('results').length), 0)
+  ).property('@each.results')
+
+  executionProgress: ( ->
+    parseInt( @get('totalResults') / @get('total') * 100 )
+  ).property('@each.results')
+
+  progressStyle: ( ->
+    if @get('executionProgress') < 2
+      "width: 2%;"
+    else
+      "width: #{@get('executionProgress')}%;"
+  ).property('@each.results')
+
+  isComplete: ( ->
+    @get('executionProgress') != 100
+  ).property('@each.results')
+
 Crucible.TestController = Ember.ObjectController.extend
   needs: ['tests']
   actions:
     execute: ->
+      @set('results', null)
       results = $.ajax(
         url: "/tests/execute/#{@get('title')}"
         type: "GET"

@@ -27,6 +27,12 @@
 {{/if}}
 
 {{#if hasResults}}
+<div class="progress">
+  <div {{bind-attr class=":progress-bar :progress-bar-danger isComplete:progress-bar-striped isComplete:active"}} role="progressbar" {{bind-attr aria-valuenow=executionProgress}} aria-valuemin="0" aria-valuemax="100" {{bind-attr style=progressStyle}}>
+    <span class="sr-only">{{executionProgress}}% Complete</span>
+    {{executionProgress}}%
+  </div>
+</div>
 <table class="table table-striped table-bordered table-condensed">
   <tbody>
     {{#each controller}}
