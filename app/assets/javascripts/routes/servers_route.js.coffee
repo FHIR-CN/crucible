@@ -21,7 +21,7 @@ Crucible.ServerRoute = Ember.Route.extend
       test.set("results", results.content.results)
       )
   actions:
-    executeAll:->
+    executeTests:->
       tests = @currentModel.get("tests.content.content")
       for test in tests
         if test.get("active") and not test.get("results")

@@ -8,3 +8,4 @@ Crucible.Test = DS.Model.extend
   running: DS.attr("boolean", defaultValue: false)
   active:  DS.attr("boolean", defaultValue: false)
   reference: (-> @get('id').replace("::", "_")).property("id")
+  completed: (-> @get('results')?).property("results")
