@@ -6,6 +6,16 @@ Crucible.Test = DS.Model.extend
   tests: DS.attr()
   results: DS.attr()
   running: DS.attr("boolean", defaultValue: false)
-  active:  DS.attr("boolean", defaultValue: false)
+  active:  DS.attr("boolean", defaultValue: false) # Change me to True to default to run all tests
   reference: (-> @get('id').replace("::", "_")).property("id")
   completed: (-> @get('results')?).property("results")
+  passed: ( ->
+    if @get('completed')
+      !@get('results').any((test) ->
+        test.tests.any((result) ->
+          result.status == "fail"
+        )
+      )
+    else
+      false
+  ).property('results')

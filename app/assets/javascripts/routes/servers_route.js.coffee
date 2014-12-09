@@ -15,10 +15,18 @@ Crucible.ServerRoute = Ember.Route.extend
     # tests.then(() -> server.set("tests", tests.content))
   execute: (test) ->
     test.set("running", true)
-    results = DS.PromiseObject.create({promise: $.get("/tests/execute/#{test.get("title")}?url=#{@currentModel.get("url")}")})
+    params = {}
+    params.url = @currentModel.get("url")
+    if @currentModel.get('resource_class')
+      params.resource_class = @currentModel.get('resource_class')
+    paramsString = Object.keys(params).map((k) -> (k+"="+params[k])).join("&")
+    results = DS.PromiseObject.create({promise: $.get("/tests/execute/#{test.get("title")}?#{paramsString}")})
     results.then(() ->
       test.set("running", false)
-      test.set("results", results.content.results)
+      res= []
+      for result in results.content.results
+        res.push(result[test.get('title')])
+      test.set("results", res)
       )
   actions:
     executeTests:->

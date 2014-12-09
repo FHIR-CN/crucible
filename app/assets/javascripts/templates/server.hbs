@@ -47,16 +47,51 @@ Server
                   {{#each test in tests}}
                     <div class="toggleable panel-heading">
                       <h4 class="panel-title">
-                        {{input type="checkbox" name=test.id checked=test.active}}
-                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#test{{unbound test.reference}}" aria-expanded="false" >
+                        <label >
+                          {{input type="checkbox" name=test.id checked=test.active}}
                           {{test.id}}
-                        </a>
-
+                        </label>
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#test{{unbound test.reference}}" aria-expanded="false" >
+                        <small>(more)</small></a>
+                        <small>{{#if test.running}}<span class="pull-right">running...</span>{{/if}}</small>
+                        {{#if test.completed}}
+                          <i {{bind-attr class=":fa test.passed:fa-check:fa-close"}}></i>
+                          <!-- <small>{{#if test.passed}} passed...{{/if}}</small> -->
+                        {{/if}}
                       </h4>
                     </div>
                     <div id="test{{unbound test.reference}}" class="panel-collapse collapse">
                       <div class="panel-body">
                         {{test.description}}
+
+                          {{#each result in test.results}}
+                            <table class="table table-condensed">
+                              <thead>
+                                <th colspan=3>
+                                  {{result.test_file}}
+                                </th>
+                              </thead>
+                              <tbody>
+                              {{#each test in result.tests}}
+                                <tr>
+                                  <td>
+                                    {{test.id}}
+                                  </td>
+                                  <td>
+                                    {{test.description}}
+                                  </td>
+                                  <td>
+                                    {{test.status}}
+                                  </td>
+                                </tr>
+                              {{/each}}
+                              </tbody>
+                            </table>
+
+
+
+                          {{/each}}
+
                       </div>
                     </div>
 
@@ -81,8 +116,3 @@ Server
     </div>
   </div>
 </div>
-
-
-{{url}}
-
-<button {{action "executeAll"}}>Execute!</button>
