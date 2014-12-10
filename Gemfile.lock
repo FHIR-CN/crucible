@@ -1,13 +1,13 @@
 GIT
-  remote: https://gitlab.mitre.org/tof/fhir_client.git
-  revision: ad6cdca965fcfdaf1c1f39a9de697b82716045de
+  remote: https://github.com/fhir-crucible/fhir_client.git
+  revision: 7a154119cd183beb0be73282398faf2919cabbf7
   branch: master
   specs:
     fhir_client (1.0.0)
 
 GIT
-  remote: https://gitlab.mitre.org/tof/plan_executor.git
-  revision: 5ab0a7d0dedf889f9f0d060428daf049d64eca8c
+  remote: https://github.com/fhir-crucible/plan_executor.git
+  revision: f3b020e68fd33d976a5c651f26043f61ae2a20b9
   branch: master
   specs:
     plan_executor (1.0.0)

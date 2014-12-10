@@ -53,9 +53,11 @@ Server
                         </label>
                         <a class="collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#test{{unbound test.reference}}" aria-expanded="false" >
                         <small>(more)</small></a>
-                        <small>{{#if test.running}}<span class="pull-right">running...</span>{{/if}}</small>
+                        {{#if test.running}}
+                          <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
+                        {{/if}}
                         {{#if test.completed}}
-                          <i {{bind-attr class=":fa test.passed:fa-check:fa-close"}}></i>
+                          <i {{bind-attr class=":glyphicon  test.passed:glyphicon-ok-circle:glyphicon-remove-circle test.passed:passed:failed"}}></i>
                           <!-- <small>{{#if test.passed}} passed...{{/if}}</small> -->
                         {{/if}}
                       </h4>
@@ -64,33 +66,47 @@ Server
                       <div class="panel-body">
                         {{test.description}}
 
-                          {{#each result in test.results}}
-                            <table class="table table-condensed">
-                              <thead>
-                                <th colspan=3>
-                                  {{result.test_file}}
-                                </th>
-                              </thead>
-                              <tbody>
-                              {{#each test in result.tests}}
-                                <tr>
-                                  <td>
-                                    {{test.id}}
-                                  </td>
-                                  <td>
-                                    {{test.description}}
-                                  </td>
-                                  <td>
-                                    {{test.status}}
-                                  </td>
-                                </tr>
-                              {{/each}}
-                              </tbody>
-                            </table>
+                          <div class="row">
+                               <div class="col-md-7">
+                                {{#each result in test.results}}
+                                  <table class="table table-hover report-table nav nav-stacked">
+                                    <thead>
+                                      <th colspan=3>
+                                        {{result.test_file}}
+                                      </th>
+                                    </thead>
+                                    <tbody>
+                                    {{#each test in result.tests}}
+                                       <tr href="#test_result{{unbound test.id}}" data-toggle="pill">
+                                        <td>
+                                          {{test.id}}
+                                        </td>
+                                        <td>
+                                          {{test.description}}
+                                        </td>
+                                        <td>
+                                          {{test.status}}
+                                        </td>
+                                      </tr>
+                                    {{/each}}
+                                    </tbody>
+                                  </table>
+                                {{/each}}
+                              </div>
+                              <div class="col-md-5 tab-content" style="border: 1px solid #F5F5F5; min-height: 247px; margin-top: 50px;">
+                                  {{#each result in test.results}}
+                                    {{#each test in result.tests}}
+                                      <div class="tab-pane" id="test_result{{unbound test.id}}">
+                                        Test Message: {{test.message}}
+                                        Test Data: {{test.data}}
+                                      </div>
+                                    {{/each}}
+                                  {{/each}}
+
+                              </div>
+                            </div>
 
 
-
-                          {{/each}}
 
                       </div>
                     </div>

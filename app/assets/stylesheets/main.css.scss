@@ -1,4 +1,4 @@
-// $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
 // bower:scss
 // @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
@@ -131,7 +131,7 @@ footer .nav > li > a:hover, header .nav > li > a:hover {
   margin-bottom: 10px;
 }
 
-.orange_btn {
+.btn {
   height: 34px;
   width: 100%;
   background-color: #D85D20;
@@ -139,7 +139,7 @@ footer .nav > li > a:hover, header .nav > li > a:hover {
   color: #FFFFFF;
 }
 
-.orange_btn:focus {
+.btn:focus {
   height: 34px;
   width: 100%;
   background-color: #D85D20;
@@ -237,6 +237,7 @@ h2{
 
 .panel-heading{
   text-align: left;
+  padding: 0px 0px;
 }
 
 .panel-group .panel{
@@ -258,6 +259,7 @@ input[type="checkbox"]{
 }
 
 .panel-body{
+  text-align: left;
   label{
     color: #7F9FC5;
   }
@@ -269,10 +271,8 @@ input[type="checkbox"]{
 
 .panel-title{
   text-align: left;
-}
-
-.sub-metadata{
-  text-align: left;
+  font-size: 14px;
+  margin-bottom: 15px;
 }
 
 .table {
@@ -285,7 +285,15 @@ input[type="checkbox"]{
   thead{
     border-bottom: 1px solid #555555;
   }
+}
 
+.table-header{
+  font-size: 14px;
+}
+
+.table-label-holder{
+  float: right;
+  padding-right: 40px
 }
 
 .circle-filled{
@@ -310,16 +318,63 @@ input[type="checkbox"]{
 }
 
 .test-circle-empty{
-  width: 13px;
-  height: 13px;
+  width: 15px;
+  height: 15px;
+  margin-left: 27px;
+  margin-right: 27px;
   border: 1px solid #7F9FC5;
 }
 
 .test-circle-filled{
-  width: 13px;
-  height: 13px;
+  width: 15px;
+  height: 15px;
+  margin-left: 27px;
+  margin-right: 27px;
   border: 1px solid #7F9FC5;
   background: #7F9FC5;
+}
+
+.passed{
+  color: #28BA0F;
+  float: right;
+  margin-right: 17px;
+}
+
+.failed{
+  color: #B71817;
+  float: right;
+  margin-right: 17px;
+}
+
+table > tbody > tr > td{
+  .passed{
+    float: none;
+    margin-right: 0px;
+  }
+
+  .failed{
+    float: none;
+    margin-right: 0px;
+  }
+}
+
+table > tbody > tr > td{
+  text-align: left;
+}
+
+table > thead > tr > th{
+  text-align: left;
+}
+
+.table-container{
+  height: 300px;
+  overflow: auto;
+}
+
+
+.conformance-test-badge{
+  margin-left: 29px;
+  margin-right: 29px;
 }
 
 .test-circle-holder{
@@ -327,11 +382,122 @@ input[type="checkbox"]{
   padding-right: 30px;
 }
 
-.rotate{
-  display:block;
+.tate{
+  -ms-transform: rotate(-80deg);
   -webkit-transform: rotate(-80deg);
-  -moz-transform: rotate(-80deg);
-  
+  transform: rotate(-80deg);
+}
+
+span .table-cell{
+  display: inline-block;
+  width: 70px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.login{
+  text-align: center;
+  font-size: 60px;
+  font-weight: bold;
+  color: #505152;
+}
+
+.login-footer{
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 50px;
+
+  login-btn{
+    text-align: right;
+    button{
+      height: 100px;
+    }
+  }
+  login-options{
+    vertical-align: center;
+    position: absolute;
+  }
+}
+
+.modal-content{
+  background-color: #F5F5F5;
+}
+
+.modal-body{
+  padding: 40px;
+}
+
+.login-inputs{
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 26px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.login-input{
+  margin-bottom: 10px;
+}
+
+.dropdown-toggle{
+  background-color: #fff;
+  color: #505152;
+  border-color: #505152;
+}
+
+.dropdown-toggle:hover{
+  background-color: #eeeeee;
+  color: #505152;
+  border-color: #505152;
+}
+
+.dropdown-toggle:focus{
+  background-color: #eeeeee;
+  color: #505152;
+  border-color: #505152;
+}
+
+.meta-container{
+  background-color: #FFFFFF;
+}
+
+#resource-chart{
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+.progress{
+  margin-top: 35px;
+  height: 30px;
+  background-color: #FFFFFF;
+  border: 1px solid #D85D20;
+}
+
+.progress-bar{
+  background-color: #D85D20;
+}
+
+.glyphicon-refresh-animate {
+    float: right;
+    margin-right: 17px;
+    -animation: spin .7s infinite linear;
+    -webkit-animation: spin2 .7s infinite linear;
+}
+
+.next-steps-container{
+  button{
+    margin-bottom: 10px;
+  }
+}
+
+@-webkit-keyframes spin2 {
+    from { -webkit-transform: rotate(0deg);}
+    to { -webkit-transform: rotate(360deg);}
+}
+
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg);}
+    to { transform: scale(1) rotate(360deg);}
 }
 
 /* Responsive: Portrait tablets and up */

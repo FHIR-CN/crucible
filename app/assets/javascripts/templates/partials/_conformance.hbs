@@ -188,38 +188,40 @@
               <div class="col-md-12 tab-content-holder">
                 {{#each r in rest}}
                   <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                    <div class="panel-heading">
-                      <h4 class="panel-title test-panel-heading">
-                        Resource
-                        <span class="test-circle-holder">
-                          <span class="">read</span> &nbsp
-                          <span class="">vread</span> &nbsp
-                          <span class="">update</span> &nbsp
-                          <span class="">delete</span> &nbsp
-                          <span class="">history-instance</span> &nbsp
-                          <span class="">validate</span> &nbsp
-                          <span class="">history-type</span> &nbsp
-                          <span class="">create</span> &nbsp
-                          <span class="">search-type</span> &nbsp
-
-                        </span>
-                      </h4>
-                    </div>
+                    <div class="panel-title table-header row">
+                            <div class="table-cell col-md-3"><br>
+                              <span class="table-cell">Resource Type</span>
+                            </div>
+                            <div class="table-cell col-md-9">
+                              <span class="table-label-holder">
+                                <span class="table-cell">Read</span>
+                                  <span class="table-cell">VRead</span>
+                                  <span class="table-cell">Update</span>
+                                  <span class="table-cell">Delete</span>
+                                  <span class="table-cell">History-Instance</span>
+                                  <span class="table-cell">Validate</span>
+                                  <span class="table-cell">History-Type</span>
+                                  <span class="table-cell">Create</span>
+                                  <span class="table-cell">Search-Type</span>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
                     {{#each res in r.resource}}
                       <div class="panel">
-                        <div class="panel-heading" role="tab">
+                        <div class="panel-heading" role="tab" id="headingTest1">
                             <h4 class="panel-title">
                               <a class="collapsed" data-toggle="collapse" data-parent="#accordion" aria-expanded="false" data-target="#resource{{unbound res.fhirType}}">{{res.fhirType}}</a>
                               <span class="test-circle-holder">
-                                <span class="circle-empty test-circle-empty"></span> &nbsp
-                                <span class="circle-filled test-circle-filled"></span> &nbsp
-                                <span class="circle-empty test-circle-empty"></span> &nbsp
-                                <span class="circle-filled test-circle-filled"></span> &nbsp
-                                <span class="circle-empty test-circle-empty"></span> &nbsp
-                                <span class="circle-filled test-circle-filled"></span> &nbsp
-                                <span class="circle-empty test-circle-empty"></span> &nbsp
-                                <span class="circle-filled test-circle-filled"></span> &nbsp
-                                <span class="circle-filled test-circle-filled"></span> &nbsp
+                                <span class="glyphicon glyphicon-ok-circle passed conformance-test-badge" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-remove-circle failed conformance-test-badge" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-ok-circle passed conformance-test-badge" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-ok-circle passed conformance-test-badge" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-remove-circle failed conformance-test-badge" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-remove-circle failed conformance-test-badge" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-ok-circle passed conformance-test-badge" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-remove-circle failed conformance-test-badge" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-ok-circle passed conformance-test-badge" aria-hidden="true"></span>
                               </span>
                             </h4>
                         </div>
