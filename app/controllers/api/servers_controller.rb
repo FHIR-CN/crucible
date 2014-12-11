@@ -40,6 +40,17 @@ module Api
       respond_with server, location: api_servers_path
     end
 
+    def conformance
+      conformance = JSON.parse(FHIR::Client.new(params[:url]).conformanceStatement.to_json)
+      conformance['rest'].each do |rest|
+        rest['operation'] = rest['operation'].reduce({}) {|memo,operation| memo[operation['code']]=true; memo}
+        rest['resource'].each do |resource| 
+          resource['operation'] = resource['operation'].reduce({}) {|memo,operation| memo[operation['code']]=true; memo}
+        end
+      end
+      render json: conformance
+    end
+
   private
     def server_params
       params.require(:server).permit(:url)

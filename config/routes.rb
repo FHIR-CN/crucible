@@ -65,7 +65,10 @@ Rails.application.routes.draw do
   #   end
 
   namespace :api do
+    get 'servers/conformance', to: 'servers#conformance'
+    
     resources :servers
     resources :tests
   end
+
 end
