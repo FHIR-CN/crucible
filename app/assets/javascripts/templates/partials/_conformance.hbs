@@ -1,3 +1,4 @@
+{{debugge}}
   <div class="col-md-12 tab-content-holder">
     <div class="metadata-expand-container">
       <div role="tab" id="metadata-heading">
@@ -183,7 +184,6 @@
             <div id="resource-chart">
               <div class="col-md-12 tab-content-holder">
                 {{#each r in rest}}
-                  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                     <div class="panel-title table-header row">
                       <div class="table-cell col-md-3"><br>
                         <span class="table-cell">Resource Type</span>
@@ -209,15 +209,15 @@
                             <h4 class="panel-title">
                               <a class="collapsed" data-toggle="collapse" data-parent="#accordion" aria-expanded="false" data-target="#resource{{unbound res.fhirType}}">{{res.fhirType}}</a>
                               <span class="test-circle-holder">
-                                <span {{bind-attr class=":glyphicon res.operation.read:glyphicon-ok-circle:glyphicon-remove-circle res.operation.read:passed:failed :conformance-test-badge"}} aria-hidden="true"></span>
-                                <span {{bind-attr class=":glyphicon res.operation.vread:glyphicon-ok-circle:glyphicon-remove-circle res.operation.vread:passed:failed :conformance-test-badge"}} aria-hidden="true"></span>
-                                <span {{bind-attr class=":glyphicon res.operation.update:glyphicon-ok-circle:glyphicon-remove-circle res.operation.update:passed:failed :conformance-test-badge"}} aria-hidden="true"></span>
-                                <span {{bind-attr class=":glyphicon res.operation.delete:glyphicon-ok-circle:glyphicon-remove-circle res.operation.delete:passed:failed :conformance-test-badge"}} aria-hidden="true"></span>
-                                <span {{bind-attr class=":glyphicon res.operation.history-instance:glyphicon-ok-circle:glyphicon-remove-circle res.operation.history-instance:passed:failed :conformance-test-badge"}} aria-hidden="true"></span>
-                                <span {{bind-attr class=":glyphicon res.operation.validate:glyphicon-ok-circle:glyphicon-remove-circle res.operation.validate:passed:failed :conformance-test-badge"}} aria-hidden="true"></span>
-                                <span {{bind-attr class=":glyphicon res.operation.history-type:glyphicon-ok-circle:glyphicon-remove-circle res.operation.history-type:passed:failed :conformance-test-badge"}} aria-hidden="true"></span>
-                                <span {{bind-attr class=":glyphicon res.operation.create:glyphicon-ok-circle:glyphicon-remove-circle res.operation.create:passed:failed :conformance-test-badge"}} aria-hidden="true"></span>
-                                <span {{bind-attr class=":glyphicon res.operation.search-type:glyphicon-ok-circle:glyphicon-remove-circle res.operation.search-type:passed:failed :conformance-test-badge"}} aria-hidden="true"></span>
+                                <span {{bind-attr class=":glyphicon res.operation.read:test-circle-filled:test-circle-empty res.operation.read:circle-filled:circle-empty :conformance-test-badge"}} aria-hidden="true"></span>
+                                <span {{bind-attr class=":glyphicon res.operation.vread:test-circle-filled:test-circle-empty res.operation.vread:circle-filled:circle-empty :conformance-test-badge"}} aria-hidden="true"></span>
+                                <span {{bind-attr class=":glyphicon res.operation.update:test-circle-filled:test-circle-empty res.operation.update:circle-filled:circle-empty :conformance-test-badge"}} aria-hidden="true"></span>
+                                <span {{bind-attr class=":glyphicon res.operation.delete:test-circle-filled:test-circle-empty res.operation.delete:circle-filled:circle-empty :conformance-test-badge"}} aria-hidden="true"></span>
+                                <span {{bind-attr class=":glyphicon res.operation.history-instance:test-circle-filled:test-circle-empty res.operation.history-instance:circle-filled:circle-empty :conformance-test-badge"}} aria-hidden="true"></span>
+                                <span {{bind-attr class=":glyphicon res.operation.validate:test-circle-filled:test-circle-empty res.operation.validate:circle-filled:circle-empty :conformance-test-badge"}} aria-hidden="true"></span>
+                                <span {{bind-attr class=":glyphicon res.operation.history-type:test-circle-filled:test-circle-empty res.operation.history-type:circle-filled:circle-empty :conformance-test-badge"}} aria-hidden="true"></span>
+                                <span {{bind-attr class=":glyphicon res.operation.create:test-circle-filled:test-circle-empty res.operation.create:circle-filled:circle-empty :conformance-test-badge"}} aria-hidden="true"></span>
+                                <span {{bind-attr class=":glyphicon res.operation.search-type:test-circle-filled:test-circle-empty res.operation.search-type:circle-filled:circle-empty :conformance-test-badge"}} aria-hidden="true"></span>
                               </span>
                             </h4>
                         </div>
@@ -257,7 +257,22 @@
                         </div>
                       </div>
                     {{/each}}
+                  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel-title table-header row">
+                      <div class="table-cell col-md-3">
+                        <span class="table-cell">{{r.mode}}</span>
+                      </div>
+                      <div class="table-cell col-md-9">
+                        <span class="table-label-holder">
+                          <span class="table-cell">Transaction</span><span {{bind-attr class=":glyphicon r.operation.transaction:test-circle-filled:test-circle-empty r.operation.transaction:circle-filled:circle-empty :conformance-test-badge"}} aria-hidden="true"></span><span class="table-cell"></span>
+                          <span class="table-cell">History-System</span><span {{bind-attr class=":glyphicon r.operation.history-system:test-circle-filled:test-circle-empty r.operation.history-system:circle-filled:circle-empty :conformance-test-badge"}} aria-hidden="true"></span><span class="table-cell"></span>
+                          <span class="table-cell">Search-System</span><span {{bind-attr class=":glyphicon r.operation.search-system:test-circle-filled:test-circle-empty r.operation.search-system:circle-filled:circle-empty :conformance-test-badge"}} aria-hidden="true"></span><span class="table-cell"></span>
+                          </span>
+                        </span>
+                      </div>
+                    </div>
                   </div>
+
                 {{/each}}
               </div>
           </div>
