@@ -1,4 +1,3 @@
-{{log model}}
   <div class="col-md-12 tab-content-holder">
     <div class="metadata-expand-container">
       <div role="tab" id="metadata-heading">
@@ -210,15 +209,15 @@
                             <h4 class="panel-title">
                               <a class="collapsed" data-toggle="collapse" data-parent="#accordion" aria-expanded="false" data-target="#resource{{unbound res.fhirType}}">{{res.fhirType}}</a>
                               <span class="test-circle-holder">
-                                <span class="glyphicon glyphicon-ok-circle passed conformance-test-badge" aria-hidden="true"></span>
-                                <span class="glyphicon glyphicon-remove-circle failed conformance-test-badge" aria-hidden="true"></span>
-                                <span class="glyphicon glyphicon-ok-circle passed conformance-test-badge" aria-hidden="true"></span>
-                                <span class="glyphicon glyphicon-ok-circle passed conformance-test-badge" aria-hidden="true"></span>
-                                <span class="glyphicon glyphicon-remove-circle failed conformance-test-badge" aria-hidden="true"></span>
-                                <span class="glyphicon glyphicon-remove-circle failed conformance-test-badge" aria-hidden="true"></span>
-                                <span class="glyphicon glyphicon-ok-circle passed conformance-test-badge" aria-hidden="true"></span>
-                                <span class="glyphicon glyphicon-remove-circle failed conformance-test-badge" aria-hidden="true"></span>
-                                <span class="glyphicon glyphicon-ok-circle passed conformance-test-badge" aria-hidden="true"></span>
+                                <span {{bind-attr class=":glyphicon res.operation.read:glyphicon-ok-circle:glyphicon-remove-circle res.operation.read:passed:failed :conformance-test-badge"}} aria-hidden="true"></span>
+                                <span {{bind-attr class=":glyphicon res.operation.vread:glyphicon-ok-circle:glyphicon-remove-circle res.operation.vread:passed:failed :conformance-test-badge"}} aria-hidden="true"></span>
+                                <span {{bind-attr class=":glyphicon res.operation.update:glyphicon-ok-circle:glyphicon-remove-circle res.operation.update:passed:failed :conformance-test-badge"}} aria-hidden="true"></span>
+                                <span {{bind-attr class=":glyphicon res.operation.delete:glyphicon-ok-circle:glyphicon-remove-circle res.operation.delete:passed:failed :conformance-test-badge"}} aria-hidden="true"></span>
+                                <span {{bind-attr class=":glyphicon res.operation.history-instance:glyphicon-ok-circle:glyphicon-remove-circle res.operation.history-instance:passed:failed :conformance-test-badge"}} aria-hidden="true"></span>
+                                <span {{bind-attr class=":glyphicon res.operation.validate:glyphicon-ok-circle:glyphicon-remove-circle res.operation.validate:passed:failed :conformance-test-badge"}} aria-hidden="true"></span>
+                                <span {{bind-attr class=":glyphicon res.operation.history-type:glyphicon-ok-circle:glyphicon-remove-circle res.operation.history-type:passed:failed :conformance-test-badge"}} aria-hidden="true"></span>
+                                <span {{bind-attr class=":glyphicon res.operation.create:glyphicon-ok-circle:glyphicon-remove-circle res.operation.create:passed:failed :conformance-test-badge"}} aria-hidden="true"></span>
+                                <span {{bind-attr class=":glyphicon res.operation.search-type:glyphicon-ok-circle:glyphicon-remove-circle res.operation.search-type:passed:failed :conformance-test-badge"}} aria-hidden="true"></span>
                               </span>
                             </h4>
                         </div>

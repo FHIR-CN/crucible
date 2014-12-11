@@ -8,8 +8,8 @@ Crucible.ServerRoute = Ember.Route.extend
     @store.find('server', params.server_id)
   afterModel: (server) ->
     server.set("tests", @store.findAll("test"))
-    conformance = DS.PromiseObject.create({promise: $.get("/tests/conformance?url=#{server.get("url")}")})
-    conformance.then(() -> server.set("conformance", conformance.content.results))
+    conformance = DS.PromiseObject.create({promise: $.get("/api/servers/conformance?url=#{server.get("url")}")})
+    conformance.then(() -> server.set("conformance", conformance.content))
     #
     # tests = DS.PromiseObject.create({promise: $.get("/tests/")})
     # tests.then(() -> server.set("tests", tests.content))

@@ -48,7 +48,7 @@ gem 'font-awesome-rails'
 # gem 'plan_executor', path: '../plan_executor/'
 gem 'plan_executor', :git => 'https://github.com/fhir-crucible/plan_executor.git', :branch => 'master'
 gem 'nokogiri'
-gem 'fhir_model', path: '../fhir_dstu1/implementations/ruby/output/model/'
+gem 'fhir_model', :git => 'https://github.com/fhir-crucible/fhir_dstu1_models.git', :branch => 'master'
 # gem 'fhir_client', path: '../fhir_client/'
 gem 'fhir_client', :git => 'https://github.com/fhir-crucible/fhir_client.git', :branch => 'master'
 # used by model for impercise datetimes
