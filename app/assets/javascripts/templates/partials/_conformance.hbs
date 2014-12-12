@@ -259,16 +259,13 @@
                     {{/each}}
                   <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                     <div class="panel-title table-header row">
-                      <div class="table-cell col-md-3">
+                      <div class="col-md-3">
                         <span class="table-cell">{{r.mode}}</span>
                       </div>
-                      <div class="table-cell col-md-9">
-                        <span class="table-label-holder">
-                          <span class="table-cell">Transaction</span><span {{bind-attr class=":glyphicon r.operation.transaction:test-circle-filled:test-circle-empty r.operation.transaction:circle-filled:circle-empty :conformance-test-badge"}} aria-hidden="true"></span><span class="table-cell"></span>
-                          <span class="table-cell">History-System</span><span {{bind-attr class=":glyphicon r.operation.history-system:test-circle-filled:test-circle-empty r.operation.history-system:circle-filled:circle-empty :conformance-test-badge"}} aria-hidden="true"></span><span class="table-cell"></span>
-                          <span class="table-cell">Search-System</span><span {{bind-attr class=":glyphicon r.operation.search-system:test-circle-filled:test-circle-empty r.operation.search-system:circle-filled:circle-empty :conformance-test-badge"}} aria-hidden="true"></span><span class="table-cell"></span>
-                          </span>
-                        </span>
+                      <div class="col-md-9">
+                        <div class="col-md-1"><i {{bind-attr class=":glyphicon r.operation.transaction:test-circle-filled:test-circle-empty r.operation.transaction:circle-filled:circle-empty :conformance-test-badge"}}></i></div><div class="col-md-3">Transaction</div>
+                        <div class="col-md-1"><i {{bind-attr class=":glyphicon r.operation.history-system:test-circle-filled:test-circle-empty r.operation.history-system:circle-filled:circle-empty :conformance-test-badge"}}></i></div><div class="col-md-3">System-History</div>
+                        <div class="col-md-1"><i {{bind-attr class=":glyphicon r.operation.search-system:test-circle-filled:test-circle-empty r.operation.search-system:circle-filled:circle-empty :conformance-test-badge"}}></i></div><div class="col-md-3">System-Search</div>
                       </div>
                     </div>
                   </div>
