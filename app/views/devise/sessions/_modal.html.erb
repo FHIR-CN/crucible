@@ -1,0 +1,43 @@
+<%= content_tag(:div, flash[:error], id: "flash_error", class: "alert alert-error") if flash[:error] %>
+<%= content_tag(:div, flash[:notice], id: "flash_notice", class: "alert alert-info") if flash[:notice] %>
+<%= content_tag(:div, flash[:alert], id: "flash_alert", class: "alert alert-warning") if flash[:alert] %>
+
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h4 class="login">
+          <div>CRUCIBLE</div>
+          <img style="padding: 10px" src="/assets/logo_dark.png"></img>
+        </h4>
+        <% if resource.errors.present?%>
+          <div class="alert alert-danger">
+            <%= devise_error_messages! %>
+          </div>
+        <% end %>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="login-inputs row">
+            <div class="form-group login-input col-md-12">
+              <%= f.email_field :email, autofocus: true, placeholder: "Username", class: "form-control" %>
+              <!-- <input type="text" class="form-control" placeholder="Username" id="username"> -->
+            </div>
+            <div class="form-group login-input col-md-12">
+              <%= f.password_field :password, autocomplete: "off", placeholder: "Password", class: "form-control" %>
+              <!-- <input type="text" class="form-control" placeholder="Password" id="password"> -->
+            </div>
+          </div>
+          <div class="login-footer row">
+            <div class="login-options col-md-8">
+              <%= link_to "FORGOT PASSWORD", new_password_path(:user) %> | <%= link_to "REGISTER", new_registration_path(:user) %>
+              <!-- <a href="">FORGOT PASSWORD</a> | <a href="">REGISTER</a> -->
+            </div>          
+            <div class="login-btn col-md-4">
+              <%= f.submit "Log in", class: "btn" %>
+              <!-- <button type="button" class="btn">Log In</button> -->
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

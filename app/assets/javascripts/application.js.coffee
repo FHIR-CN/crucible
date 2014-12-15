@@ -20,7 +20,7 @@ Ember.Application.initializer
   initialize: (container) ->
     store = container.lookup('store:main')
     attributes = $('meta[name="current-user"]').attr('content')
-    if attributes
+    if attributes? && attributes != "null"
       attributes = JSON.parse(attributes)
       attributes.id = attributes._id
       user = store.push('user', attributes)
