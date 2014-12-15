@@ -31,15 +31,15 @@
 
         <div class="row">
           <ul class="nav nav-tabs tabbed-data-container">
-            <li class="tabbed-data"><a data-toggle="tab" href="#test-data">Tests</a></li>
-            <li class="tabbed-data active"><a data-toggle="tab"href="#conformance-data">Conformance</a></li>
+            <li class="tabbed-data active"><a data-toggle="tab" href="#test-data">Tests</a></li>
+            <li class="tabbed-data"><a data-toggle="tab"href="#conformance-data">Conformance</a></li>
             <li class="tabbed-data"><a data-toggle="tab"href="#heatmap-data">Heat Map</a></li>
           </ul>
         </div>
         <div class="row">
           <div class="tab-content">
             <!-- TEST PANEL START -->
-            <div class="tab-pane" id="test-data">
+            <div class="tab-pane active" id="test-data">
               <div class="col-md-12 tab-content-holder">
                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                   {{#each test in tests}}
@@ -96,7 +96,7 @@
                                     {{#each test in result.tests}}
                                       <div class="tab-pane" id="test_result{{unbound test.id}}">
                                         <div class="media">
-                                          
+
                                           {{#if test.message}}
                                             <div class="media">
                                               <div class="media-body">
@@ -178,7 +178,7 @@
             </div>
             <!-- TEST PANEL END -->
             <!-- CONFORMANCE PANEL START -->
-            <div class="tab-pane active" id="conformance-data">
+            <div class="tab-pane" id="conformance-data">
               {{render "partials/_conformance" conformance}}
             </div>
             <!-- CONFORMANCE PANEL END -->
