@@ -91,80 +91,81 @@
                                   </table>
                                 {{/each}}
                               </div>
-                              <div class="col-md-5 tab-content" style="border: 1px solid #F5F5F5; min-height: 247px; margin-top: 50px;">
-                                  {{#each result in test.results}}
-                                    {{#each test in result.tests}}
-                                      <div class="tab-pane" id="test_result{{unbound test.id}}">
-                                        <div class="media">
-
-                                          {{#if test.message}}
-                                            <div class="media">
-                                              <div class="media-body">
-                                                <h4 class="media-heading">Message</h4>
-                                                {{test.message}}
+                              {{#if test.completed}}
+                                <div class="col-md-5 tab-content" style="border: 1px solid #F5F5F5; min-height: 247px; margin-top: 50px;">
+                                    {{#each result in test.results}}
+                                      {{#each test in result.tests}}
+                                        <div class="tab-pane" id="test_result{{unbound test.id}}">
+                                          <div class="media">
+                                            {{#if test.message}}
+                                              <div class="media">
+                                                <div class="media-body">
+                                                  <h4 class="media-heading">Message</h4>
+                                                  {{test.message}}
+                                                </div>
                                               </div>
-                                            </div>
-                                          {{/if}}
+                                            {{/if}}
 
-                                          {{#if test.warnings}}
-                                            <div class="media">
-                                              <div class="media-body">
-                                                <h4 class="media-heading">Warnings</h4>
-                                                {{#each warning in test.warnings}}
-                                                  <div>{{warning}}</div>
-                                                {{/each}}
-                                              </div>
-                                            </div>
-                                          {{/if}}
-
-                                          {{#if test.data}}
-                                            <div class="media">
-                                              <div class="media-body">
-                                                <h4 class="media-heading">Data</h4>
-                                                {{test.data}}
-                                              </div>
-                                            </div>
-                                          {{/if}}
-
-                                          {{#if test.links}}
-                                            <div class="media">
-                                              <div class="media-body">
-                                                <h4 class="media-heading">Links</h4>
-                                                {{#each link in test.links}}
-                                                  <div><a href="{{link}}" target="_blank">Related FHIR Spec Location</a></div>
-                                                {{/each}}
-                                              </div>
-                                            </div>
-                                          {{/if}}
-
-                                          {{#if test.requires}}
-                                            <div class="media">
-                                              <div class="media-body">
-                                                <h4 class="media-heading">Test Requires</h4>
-                                                  {{#each requirement in test.requires}}
-                                                    <div>{{#if requirement.resource}}{{requirement.resource}}{{else}}System{{/if}}: {{requirement.methods}}</div>
+                                            {{#if test.warnings}}
+                                              <div class="media">
+                                                <div class="media-body">
+                                                  <h4 class="media-heading">Warnings</h4>
+                                                  {{#each warning in test.warnings}}
+                                                    <div>{{warning}}</div>
                                                   {{/each}}
+                                                </div>
                                               </div>
-                                            </div>
-                                          {{/if}}
+                                            {{/if}}
 
-                                          {{#if test.validates}}
-                                            <div class="media">
-                                              <div class="media-body">
-                                                <h4 class="media-heading">Test Validates</h4>
-                                                  {{#each requirement in test.validates}}
-                                                    <div>{{#if requirement.resource}}{{requirement.resource}}{{else}}System{{/if}}: {{requirement.methods}}</div>
+                                            {{#if test.data}}
+                                              <div class="media">
+                                                <div class="media-body">
+                                                  <h4 class="media-heading">Data</h4>
+                                                  {{test.data}}
+                                                </div>
+                                              </div>
+                                            {{/if}}
+
+                                            {{#if test.links}}
+                                              <div class="media">
+                                                <div class="media-body">
+                                                  <h4 class="media-heading">Links</h4>
+                                                  {{#each link in test.links}}
+                                                    <div><a href="{{link}}" target="_blank">Related FHIR Spec Location</a></div>
                                                   {{/each}}
+                                                </div>
                                               </div>
-                                            </div>
-                                          {{/if}}
+                                            {{/if}}
 
+                                            {{#if test.requires}}
+                                              <div class="media">
+                                                <div class="media-body">
+                                                  <h4 class="media-heading">Test Requires</h4>
+                                                    {{#each requirement in test.requires}}
+                                                      <div>{{#if requirement.resource}}{{requirement.resource}}{{else}}System{{/if}}: {{requirement.methods}}</div>
+                                                    {{/each}}
+                                                </div>
+                                              </div>
+                                            {{/if}}
+
+                                            {{#if test.validates}}
+                                              <div class="media">
+                                                <div class="media-body">
+                                                  <h4 class="media-heading">Test Validates</h4>
+                                                    {{#each requirement in test.validates}}
+                                                      <div>{{#if requirement.resource}}{{requirement.resource}}{{else}}System{{/if}}: {{requirement.methods}}</div>
+                                                    {{/each}}
+                                                </div>
+                                              </div>
+                                            {{/if}}
+
+                                          </div>
                                         </div>
-                                      </div>
+                                      {{/each}}
                                     {{/each}}
-                                  {{/each}}
 
-                              </div>
+                                </div>
+                              {{/if}}
                             </div>
 
 
