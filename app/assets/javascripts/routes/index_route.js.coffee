@@ -3,6 +3,6 @@ Crucible.IndexRoute = Em.Route.extend
     submit: ->
       server = @get('currentModel')
       server.save()
-      @transitionTo('server', server)
+      @transitionTo('servers.show', server)
   model: ->
     @store.createRecord('server')

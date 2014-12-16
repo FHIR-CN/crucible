@@ -1,0 +1,83 @@
+<div class="main-container container">
+
+  <div class="img-div section-small">
+    <span class="circle-empty"></span> &nbsp
+    <span class="circle-filled"></span> &nbsp
+    <span class="circle-empty"></span>
+  </div>
+
+  <div class="row section-large">
+    <div class="col-md-12">
+      <div class="palette">
+        <div class="row">
+          <div class="col-md-10">
+            <h2>Review Conformance and Select Tests</h2>
+          </div>
+          <div class="col-md-2">
+            <button type="submit" class="btn orange_btn" {{action "executeTests"}}>RUN</button>
+          </div>
+        </div>
+        <p class="helper_text">Each FHIR Interface test will first generate a conformance statement. Based on a conformance, a given set of recommended tests will be shown to the user.</p>
+        {{#if runningTestCount}}
+          <div class="row">
+            <div class="progress">
+              <div {{bind-attr class=":progress-bar :progress-bar-crucible isComplete:progress-bar-striped isComplete:active"}} role="progressbar" {{bind-attr aria-valuenow=executionProgress}} aria-valuemin="0" aria-valuemax="100" {{bind-attr style=progressStyle}}>
+                <span class="sr-only">{{executionProgress}}% Complete</span>
+                {{executionProgress}}%
+              </div>
+            </div>
+          </div>
+        {{/if}}
+
+        <div class="row">
+          <ul class="nav nav-tabs tabbed-data-container">
+            <li class="tabbed-data active"><a data-toggle="tab" href="#test-data">Tests</a></li>
+            <li class="tabbed-data"><a data-toggle="tab"href="#conformance-data">Conformance</a></li>
+            <li class="tabbed-data"><a data-toggle="tab"href="#heatmap-data">Heat Map</a></li>
+          </ul>
+        </div>
+        <div class="row">
+          <div class="tab-content">
+            <!-- TEST PANEL START -->
+            <div class="tab-pane active" id="test-data">
+              <div class="col-md-12 tab-content-holder">
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                  {{#each test in tests}}
+                    <div class="toggleable panel-heading">
+                      <h4 class="panel-title">
+                        <label >
+                          {{input type="checkbox" name=test.id checked=test.active}}
+                          {{test.id}}
+                        </label>
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#test{{unbound test.reference}}" aria-expanded="false" >
+                        <small>(more)</small></a>
+
+                      </h4>
+                    </div>
+                    <div id="test{{unbound test.reference}}" class="panel-collapse collapse">
+                      <div class="panel-body">
+                        {{test.description}}
+                      </div>
+                    </div>
+
+                  {{/each}}
+                </div>
+              </div>
+            </div>
+            <!-- TEST PANEL END -->
+            <!-- CONFORMANCE PANEL START -->
+            <div class="tab-pane" id="conformance-data">
+              {{render "partials/_conformance" conformance}}
+            </div>
+            <!-- CONFORMANCE PANEL END -->
+            <!-- HEATMAP PANEL START -->
+            <div class="tab-pane" id="heatmap-data">
+              <div class="col-md-12 tab-content-holder">heat</div>
+            </div>
+            <!-- HEATMAP PANEL END -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

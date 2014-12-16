@@ -4,7 +4,5 @@ Crucible.Router.map ()->
   @resource('tests')
   @resource 'servers', ->
     @route 'new'
-    @route 'servers'
-
-  @resource 'server', path: 'server/:server_id'
-  # @resource('application', path: '/')
+    @route 'show', path: ':server_id'
+    @route 'results', path: ':server_id/results'
