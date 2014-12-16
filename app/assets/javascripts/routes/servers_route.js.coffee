@@ -3,7 +3,7 @@ Crucible.ServersRoute = Ember.Route.extend
     @store.findAll('server')
 
 
-Crucible.ServerRoute = Ember.Route.extend
+Crucible.ServersShowRoute = Ember.Route.extend
   model: (params) ->
     @store.find('server', params.server_id)
   afterModel: (server) ->
@@ -43,6 +43,6 @@ Crucible.ServersNewRoute = Ember.Route.extend
     submit: ->
       server = @get('currentModel')
       server.save()
-      @transitionTo('server', server)
+      @transitionTo('servers', server)
   model: ->
     @store.createRecord('server')
