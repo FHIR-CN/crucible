@@ -34,3 +34,7 @@ gem 'active_model_serializers'
 gem 'pry'
 gem 'underscore-rails'
 gem 'pry-byebug'
+
+group :development do
+  gem 'capistrano'
+end
