@@ -13,7 +13,7 @@ Crucible.Test = DS.Model.extend
     if @get('completed')
       !@get('results').any((test) ->
         test.tests.any((result) ->
-          result.status == "fail"
+          result.status == "fail" or result.status == "error"
         )
       )
     else
