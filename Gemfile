@@ -33,8 +33,9 @@ gem 'mongoid-history'
 gem 'active_model_serializers'
 gem 'pry'
 gem 'underscore-rails'
-gem 'pry-byebug'
 
 group :development do
+  gem 'pry-byebug'
   gem 'capistrano'
+  gem 'capistrano-bundler'
 end
