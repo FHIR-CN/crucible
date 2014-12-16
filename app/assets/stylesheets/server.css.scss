@@ -1,3 +1,22 @@
 .progress-bar-crucible {
   background-color: #D85D20;
 }
+
+.test-results {
+	.pass, .fail, .skip, .error {
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+	.pass {
+		color: #28BA0F;
+	}
+	.fail {
+		color: #B71817;
+	}
+	.error {
+		color: #F0AD4E;
+	}
+	.skip {
+		color: #00E1E1;
+	}
+}

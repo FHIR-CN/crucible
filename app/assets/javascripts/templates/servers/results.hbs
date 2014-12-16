@@ -39,7 +39,7 @@
         <div class="row">
           <div class="tab-content">
             <!-- TEST PANEL START -->
-            <div class="tab-pane active" id="test-data">
+            <div class="tab-pane active test-results" id="test-data">
               <div class="col-md-12 tab-content-holder">
                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                   {{#each test in tests}}
@@ -83,7 +83,7 @@
                                             {{test.description}}
                                           </td>
                                           <td>
-                                            {{test.status}}
+                                            <span {{bind-attr class="test.status"}}>{{test.status}}</span>
                                           </td>
                                         </tr>
                                       {{/each}}
