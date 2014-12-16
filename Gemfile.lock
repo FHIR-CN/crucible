@@ -20,7 +20,7 @@ GIT
     plan_executor (1.0.0)
 
 GEM
-  remote: https://rubygems.org/
+  remote: http://rubygems.org/
   specs:
     actionmailer (4.1.6)
       actionpack (= 4.1.6)
