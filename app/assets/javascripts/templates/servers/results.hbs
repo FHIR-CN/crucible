@@ -69,7 +69,7 @@
                                   {{#each result in test.results}}
                                     <table class="table table-hover report-table nav nav-stacked">
                                       <thead>
-                                        <th colspan=3>
+                                        <th colspan="4">
                                           {{result.test_file}}
                                         </th>
                                       </thead>
@@ -83,7 +83,10 @@
                                             {{test.description}}
                                           </td>
                                           <td>
-                                            <span {{bind-attr class="test.status"}}>{{test.status}}</span>
+                                            <span {{bind-attr class="test.status"}}>{{test.status}}</span> 
+                                          </td>
+                                          <td>
+                                            {{#if test.warnings}}<i class="glyphicon glyphicon-warning-sign warning"></i>{{/if}}
                                           </td>
                                         </tr>
                                       {{/each}}
