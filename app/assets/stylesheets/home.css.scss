@@ -10,39 +10,39 @@
   color: #FFFFFF;
 }
 
-.login{
+.login {
   text-align: center;
   font-size: 60px;
   font-weight: bold;
   color: #505152;
 }
 
-.login-footer{
+.login-footer {
   margin-left: 50px;
   margin-right: 50px;
   margin-bottom: 50px;
 
-  login-btn{
+  login-btn {
     text-align: right;
     button, input{
       height: 100px;
     }
   }
-  login-options{
+  login-options {
     vertical-align: center;
     position: absolute;
   }
 }
 
-.modal-content{
+.modal-content {
   background-color: #F5F5F5;
 }
 
-.modal-body{
+.modal-body {
   padding: 40px;
 }
 
-.login-inputs{
+.login-inputs {
   text-align: center;
   margin-top: 30px;
   margin-bottom: 26px;
@@ -50,6 +50,12 @@
   margin-right: 50px;
 }
 
-.login-input{
+.login-input {
   margin-bottom: 10px;
+}
+
+.login-alert {
+  &.alert-danger, &.alert-success {
+    text-align: center;
+  }
 }

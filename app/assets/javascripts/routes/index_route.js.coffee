@@ -1,4 +1,4 @@
-Crucible.IndexRoute = Em.Route.extend
+Crucible.IndexRoute = Crucible.DefaultRoute.extend
   actions:
     submit: ->
       server = @get('currentModel')

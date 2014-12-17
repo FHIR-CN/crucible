@@ -1,4 +1,4 @@
-Crucible.ServersRoute = Ember.Route.extend
+Crucible.ServersRoute = Crucible.DefaultRoute.extend
   model: ->
     @store.findAll('server')
 

@@ -1,3 +1,3 @@
-Crucible.TestsRoute = Ember.Route.extend
+Crucible.TestsRoute = Crucible.DefaultRoute.extend
   model: ->
     @get('store').find('test')
