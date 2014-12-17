@@ -95,7 +95,7 @@
                                   {{/each}}
                                 </div>
                                 {{#if test.completed}}
-                                  <div class="col-md-5 tab-content" style="border: 1px solid #F5F5F5; min-height: 247px; margin-top: 50px;">
+                                  <div class="col-md-5 tab-content details">
                                       {{#each result in test.results}}
                                         {{#each test in result.tests}}
                                           <div class="tab-pane" id="test_result{{unbound test.id}}">
