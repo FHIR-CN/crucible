@@ -120,15 +120,6 @@
                                                 </div>
                                               {{/if}}
 
-                                              {{#if test.data}}
-                                                <div class="media">
-                                                  <div class="media-body">
-                                                    <h4 class="media-heading">Data</h4>
-                                                    {{test.data}}
-                                                  </div>
-                                                </div>
-                                              {{/if}}
-
                                               {{#if test.links}}
                                                 <div class="media">
                                                   <div class="media-body">
@@ -158,6 +149,15 @@
                                                       {{#each requirement in test.validates}}
                                                         <div>{{#if requirement.resource}}{{requirement.resource}}{{else}}System{{/if}}: {{requirement.methods}}</div>
                                                       {{/each}}
+                                                  </div>
+                                                </div>
+                                              {{/if}}
+
+                                              {{#if test.data}}
+                                                <div class="media">
+                                                  <div class="media-body">
+                                                    <h4 class="media-heading">Data</h4>
+                                                    {{test.data}}
                                                   </div>
                                                 </div>
                                               {{/if}}
