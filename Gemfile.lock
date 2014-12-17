@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: https://github.com/fhir-crucible/fhir_dstu1_models.git
-  revision: 3aab47f3016df507b2ed25c61a78d410a9436de6
+  revision: fa4a6c34d68a0a32cf3815dfffe85f69ad8c6e57
   branch: master
   specs:
     fhir_model (1.0.0)
