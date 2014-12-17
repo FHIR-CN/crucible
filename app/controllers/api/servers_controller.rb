@@ -5,7 +5,11 @@ module Api
     respond_to :json
 
     def index
-      render json: current_user.servers
+      if current_user.nil?
+        render json: Server.all
+      else
+        render json: current_user.servers
+      end
     end
 
     def create
