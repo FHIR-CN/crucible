@@ -3,96 +3,131 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 // @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
 
-.browsehappy {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
-}
+$brand-primary: #505152;
+$brand-secondary: #D85D20;
+$brand-tertiary: #FFFFFF;
+$background: #F5F5F5;
 
-/* Space out content a bit */
+
+/************************** TO BE PLACED IN BOOTSTRAP3.SCSS **************************/
+
+
 body {
-  background-color: #F5F5F5;
+  background-color: $background;
   font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+
+footer {
+  background-color: $brand-primary;
+  border-color: $brand-primary;
+  margin-top: 100px;
+
+  /*overridding bootstrap behavior*/
+  .nav > li > a:hover{
+    background-color: $brand-primary;
+  }
+  .nav > li > a:visited{
+    background-color: $brand-primary;
+  }  
 
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-
-/* Custom page header */
 header {
-  background-color: #505152;
-  border-color: #505152;
+  background-color: $brand-primary;
+  border-color: $brand-primary;
   border-radius: 0px;
 
-  nav {
-    .navButton{
-    font-weight: 100;
-    font-size: 15px;
-    color: #FFFFFF;
-    }
+  /*overridding a bootstrap behavior*/
+  .nav > li > a:hover{
+    background-color: $brand-primary;
   }
-  .navbar-header .navbar-brand{
+  .nav > li > a:visited{
+    background-color: $brand-primary;
+  }  
+}
+
+h1{
+  font-size: 29px;
+  color: $brand-primary;
+  margin-bottom: 40px;
+  margin-top: 0;
+}
+
+h2{
+  font-size: 29px;
+  color: $brand-primary;
+  margin-top: 0;
+  text-align: left;
+}
+
+
+img{
+  padding: 20px;
+}
+
+.img-div{
+  text-align: center;
+}
+
+.btn {
+  height: 34px; 
+  width: 100%; 
+  background-color: $brand-secondary; 
+  border-color: $brand-secondary;
+  color: $brand-tertiary;
+    a {
+      color: $brand-tertiary;
+    }
+    a:hover{
+      color: $brand-tertiary;
+      text-decoration: none;
+    }
+}
+
+.btn:focus {
+  background-color: $brand-secondary; 
+  border-color: $brand-secondary;
+  color: $brand-tertiary;
+}
+
+.btn:hover{
+  color: $brand-tertiary;
+  text-decoration: none;
+}
+
+/*Navigation has a navbar-header and then the actual nav itself*/
+
+.navbar-header{
+  .navbar-brand{
     font-weight: 500;
     font-size: 24px;
-    color: #FFFFFF;
-  }
-
-
-  /* Make the masthead heading the same height as the navigation */
-  h3 {
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 40px;
-    padding-bottom: 19px;
+    color: $brand-tertiary;
   }
 }
 
-/* Custom page footer */
-footer {
-  background-color: #505152;
-  border-color: #505152;
+nav {
+  .navButton {
+    font-weight: 100;
+    font-size: 15px;
+    color: $brand-tertiary;
+  }
+}
+
+.container{
   margin-top: 100px;
-  .nav .navButton{
-      font-weight: 100;
-      font-size: 15px;
-      color: #FFFFFF;
-  }
+  margin-bottom: 100px;
 }
 
-footer .nav > li > a:hover, header .nav > li > a:hover {
-  background-color: #505152;
+.main-container {
+  margin-top: 100px;
+  margin-bottom: 100px;
 }
 
-
-.container-narrow > hr {
-  margin: 30px 0;
-}
-
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-  .btn {
-    font-size: 21px;
-    padding: 14px 24px;
-  }
-  background-color: #FFFFFF;
-}
-
-.tri-row {
-  text-align: center;
-  margin: 40px 0;
-  p + h4 {
-    margin-top: 28px;
-  }
-}
-
+/*Palette stuff*/
 /* White palettes */
 .palette{
   text-align: center;
-  background-color: #FFFFFF;
+  background-color: $brand-tertiary;
   border-radius: 10px;
   padding-left: 40px;
   padding-right: 40px;
@@ -100,6 +135,41 @@ footer .nav > li > a:hover, header .nav > li > a:hover {
   padding-bottom: 50px;
 }
 
+.form-group{
+  margin-bottom: 0px;
+}
+
+/*instructional text. we could call this h3 or something */
+.helper_text{
+  font-size: 12px;
+  text-align: left;
+  color: #5A564D;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/**************************** Might be uneccesary code ****************************/
+
+/*.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}*/
+
+/*.container-narrow > hr {
+  margin: 30px 0;
+}*/
+
+
+/* this was within the header defn */
+/*  h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 40px;
+    padding-bottom: 19px;
+  }*/
+/*
 .tri-palette{
   text-align: center;
   background-color: #FFFFFF;
@@ -115,14 +185,47 @@ footer .nav > li > a:hover, header .nav > li > a:hover {
     border-color: #D85D20;
   };
 }
-.container{
-  margin-top: 100px;
-  margin-bottom: 100px;
+
+.tate{
+  -ms-transform: rotate(-80deg);
+  -webkit-transform: rotate(-80deg);
+  transform: rotate(-80deg);
+}*/
+
+
+
+
+/*i think this stuff was fir the dropdown that i got rid of that displayed conformance */
+/*.dropdown-toggle{
+  background-color: #fff;
+  color: #505152;
+  border-color: #505152;
 }
 
-.main-container {
-  margin-top: 80px;
-  margin-bottom: 100px;
+.dropdown-toggle:hover{
+  background-color: #eeeeee;
+  color: #505152;
+  border-color: #505152;
+}
+
+.dropdown-toggle:focus{
+  background-color: #eeeeee;
+  color: #505152;
+  border-color: #505152;
+}*/
+
+/******************************** END SECTION ********************************/
+
+/******************************** LANDING PAGE ********************************/
+
+.tri-row {
+  text-align: center;
+  margin: 40px 0;
+  .palette{
+    padding: 20px;
+    min-height: 320px;
+    margin-top: 30px;
+  }
 }
 
 #animation{
@@ -131,21 +234,9 @@ footer .nav > li > a:hover, header .nav > li > a:hover {
   margin-bottom: 10px;
 }
 
-.btn {
-  height: 34px;
-  width: 100%;
-  background-color: #D85D20;
-  border-color: #D85D20;
-  color: #FFFFFF;
-}
+/*end landing page*/
 
-.btn:focus {
-  height: 34px;
-  width: 100%;
-  background-color: #D85D20;
-  border-color: #D85D20;
-  color: #FFFFFF;
-}
+/*need to inspect this and see if it can be refactored. This stuff would be application wide stuff*/
 
 .section-xsmall {
   margin-bottom: 50px;
@@ -167,43 +258,12 @@ footer .nav > li > a:hover, header .nav > li > a:hover {
   margin-bottom: 400px;
 }
 
-.form-group{
-  margin-bottom: 0px;
-}
 
-h1{
-  font-size: 29px;
-  color: #505152;
-  margin-bottom: 40px;
-  margin-top: 0;
-}
 
-h2{
-  font-size: 29px;
-  color: #505152;
-  margin-top: 0;
-  text-align: left;
-}
 
-.helper_text{
-  font-size: 12px;
-  text-align: left;
-  color: #5A564D;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
 
-.img-div{
-  text-align: center;
-}
-.btn_anchor{
-  color: #FFFFFF;
-}
-.btn_anchor:hover{
-  color: #FFFFFF;
-  text-decoration: none;
-}
 
+/* START: 3 tabs for tests, conformance, heat map */
 .tabbed-data{
   font-size: 20px;
   font-weight: 50;
@@ -215,7 +275,13 @@ h2{
   margin-top: 25px;
 }
 
+.nav-tabs > li > a{
+  color: $brand-primary;
+}
 
+/* END: 3 tabs for tests, conformance, heat map */
+
+/* START: collapse panels */
 .panel-heading a:after {
     font-family:'Glyphicons Halflings';
     content:"\e114";
@@ -232,7 +298,7 @@ h2{
 
 .tab-content-holder{
   margin-top: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 30px;  
 }
 
 .panel-heading{
@@ -245,28 +311,11 @@ h2{
   box-shadow: none;
 }
 
-
-.nav-tabs > li > a{
-  color: #555555;
-}
-
-input[type="checkbox"]{
-  margin-right: 10px;
-}
-
-.metadata-expand-container{
-  text-align: left;
-}
-
 .panel-body{
   text-align: left;
   label{
     color: #7F9FC5;
   }
-}
-
-.metadata-title{
-  text-align: center;
 }
 
 .panel-title{
@@ -275,15 +324,19 @@ input[type="checkbox"]{
   margin-bottom: 15px;
 }
 
+/* END: collapse panels */
+
+
+/* START: anything and everything table related */
 .table {
   margin-top: 20px;
   margin-bottom: 20px;
 
   tr{
-    border-bottom: 1px solid #F5F5F5;
+    border-bottom: 1px solid $background;
   }
   thead{
-    border-bottom: 1px solid #555555;
+    border-bottom: 1px solid $background; 
   }
 }
 
@@ -292,19 +345,150 @@ input[type="checkbox"]{
 }
 
 .table-label-holder{
-  float: right;
+  float: right; 
   padding-right: 40px
 }
 
+table > tbody > tr > td{
+  text-align: left;
+}
+
+table > thead > tr > th{
+  text-align: left;
+}
+
+.table-container{
+  height: 300px;
+  overflow: auto;
+}
+
+span .table-cell{
+  display: inline-block;
+  width: 70px;
+  font-size: 14px;
+  text-align: center;
+}
+/* END: anything and everything table related */
+
+
+/************************** ANYTHING ON CONFORMANCE/TEST REVIEW PAGE **************************/
+
+/***********  METADATA DISPLAY **********/
+
+.meta-container{
+  background-color: $brand-tertiary;
+}
+
+.metadata-table{
+  tbody > tr > td { 
+    border-top: none; 
+  }
+}
+
+.metadata-label{
+  font-weight: bold;
+  color: #7F9FC5;
+}
+
+.metadata-menu{
+  font-size: 11px;
+}
+
+.metadata-title{
+  text-align: center;
+}
+
+.metadata-selector{
+  .nav-pills > li > a{
+    color: $brand-primary;
+    border-radius: 2px;
+    padding: 5px 10px;
+  }
+  .nav-pills > li.active > a{
+    background-color: #eeeeee;
+    color: $brand-primary;
+  }  
+}
+
+
+/***********  OTHER DISPLAY **********/
+#resource-chart{
+  margin-top: 30px;
+  margin-bottom: 50px;  
+}
+
+input[type="checkbox"]{
+  margin-right: 10px;
+}
+
+/************************** ANYTHING ON TEST RESULT PAGE **************************/
+
+.next-steps-container{
+  button{
+    margin-bottom: 10px;
+  }
+}
+
+
+
+/************************** ANYTHING HAVING TO DO WITH ICONS **************************/
+
+/*spinning loading icon*/
+.glyphicon-refresh-animate {
+    float: right;
+    margin-right: 17px;
+    -animation: spin .7s infinite linear;
+    -webkit-animation: spin2 .7s infinite linear;
+}
+
+@-webkit-keyframes spin2 {
+    from { -webkit-transform: rotate(0deg);}
+    to { -webkit-transform: rotate(360deg);}
+}
+
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg);}
+    to { transform: scale(1) rotate(360deg);}
+}
+
+.conformance-test-badge{
+  margin-left: 29px;
+  margin-right: 29px;
+}
+
+.test-circle-holder{
+  float: right;
+  padding-right: 30px;
+}
+
+.animation-icons{
+  float:right;
+}
+
+/*start loading bar*/
+.progress{
+  margin-top: 35px;
+  height: 30px;
+  background-color: $brand-tertiary;
+  border: 1px solid $brand-secondary;
+}
+
+.progress-bar{
+  background-color: $brand-secondary;
+  width: 40%;
+}
+/*end loading bar*/
+
+/*start circle stuff*/
 .circle-filled{
   display: inline-block;
   border-radius: 50%;
   width: 30px;
   height: 30px;
   -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  border: 1px solid #D85D20;
-  background: #D85D20;
+  -moz-border-radius: 50%;  
+  border: 1px solid $brand-secondary;
+  background: $brand-secondary;
 }
 
 .circle-empty{
@@ -313,8 +497,8 @@ input[type="checkbox"]{
   width: 30px;
   height: 30px;
   -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  border: 1px solid #D85D20;
+  -moz-border-radius: 50%;  
+  border: 1px solid $brand-secondary;
 }
 
 .test-circle-empty{
@@ -329,7 +513,7 @@ input[type="checkbox"]{
   width: 15px;
   height: 15px;
   margin-left: 27px;
-  margin-right: 27px;
+  margin-right: 27px;  
   border: 1px solid #7F9FC5;
   background: #7F9FC5;
 }
@@ -357,57 +541,25 @@ table > tbody > tr > td{
     margin-right: 0px;
   }
 }
-
-table > tbody > tr > td{
-  text-align: left;
-}
-
-table > thead > tr > th{
-  text-align: left;
-}
-
-.table-container{
-  height: 300px;
-  overflow: auto;
-}
+/*end circle stuff*/
 
 
-.conformance-test-badge{
-  margin-left: 29px;
-  margin-right: 29px;
-}
 
-.test-circle-holder{
-  float: right;
-  padding-right: 30px;
-}
-
-.tate{
-  -ms-transform: rotate(-80deg);
-  -webkit-transform: rotate(-80deg);
-  transform: rotate(-80deg);
-}
-
-span .table-cell{
-  display: inline-block;
-  width: 70px;
-  font-size: 14px;
-  text-align: center;
-}
+/************************** LOGIN STUFF **************************/
 
 .login{
   text-align: center;
   font-size: 60px;
   font-weight: bold;
-  color: #505152;
+  color: $brand-primary;
 }
 
 .login-footer{
   margin-left: 50px;
   margin-right: 50px;
   margin-bottom: 50px;
-
-  login-btn{
+  
+  login-btn{ 
     text-align: right;
     button{
       height: 100px;
@@ -420,7 +572,7 @@ span .table-cell{
 }
 
 .modal-content{
-  background-color: #F5F5F5;
+  background-color: $background;
 }
 
 .modal-body{
@@ -430,7 +582,7 @@ span .table-cell{
 .login-inputs{
   text-align: center;
   margin-top: 30px;
-  margin-bottom: 26px;
+  margin-bottom: 26px;  
   margin-left: 50px;
   margin-right: 50px;
 }
@@ -439,88 +591,3 @@ span .table-cell{
   margin-bottom: 10px;
 }
 
-.dropdown-toggle{
-  background-color: #fff;
-  color: #505152;
-  border-color: #505152;
-}
-
-.dropdown-toggle:hover{
-  background-color: #eeeeee;
-  color: #505152;
-  border-color: #505152;
-}
-
-.dropdown-toggle:focus{
-  background-color: #eeeeee;
-  color: #505152;
-  border-color: #505152;
-}
-
-.meta-container{
-  background-color: #FFFFFF;
-}
-
-#resource-chart{
-  margin-top: 30px;
-  margin-bottom: 50px;
-}
-
-.progress{
-  margin-top: 35px;
-  height: 30px;
-  background-color: #FFFFFF;
-  border: 1px solid #D85D20;
-}
-
-.progress-bar{
-  background-color: #D85D20;
-}
-
-.glyphicon-refresh-animate {
-    float: right;
-    margin-right: 17px;
-    -animation: spin .7s infinite linear;
-    -webkit-animation: spin2 .7s infinite linear;
-}
-
-.next-steps-container{
-  button{
-    margin-bottom: 10px;
-  }
-}
-
-@-webkit-keyframes spin2 {
-    from { -webkit-transform: rotate(0deg);}
-    to { -webkit-transform: rotate(360deg);}
-}
-
-@keyframes spin {
-    from { transform: scale(1) rotate(0deg);}
-    to { transform: scale(1) rotate(360deg);}
-}
-
-/* Responsive: Portrait tablets and up */
-/*@media screen and (min-width: 768px) {
-  .container {
-    max-width: 1100px;
-  }
-
-  /* Remove the padding we set earlier */
-/*  .header,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
-    margin-top: 30px;
-  }*/
-
-  /* Space out the masthead */
-/*  .header {
-    margin-bottom: 30px;
-  }*/
-
-  /* Remove the bottom border on the jumbotron for visual effect */
-/*  .jumbotron {
-    border-bottom: 0;
-  }
-}*/
