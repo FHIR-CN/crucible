@@ -28,7 +28,7 @@ footer {
   }
   .nav > li > a:visited{
     background-color: $brand-primary;
-  }  
+  }
 
 }
 
@@ -43,7 +43,7 @@ header {
   }
   .nav > li > a:visited{
     background-color: $brand-primary;
-  }  
+  }
 }
 
 h1{
@@ -70,9 +70,9 @@ img{
 }
 
 .btn {
-  height: 34px; 
-  width: 100%; 
-  background-color: $brand-secondary; 
+  height: 34px;
+  width: 100%;
+  background-color: $brand-secondary;
   border-color: $brand-secondary;
   color: $brand-tertiary;
     a {
@@ -85,7 +85,7 @@ img{
 }
 
 .btn:focus {
-  background-color: $brand-secondary; 
+  background-color: $brand-secondary;
   border-color: $brand-secondary;
   color: $brand-tertiary;
 }
@@ -298,7 +298,7 @@ nav {
 
 .tab-content-holder{
   margin-top: 30px;
-  margin-bottom: 30px;  
+  margin-bottom: 30px;
 }
 
 .panel-heading{
@@ -336,7 +336,7 @@ nav {
     border-bottom: 1px solid $background;
   }
   thead{
-    border-bottom: 1px solid $background; 
+    border-bottom: 1px solid $background;
   }
 }
 
@@ -345,7 +345,7 @@ nav {
 }
 
 .table-label-holder{
-  float: right; 
+  float: right;
   padding-right: 40px
 }
 
@@ -380,8 +380,8 @@ span .table-cell{
 }
 
 .metadata-table{
-  tbody > tr > td { 
-    border-top: none; 
+  tbody > tr > td {
+    border-top: none;
   }
 }
 
@@ -407,14 +407,14 @@ span .table-cell{
   .nav-pills > li.active > a{
     background-color: #eeeeee;
     color: $brand-primary;
-  }  
+  }
 }
 
 
 /***********  OTHER DISPLAY **********/
 #resource-chart{
   margin-top: 30px;
-  margin-bottom: 50px;  
+  margin-bottom: 50px;
 }
 
 input[type="checkbox"]{
@@ -454,6 +454,14 @@ input[type="checkbox"]{
 .conformance-test-badge{
   margin-left: 29px;
   margin-right: 29px;
+  &.results-passed {
+    background: #28BA0F;
+    border: none;
+  }
+  &.results-failed {
+    background: #B71817;
+    border: none;
+  }
 }
 
 .test-circle-holder{
@@ -486,7 +494,7 @@ input[type="checkbox"]{
   width: 30px;
   height: 30px;
   -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;  
+  -moz-border-radius: 50%;
   border: 1px solid $brand-secondary;
   background: $brand-secondary;
 }
@@ -497,7 +505,7 @@ input[type="checkbox"]{
   width: 30px;
   height: 30px;
   -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;  
+  -moz-border-radius: 50%;
   border: 1px solid $brand-secondary;
 }
 
@@ -513,7 +521,7 @@ input[type="checkbox"]{
   width: 15px;
   height: 15px;
   margin-left: 27px;
-  margin-right: 27px;  
+  margin-right: 27px;
   border: 1px solid #7F9FC5;
   background: #7F9FC5;
 }
@@ -558,8 +566,8 @@ table > tbody > tr > td{
   margin-left: 50px;
   margin-right: 50px;
   margin-bottom: 50px;
-  
-  login-btn{ 
+
+  login-btn{
     text-align: right;
     button{
       height: 100px;
@@ -582,7 +590,7 @@ table > tbody > tr > td{
 .login-inputs{
   text-align: center;
   margin-top: 30px;
-  margin-bottom: 26px;  
+  margin-bottom: 26px;
   margin-left: 50px;
   margin-right: 50px;
 }
@@ -590,4 +598,3 @@ table > tbody > tr > td{
 .login-input{
   margin-bottom: 10px;
 }
-

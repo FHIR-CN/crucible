@@ -67,7 +67,7 @@
             <!-- TEST PANEL END -->
             <!-- CONFORMANCE PANEL START -->
             <div class="tab-pane" id="conformance-data">
-              {{render "partials/_conformance" conformance}}
+              {{view Crucible.ConformanceView contextBinding="conformance"}}
             </div>
             <!-- CONFORMANCE PANEL END -->
             <!-- HEATMAP PANEL START -->

@@ -83,7 +83,7 @@
                                             {{test.description}}
                                           </td>
                                           <td>
-                                            <span {{bind-attr class="test.status"}}>{{test.status}}</span> 
+                                            <span {{bind-attr class="test.status"}}>{{test.status}}</span>
                                           </td>
                                           <td>
                                             {{#if test.warnings}}<i class="glyphicon glyphicon-warning-sign warning"></i>{{/if}}
@@ -183,7 +183,7 @@
             <!-- TEST PANEL END -->
             <!-- CONFORMANCE PANEL START -->
             <div class="tab-pane" id="conformance-data">
-              {{render "partials/_conformance" conformance}}
+              {{view Crucible.ConformanceView contextBinding="conformance"}}
             </div>
             <!-- CONFORMANCE PANEL END -->
             <!-- HEATMAP PANEL START -->
