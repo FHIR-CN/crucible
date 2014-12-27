@@ -19,6 +19,11 @@ Crucible.Test = DS.Model.extend
     else
       false
   ).property('results')
+  specificTitle: (->
+    title = @get('title')
+    title += "_#{@get('resource_class').split('::')[1]}" if @get('resource_class')?
+    title
+  ).property('title','resource_class')
   summary: (->
     summary = {}
     if @get('completed')
@@ -31,9 +36,8 @@ Crucible.Test = DS.Model.extend
               for method in validation.methods
                 summary[res][method] ?= {status: "", passed: [], failed: [], skipped: []}
                 switch test.status
-                  when 'pass' then summary[res][method].passed.push(test.key)
-                  when 'fail' then summary[res][method].failed.push(test.key)
-                  when 'skip' then summary[res][method].skipped.push(test.key)
+                  when 'pass' then summary[res][method].passed.push suite: @get('specificTitle'), key: test.key
+                  when 'fail' then summary[res][method].failed.push suite: @get('specificTitle'), key: test.key
                   else {}
                 summary[res][method]['status'] = 'results-failed' if summary[res][method].failed.length
                 summary[res][method]['status'] = 'results-passed' if summary[res][method].passed.length && !summary[res][method].failed.length

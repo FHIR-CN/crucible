@@ -48,10 +48,10 @@ module Api
       conformance = JSON.parse(FHIR::Client.new(params[:url]).conformanceStatement.to_json)
       conformance['rest'].each do |rest|
         rest['operation'] = rest['operation'].reduce({}) {|memo,operation| memo[operation['code']]=true; memo}
-        rest['results'] = rest['operation'].reduce({}) {|memo,code| memo[code[0]]={:passed => [], :failed => [], :skipped => [], :status => ""}; memo}
+        rest['results'] = rest['operation'].reduce({}) {|memo,code| memo[code[0]]={:passed => [], :failed => [], :status => ""}; memo}
         rest['resource'].each do |resource|
           resource['operation'] = resource['operation'].reduce({}) {|memo,operation| memo[operation['code']]=true; memo}
-          resource['results'] = resource['operation'].reduce({}) {|memo,code| memo[code[0]]={:passed => [], :failed => [], :skipped => [], :status => ""}; memo}
+          resource['results'] = resource['operation'].reduce({}) {|memo,code| memo[code[0]]={:passed => [], :failed => [], :status => ""}; memo}
         end
       end
       render json: conformance

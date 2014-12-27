@@ -21,9 +21,8 @@
         {{#if runningTestCount}}
           <div class="row">
             <div class="progress">
-              <div {{bind-attr class=":progress-bar :progress-bar-crucible isComplete:progress-bar-striped isComplete:active"}} role="progressbar" {{bind-attr aria-valuenow=executionProgress}} aria-valuemin="0" aria-valuemax="100" {{bind-attr style=progressStyle}}>
+              <div {{bind-attr class=":progress-bar :progress-bar-striped :active"}} role="progressbar" {{bind-attr aria-valuenow=executionProgress}} aria-valuemin="0" aria-valuemax="100" {{bind-attr style=progressStyle}}>
                 <span class="sr-only">{{executionProgress}}% Complete</span>
-                {{executionProgress}}%
               </div>
             </div>
           </div>

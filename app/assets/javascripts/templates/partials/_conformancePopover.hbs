@@ -1,0 +1,12 @@
+{{#unless status}}
+None
+{{else}}
+<ul class="list-group">
+  {{#each fail in failed}}
+  <li class="list-group-item list-group-item-danger">{{fail.suite}}: {{fail.key}}</li>
+  {{/each}}
+  {{#each pass in passed}}
+  <li class="list-group-item list-group-item-success">{{pass.suite}}: {{pass.key}}</li>
+  {{/each}}
+</ul>
+{{/unless}}
