@@ -74,7 +74,7 @@
                                       </thead>
                                       <tbody>
                                       {{#each test in result.tests}}
-                                         <tr href="#test_result{{unbound test.id}}" data-toggle="pill">
+                                        {{#view Crucible.ResultsRowView}}
                                           <td>
                                             {{test.id}}
                                           </td>
@@ -87,7 +87,7 @@
                                           <td>
                                             {{#if test.warnings}}<i class="glyphicon glyphicon-warning-sign warning"></i>{{/if}}
                                           </td>
-                                        </tr>
+                                        {{/view}}
                                       {{/each}}
                                       </tbody>
                                     </table>
