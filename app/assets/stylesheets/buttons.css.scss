@@ -1,0 +1,25 @@
+.btn {
+  height: 34px;
+  width: 100%;
+  background-color: $brand-secondary;
+  border-color: $brand-secondary;
+  color: $brand-tertiary;
+    a {
+      color: $brand-tertiary;
+    }
+    a:hover{
+      color: $brand-tertiary;
+      text-decoration: none;
+    }
+}
+
+.btn:focus {
+  background-color: $brand-secondary;
+  border-color: $brand-secondary;
+  color: $brand-tertiary;
+}
+
+.btn:hover{
+  color: $brand-tertiary;
+  text-decoration: none;
+}

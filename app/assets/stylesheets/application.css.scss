@@ -2,7 +2,22 @@
 @import "bootstrap";
 // @import "font-awesome";
 
+@import "variables";
+@import "bootstrap3";
+
 @import "tests";
 @import "main";
 @import "server";
 @import "home";
+
+@import "accessibility";
+@import "alert";
+@import "buttons";
+@import "components";
+@import "dialogues";
+@import "forms";
+@import "labels";
+@import "navigation";
+@import "panels";
+@import "tables";
+@import "widgets";

@@ -1,0 +1,64 @@
+body {
+  background-color: $background;
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+
+footer {
+  background-color: $brand-primary;
+  border-color: $brand-primary;
+  margin-top: 100px;
+
+  /*overridding bootstrap behavior*/
+  .nav > li > a:hover{
+    background-color: $brand-primary;
+  }
+  .nav > li > a:visited{
+    background-color: $brand-primary;
+  }
+
+}
+
+header {
+  background-color: $brand-primary;
+  border-color: $brand-primary;
+  border-radius: 0px;
+
+  /*overridding a bootstrap behavior*/
+  .nav > li > a:hover{
+    background-color: $brand-primary;
+  }
+  .nav > li > a:visited{
+    background-color: $brand-primary;
+  }
+}
+
+h1{
+  font-size: 29px;
+  color: $brand-primary;
+  margin-bottom: 40px;
+  margin-top: 0;
+}
+
+h2{
+  font-size: 29px;
+  color: $brand-primary;
+  margin-top: 0;
+  text-align: left;
+}
+
+/*make this a p or something */
+.helper_text{
+  font-size: 12px;
+  text-align: left;
+  color: #5A564D;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+img{
+  padding: 20px;
+}
+
+.img-div{
+  text-align: center;
+}
