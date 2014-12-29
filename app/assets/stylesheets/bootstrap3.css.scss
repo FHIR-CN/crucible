@@ -1,21 +1,9 @@
+/*****************************************************************************/
+/**         This file is for overridding the default bootstrap behavior     **/
+/*****************************************************************************/
 body {
   background-color: $background;
   font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
-}
-
-footer {
-  background-color: $brand-primary;
-  border-color: $brand-primary;
-  margin-top: 100px;
-
-  /*overridding bootstrap behavior*/
-  .nav > li > a:hover{
-    background-color: $brand-primary;
-  }
-  .nav > li > a:visited{
-    background-color: $brand-primary;
-  }
-
 }
 
 header {
@@ -23,12 +11,29 @@ header {
   border-color: $brand-primary;
   border-radius: 0px;
 
-  /*overridding a bootstrap behavior*/
   .nav > li > a:hover{
-    background-color: $brand-primary;
+    &:visited{
+      background-color: $brand-primary;
+    }
+    &:hover{
+      background-color: $brand-primary;
+    }
   }
-  .nav > li > a:visited{
-    background-color: $brand-primary;
+
+}
+
+footer {
+  background-color: $brand-primary;
+  border-color: $brand-primary;
+  margin-top: 100px;
+
+  .nav > li > a:hover{
+    &:visited{
+      background-color: $brand-primary;
+    }
+    &:hover{
+      background-color: $brand-primary;
+    }
   }
 }
 

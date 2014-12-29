@@ -1,0 +1,34 @@
+.meta-container{
+  background-color: $brand-tertiary;
+}
+
+.metadata-table{
+  tbody > tr > td {
+    border-top: none;
+  }
+}
+
+.metadata-label{
+  font-weight: bold;
+  color: #7F9FC5;
+}
+
+.metadata-menu{
+  font-size: 11px;
+}
+
+.metadata-title{
+  text-align: center;
+}
+
+.metadata-selector{
+  .nav-pills > li > a{
+    color: $brand-primary;
+    border-radius: 2px;
+    padding: 5px 10px;
+  }
+  .nav-pills > li.active > a{
+    background-color: #eeeeee;
+    color: $brand-primary;
+  }
+}

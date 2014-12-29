@@ -27,3 +27,51 @@
     margin-top: 30px;
   }
 }
+
+/*CHANGE THIS*/
+.section-xsmall {
+  margin-bottom: 50px;
+}
+
+.section-small {
+  margin-bottom: 100px;
+}
+
+.section-medium {
+  margin-bottom: 200px;
+}
+
+.section-large {
+  margin-bottom: 300px;
+}
+
+.section-xlarge {
+  margin-bottom: 400px;
+}
+
+.next-steps-container{
+  button{
+    margin-bottom: 10px;
+  }
+}
+
+
+/*TABBED DATA*/
+/* START: 3 tabs for tests, conformance, heat map */
+.tabbed-data{
+  font-size: 20px;
+  font-weight: 50;
+  display: inline-block;
+  width:33%;
+}
+
+.tabbed-data-container{
+  margin-top: 25px;
+}
+
+.nav-tabs > li > a{
+  color: $brand-primary;
+}
+/*END*/
+
+

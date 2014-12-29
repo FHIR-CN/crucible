@@ -1,0 +1,44 @@
+
+.login{
+  text-align: center;
+  font-size: 60px;
+  font-weight: bold;
+  color: $brand-primary;
+}
+
+.login-footer{
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 50px;
+
+  login-btn{
+    text-align: right;
+    button{
+      height: 100px;
+    }
+  }
+  login-options{
+    vertical-align: center;
+    position: absolute;
+  }
+}
+
+.modal-content{
+  background-color: $background;
+}
+
+.modal-body{
+  padding: 40px;
+}
+
+.login-inputs{
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 26px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.login-input{
+  margin-bottom: 10px;
+}

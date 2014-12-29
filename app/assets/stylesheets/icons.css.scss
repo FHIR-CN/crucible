@@ -1,0 +1,107 @@
+
+/*spinning loading icon*/
+.glyphicon-refresh-animate {
+    float: right;
+    margin-right: 17px;
+    -animation: spin .7s infinite linear;
+    -webkit-animation: spin2 .7s infinite linear;
+}
+
+@-webkit-keyframes spin2 {
+    from { -webkit-transform: rotate(0deg);}
+    to { -webkit-transform: rotate(360deg);}
+}
+
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg);}
+    to { transform: scale(1) rotate(360deg);}
+}
+
+.conformance-test-badge{
+  margin-left: 29px;
+  margin-right: 29px;
+  &.results-passed {
+    background: #28BA0F;
+    border: none;
+  }
+  &.results-failed {
+    background: #B71817;
+    border: none;
+  }
+}
+
+.test-circle-holder{
+  float: right;
+  padding-right: 30px;
+}
+
+.animation-icons{
+  float:right;
+}
+
+/*start loading bar*/
+.progress{
+  margin-top: 35px;
+  height: 30px;
+  background-color: $brand-tertiary;
+  border: 1px solid $brand-secondary;
+}
+
+.progress-bar{
+  background-color: $brand-secondary;
+  width: 40%;
+}
+/*end loading bar*/
+
+/*start circle stuff*/
+.circle-filled{
+  display: inline-block;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border: 1px solid $brand-secondary;
+  background: $brand-secondary;
+}
+
+.circle-empty{
+  display: inline-block;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border: 1px solid $brand-secondary;
+}
+
+.test-circle-empty{
+  width: 15px;
+  height: 15px;
+  margin-left: 27px;
+  margin-right: 27px;
+  border: 1px solid #7F9FC5;
+}
+
+.test-circle-filled{
+  width: 15px;
+  height: 15px;
+  margin-left: 27px;
+  margin-right: 27px;
+  border: 1px solid #7F9FC5;
+  background: #7F9FC5;
+}
+
+.passed{
+  color: #28BA0F;
+  float: right;
+  margin-right: 17px;
+}
+
+.failed{
+  color: #B71817;
+  float: right;
+  margin-right: 17px;
+}
+
+/*end circle stuff*/
