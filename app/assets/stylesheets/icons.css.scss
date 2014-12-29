@@ -21,25 +21,19 @@
   margin-left: 29px;
   margin-right: 29px;
   &.results-passed {
-    background: #28BA0F;
+    background: $success;
     border: none;
   }
   &.results-failed {
-    background: #B71817;
+    background: $failure;
     border: none;
   }
-}
-
-.test-circle-holder{
-  float: right;
-  padding-right: 30px;
 }
 
 .animation-icons{
   float:right;
 }
 
-/*start loading bar*/
 .progress{
   margin-top: 35px;
   height: 30px;
@@ -51,9 +45,7 @@
   background-color: $brand-secondary;
   width: 40%;
 }
-/*end loading bar*/
 
-/*start circle stuff*/
 .circle-filled{
   display: inline-block;
   border-radius: 50%;
@@ -75,12 +67,17 @@
   border: 1px solid $brand-secondary;
 }
 
+.test-circle-holder{
+  float: right;
+  padding-right: 30px;
+}
+
 .test-circle-empty{
   width: 15px;
   height: 15px;
   margin-left: 27px;
   margin-right: 27px;
-  border: 1px solid #7F9FC5;
+  border: 1px solid $brand-accent;
 }
 
 .test-circle-filled{
@@ -88,20 +85,19 @@
   height: 15px;
   margin-left: 27px;
   margin-right: 27px;
-  border: 1px solid #7F9FC5;
-  background: #7F9FC5;
+  border: 1px solid $brand-accent;
+  background: $brand-accent;
 }
 
 .passed{
-  color: #28BA0F;
+  color: $success;
   float: right;
   margin-right: 17px;
 }
 
 .failed{
-  color: #B71817;
+  color: $failure;
   float: right;
   margin-right: 17px;
 }
 
-/*end circle stuff*/

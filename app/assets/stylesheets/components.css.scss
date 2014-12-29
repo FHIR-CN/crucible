@@ -3,7 +3,7 @@
   margin-bottom: 100px;
 }
 
-.main-container {
+.container.main{
   margin-top: 100px;
   margin-bottom: 100px;
 }
@@ -21,32 +21,12 @@
 .tri-row {
   text-align: center;
   margin: 40px 0;
+  margin-bottom: 200px;
   .palette{
     padding: 20px;
     min-height: 320px;
     margin-top: 30px;
   }
-}
-
-/*CHANGE THIS*/
-.section-xsmall {
-  margin-bottom: 50px;
-}
-
-.section-small {
-  margin-bottom: 100px;
-}
-
-.section-medium {
-  margin-bottom: 200px;
-}
-
-.section-large {
-  margin-bottom: 300px;
-}
-
-.section-xlarge {
-  margin-bottom: 400px;
 }
 
 .next-steps-container{

@@ -10,7 +10,7 @@
 
 .metadata-label{
   font-weight: bold;
-  color: #7F9FC5;
+  color: $brand-accent;
 }
 
 .metadata-menu{
@@ -30,5 +30,11 @@
   .nav-pills > li.active > a{
     background-color: #eeeeee;
     color: $brand-primary;
+    &:focus{
+      background-color: #eeeeee;
+    }
+    &:hover{
+      background-color: #eeeeee;
+    }    
   }
 }

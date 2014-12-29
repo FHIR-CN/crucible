@@ -11,7 +11,7 @@ header {
   border-color: $brand-primary;
   border-radius: 0px;
 
-  .nav > li > a:hover{
+  .nav > li > a{
     &:visited{
       background-color: $brand-primary;
     }
@@ -27,7 +27,7 @@ footer {
   border-color: $brand-primary;
   margin-top: 100px;
 
-  .nav > li > a:hover{
+  .nav > li > a{
     &:visited{
       background-color: $brand-primary;
     }
@@ -38,17 +38,24 @@ footer {
 }
 
 h1{
-  font-size: 29px;
+  font-size: 30px;
   color: $brand-primary;
   margin-bottom: 40px;
   margin-top: 0;
 }
 
 h2{
-  font-size: 29px;
+  font-size: 30px;
   color: $brand-primary;
   margin-top: 0;
   text-align: left;
+}
+
+h6{
+  text-align: left;
+  color: #5A564D;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 /*make this a p or something */
@@ -66,4 +73,9 @@ img{
 
 .img-div{
   text-align: center;
+  margin-bottom: 100px;
+}
+
+.img-div .landing-page {
+  margin-bottom: 50px;
 }
