@@ -1,24 +1,5 @@
-.meta-container{
+.row.metadata{
   background-color: $brand-tertiary;
-}
-
-.metadata-table{
-  tbody > tr > td {
-    border-top: none;
-  }
-}
-
-.metadata-label{
-  font-weight: bold;
-  color: $brand-accent;
-}
-
-.metadata-menu{
-  font-size: 11px;
-}
-
-.metadata-title{
-  text-align: center;
 }
 
 .metadata-selector{
