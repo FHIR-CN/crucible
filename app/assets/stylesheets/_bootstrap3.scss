@@ -51,11 +51,10 @@ h2{
   text-align: left;
 }
 
-/*make this a p or something */
 .helper_text{
   font-size: 12px;
   text-align: left;
-  color: #5A564D;
+  color: $brand-primary;
   margin-top: 10px;
   margin-bottom: 10px;
 }
@@ -72,3 +71,7 @@ img{
 .img-div.landing-page {
   margin-bottom: 50px;
 }
+
+
+
+

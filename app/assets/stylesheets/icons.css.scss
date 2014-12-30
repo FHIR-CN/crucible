@@ -48,25 +48,27 @@
   width: 40%;
 }
 
-.circle-filled{
+@mixin circle($color, $diameter){
   display: inline-block;
   border-radius: 50%;
-  width: 30px;
-  height: 30px;
+  width: $diameter;
+  height: $diameter;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
-  border: 1px solid $brand-secondary;
-  background: $brand-secondary;
+  border: 1px solid $color;
+  &.filled{
+    background: $color;
+  }
 }
 
-.circle-empty{
-  display: inline-block;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  border: 1px solid $brand-secondary;
+.nav-circle{
+  @include circle($brand-secondary, 30px);
+}
+
+.test-circle{
+  margin-left: 27px;
+  margin-right: 27px;
+  @include circle($brand-accent, 15px);
 }
 
 .test-circle-holder{
@@ -74,7 +76,16 @@
   padding-right: 30px;
 }
 
-.test-circle-empty{
+.row-of-circles{
+  float: right;
+  padding-right: 30px;
+/*  .test-circle{
+    margin-left: 27px;
+    margin-right: 27px;
+  }*/
+}
+
+/*.test-circle-empty{
   width: 15px;
   height: 15px;
   margin-left: 27px;
@@ -89,7 +100,7 @@
   margin-right: 27px;
   border: 1px solid $brand-accent;
   background: $brand-accent;
-}
+}*/
 
 .passed{
   color: $success;
