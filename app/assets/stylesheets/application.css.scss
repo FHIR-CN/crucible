@@ -1,8 +1,26 @@
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 // @import "font-awesome";
 
+@import "variables";
+@import "bootstrap3";
+
 @import "tests";
-@import "main";
 @import "server";
 @import "home";
+
+@import "accessibility";
+@import "alert";
+@import "buttons";
+@import "components";
+@import "dialogues";
+@import "forms";
+@import "icons";
+@import "labels";
+@import "login";
+@import "metadata";
+@import "navigation";
+@import "panels";
+@import "tables";
+@import "widgets";

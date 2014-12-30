@@ -1,0 +1,52 @@
+.table {
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  tr{
+    border-bottom: 1px solid $background;
+  }
+  thead{
+    border-bottom: 1px solid $background;
+  }
+}
+
+.table-header{
+  font-size: 14px;
+}
+
+.table-label-holder{
+  float: right;
+  padding-right: 40px
+}
+
+table > tbody > tr > td{
+  text-align: left;
+}
+
+table > thead > tr > th{
+  text-align: left;
+}
+
+.table-container{
+  height: 300px;
+  overflow: auto;
+}
+
+span .table-cell{
+  display: inline-block;
+  width: 70px;
+  font-size: 14px;
+  text-align: center;
+}
+
+table > tbody > tr > td{
+  .passed{
+    float: none;
+    margin-right: 0px;
+  }
+
+  .failed{
+    float: none;
+    margin-right: 0px;
+  }
+}

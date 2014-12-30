@@ -1,14 +1,14 @@
-<div class="main-container container">
+<div class="container main">
 
-  <div class="img-div section-small">
-    <span class="circle-empty"></span> &nbsp
-    <span class="circle-empty"></span> &nbsp
-    <span class="circle-filled"></span>
+  <div class="picture">
+    <span class="nav-circle"></span> &nbsp
+    <span class="nav-circle"></span> &nbsp
+    <span class="nav-circle filled"></span>
   </div>
 
-  <div class="row section-large">
+  <div class="row content">
     <div class="col-md-12">
-      <div class="palette">
+      <div class="palette report">
         <div class="row">
           <div class="col-md-10">
             <h2>Review Test Results</h2>
@@ -51,7 +51,7 @@
                           <a class="collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#test{{unbound test.reference}}" aria-expanded="false" >
                           <small>(more)</small></a>
                           {{#if test.running}}
-                            <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
+                            <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate tests"></span>
                           {{/if}}
                           {{#if test.completed}}
                             <i {{bind-attr class=":glyphicon  test.passed:glyphicon-ok-circle:glyphicon-remove-circle test.passed:passed:failed"}}></i>
