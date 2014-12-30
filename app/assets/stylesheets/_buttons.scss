@@ -4,16 +4,21 @@
   background-color: $brand-secondary;
   border-color: $brand-secondary;
   color: $brand-tertiary;
-
   &:focus {
     background-color: $brand-secondary;
     border-color: $brand-secondary;
     color: $brand-tertiary;
+    outline: none;
   }
   &:hover{
     color: $brand-tertiary;
+    background-color: darken($brand-secondary, 11%);
+    border-color: darken($brand-secondary, 11%);
     text-decoration: none;
   }
+  &:active:focus{
+    outline: none;
+  };
   a {
     color: $brand-tertiary;
     &:hover{

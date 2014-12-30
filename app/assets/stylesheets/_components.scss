@@ -33,12 +33,6 @@
   }
 }
 
-.next-steps-container{
-  button{
-    margin-bottom: 10px;
-  }
-}
-
 /*TABBED DATA*/
 /* START: 3 tabs for tests, conformance, heat map */
 .tabbed-data{
@@ -57,4 +51,13 @@
 }
 /*END*/
 
-
+.picture{
+  text-align: center;
+  margin-bottom: 100px;
+  img{
+    padding: 20px;
+  }
+  &.landing-page{
+    margin-bottom: 50px;
+  }
+}
