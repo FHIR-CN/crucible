@@ -60,6 +60,12 @@
   &.filled{
     background: $color;
   }
+  &.results-failed {
+    background: $failure;
+  }
+  &.results-passed {
+    background: $success;
+  }
 }
 
 .nav-circle{
@@ -93,4 +99,3 @@
   float: right;
   margin-right: 17px;
 }
-

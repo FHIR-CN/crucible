@@ -82,9 +82,9 @@
           <span class="table-cell">{{r.mode}}</span>
         </div>
         <div class="col-md-9">
-          <div class="col-md-1"><i {{bind-attr class=":glyphicon :test-circle res.operation.transaction:filled :conformance-test-badge res.results.transaction.status"}}>{{#if r.results.transaction.status}}{{#bootstrap-popover title="'''''" tagName="span"}}{{render 'partials/_conformancePopover' r.results.transaction}}{{/bootstrap-popover}}{{/if}}</i></div><div class="col-md-3">Transaction</div>
-          <div class="col-md-1"><i {{bind-attr class=":glyphicon :test-circle res.operation.history-system:filled :conformance-test-badge res.results.history-system.status"}}>{{#if r.results.history-system.status}}{{#bootstrap-popover title="'''''" tagName="span"}}{{render 'partials/_conformancePopover' r.results.history-system}}{{/bootstrap-popover}}{{/if}}</i></div><div class="col-md-3">System-History</div>
-          <div class="col-md-1"><i {{bind-attr class=":glyphicon :test-circle res.operation.search-system:filled :conformance-test-badge res.results.search-system.status"}}>{{#if r.results.search-system.status}}{{#bootstrap-popover title="'''''" tagName="span"}}{{render 'partials/_conformancePopover' r.results.search-system}}{{/bootstrap-popover}}{{/if}}</i></div><div class="col-md-3">System-Search</div>
+          <div class="col-md-1"><i {{bind-attr class=":glyphicon :test-circle r.operation.transaction:filled :conformance-test-badge r.results.transaction.status"}}>{{#if r.results.transaction.status}}{{#bootstrap-popover title="'''''" tagName="span"}}{{render 'partials/_conformancePopover' r.results.transaction}}{{/bootstrap-popover}}{{/if}}</i></div><div class="col-md-3">Transaction</div>
+          <div class="col-md-1"><i {{bind-attr class=":glyphicon :test-circle r.operation.history-system:filled :conformance-test-badge r.results.history-system.status"}}>{{#if r.results.history-system.status}}{{#bootstrap-popover title="'''''" tagName="span"}}{{render 'partials/_conformancePopover' r.results.history-system}}{{/bootstrap-popover}}{{/if}}</i></div><div class="col-md-3">System-History</div>
+          <div class="col-md-1"><i {{bind-attr class=":glyphicon :test-circle r.operation.search-system:filled :conformance-test-badge r.results.search-system.status"}}>{{#if r.results.search-system.status}}{{#bootstrap-popover title="'''''" tagName="span"}}{{render 'partials/_conformancePopover' r.results.search-system}}{{/bootstrap-popover}}{{/if}}</i></div><div class="col-md-3">System-Search</div>
         </div>
       </div>
     </div>
