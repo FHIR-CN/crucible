@@ -9,6 +9,7 @@ Crucible.Server = DS.Model.extend
   progressStyle: (-> if @get('executionProgress') < 2 then "width: 2%;" else "width: #{@get('executionProgress')}%;").property('executionProgress')
   runningTestCount:( -> @get('tests').filterBy('running', true).length).property('tests.@each.running')
   updateConformanceResults: (->
+    return unless @get('tests')?
     tests = @get('tests').filter((t) -> _(t.get('summary')).keys().length > 0).getEach('summary')
     conf = @get('conformance')
     @set('conformance', null) #FIXME Change model directly to trigger rerender
