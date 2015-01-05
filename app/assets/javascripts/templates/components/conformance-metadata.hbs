@@ -1,0 +1,9 @@
+        <div class="row">
+          <div class="col-md-4">
+            <div><label>{{title}}:</label></div>
+          </div>
+          <div class="col-md-8">
+            <div>{{#if boolean}}{{#if value}}Yes{{else}}No{{/if}}{{else}}{{value}}{{/if}}</div>
+            {{#if isMultiple}}<div>{{#if boolean}}{{#if value2}}Yes{{else}}No{{/if}}{{else}}{{value2}}{{/if}}</div>{{/if}}
+          </div>
+        </div>
