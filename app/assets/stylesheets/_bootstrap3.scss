@@ -51,6 +51,16 @@ h2{
   text-align: left;
 }
 
+a{
+  color: $brand-accent;
+  &.toggle-info{
+    font-size: 15px;
+    &:hover{
+      text-decoration: none;
+    }
+  }
+}
+
 .helper_text{
   font-size: 12px;
   text-align: left;

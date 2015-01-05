@@ -23,9 +23,9 @@
       </div>
       <div class="col-md-2">
         {{#if multiServer}}
-          <button {{action 'removeUrl'}}>Single Server Test</button>
+          <a {{action 'removeUrl'}} class="toggle-info" >- &nbsp Remove Server</a>
         {{else}}
-          <button {{action 'addUrl'}}>Add A Server</button>
+          <a {{action 'addUrl'}} class="toggle-info" >+ &nbsp Add A Server</a>
         {{/if}}        
       </div>
     </div>
