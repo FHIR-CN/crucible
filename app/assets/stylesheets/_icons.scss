@@ -88,6 +88,23 @@
   padding-right: 30px;
 }
 
+.left-circle{
+     height:16px;
+     width:8px;
+     border-radius: 0px 90px 90px 0px;
+     -moz-border-radius: 0px 90px 90px 0px;
+     -webkit-border-radius: 0px 90px 90px 0px;
+     background:green;
+}
+.right-circle{
+     height:16px;
+     width:8px;
+     border-radius: 90px 0px 0px 90px;
+     -moz-border-radius: 90px 0px 0px 90px;
+     -webkit-border-radius: 90px 0px 0px 90px;
+     background:green;
+}
+
 .passed{
   color: $success;
   float: right;
