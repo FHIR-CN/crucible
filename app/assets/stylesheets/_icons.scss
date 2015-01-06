@@ -88,22 +88,37 @@
   padding-right: 30px;
 }
 
-.left-circle{
+/**********  testing purposes, will re work  **********/
+.test-filled{
+  margin-left: 27px;
+  margin-right: 27px;
+  @include circle($brand-accent, 15px);
+  background: $brand-accent;
+}
+
+.test-empty{
+  margin-left: 27px;
+  margin-right: 27px;
+  @include circle($brand-accent, 15px);
+}
+
+.right-circle{
      height:16px;
      width:8px;
      border-radius: 0px 90px 90px 0px;
      -moz-border-radius: 0px 90px 90px 0px;
      -webkit-border-radius: 0px 90px 90px 0px;
-     background:green;
+     background:$brand-accent;
 }
-.right-circle{
+.left-circle{
      height:16px;
      width:8px;
      border-radius: 90px 0px 0px 90px;
      -moz-border-radius: 90px 0px 0px 90px;
      -webkit-border-radius: 90px 0px 0px 90px;
-     background:green;
+     background:$brand-accent;
 }
+/**********  /END testing purposes, will re work  **********/
 
 .passed{
   color: $success;
