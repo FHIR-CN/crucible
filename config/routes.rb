@@ -8,6 +8,11 @@ Rails.application.routes.draw do
 
   resources :tests, defaults: { format: :json }
 
+  get 'monitors/:id/record/*fhir_request' => 'monitors#record'
+  post 'monitors/:id/record/*fhir_request' => 'monitors#record'
+  put 'monitors/:id/record/*fhir_request' => 'monitors#record'
+  delete 'monitors/:id/record/*fhir_request' => 'monitors#record'
+
   root to: "home#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
