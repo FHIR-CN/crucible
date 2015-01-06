@@ -69,7 +69,16 @@ a{
   margin-bottom: 10px;
 }
 
-
+.row{
+  &.metadata{
+    background-color: $brand-tertiary;
+  }
+  &.conformance{
+    &.header-data{
+      margin-top: 50px;
+    }
+  }
+}
 
 
 

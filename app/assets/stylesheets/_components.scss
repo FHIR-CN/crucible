@@ -66,3 +66,21 @@
   overflow:hidden;
   word-wrap:break-word;
 }
+
+.metadata-selector{
+  .nav-pills > li > a{
+    color: $brand-primary;
+    border-radius: 2px;
+    padding: 5px 10px;
+  }
+  .nav-pills > li.active > a{
+    background-color: #eeeeee;
+    color: $brand-primary;
+    &:focus{
+      background-color: #eeeeee;
+    }
+    &:hover{
+      background-color: #eeeeee;
+    }    
+  }
+}
