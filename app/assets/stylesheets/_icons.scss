@@ -103,20 +103,25 @@
 }
 
 .right-circle{
-     height:16px;
-     width:8px;
-     border-radius: 0px 90px 90px 0px;
-     -moz-border-radius: 0px 90px 90px 0px;
-     -webkit-border-radius: 0px 90px 90px 0px;
-     background:$brand-accent;
+  margin-left: 34px;
+  margin-right: 27px;  
+  height:16px;
+  width:8px;
+  border-radius: 0px 90px 90px 0px;
+  -moz-border-radius: 0px 90px 90px 0px;
+  -webkit-border-radius: 0px 90px 90px 0px;
+  background:$brand-accent;
 }
+
 .left-circle{
-     height:16px;
-     width:8px;
-     border-radius: 90px 0px 0px 90px;
-     -moz-border-radius: 90px 0px 0px 90px;
-     -webkit-border-radius: 90px 0px 0px 90px;
-     background:$brand-accent;
+  margin-left: 27px;
+  margin-right: 34px;   
+  height:16px;
+  width:8px;
+  border-radius: 90px 0px 0px 90px;
+  -moz-border-radius: 90px 0px 0px 90px;
+  -webkit-border-radius: 90px 0px 0px 90px;
+  background:$brand-accent;
 }
 /**********  /END testing purposes, will re work  **********/
 

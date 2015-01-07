@@ -50,30 +50,56 @@ Crucible.Conformance = DS.Model.extend
   	@get('json')[1]
 
   collapseConformance: ->
+    operationsList = ['read', 'vread', 'update', 'delete', 'history-instance', 'validate', 'history-type', 'create', 'search-type']
     if @get('isMultiple')
       collapsed = Ember.copy(@first(), true)
+      collapsed2 = Ember.copy(@first(), true)
+
       secondMap = {}
+      overlappingResources = []
+      secondExclusive = {}
+
+      #populating list of resources of second server
       for rest in @second().rest
         for resource in rest.resource
           secondMap[resource.fhirType] = resource
+          if !collapsed[resource.fhirType]
+            secondExclusive[resource.fhirType] = resource
+
       for rest in collapsed.rest
         for resource in rest.resource
           secondResource = secondMap[resource.fhirType]
-          for op in ['read', 'vread', 'update', 'delete', 'history-instance', 'validate', 'history-type', 'create', 'search-type']
-            if resource.operation[op]
-              if secondResource.operation[op]
-                resource.operation[op] = 'test-filled'
+          if secondResource
+            overlappingResources.push resource.fhirType
+            for op in operationsList
+              if resource.operation[op]
+                if secondResource.operation[op]
+                  resource.operation[op] = 'test-filled'
+                else
+                  resource.operation[op] = 'left-circle'
+              else if secondResource.operation[op]
+                resource.operation[op] = 'right-circle'
               else
+                resource.operation[op] ='test-empty'
+          else
+            for op in operationsList
+              if resource.operation[op]
                 resource.operation[op] = 'left-circle'
-            else if secondResource.operation[op]
-              resource.operation[op] = 'right-circle'
-            else
-              resource.operation[op] ='test-empty'
+              else
+                resource.operation[op] ='test-empty'
+         for resource2 in secondExclusive
+           for op in operationsList
+             if resource2.operation[op]
+               resource.operation[op] = 'right-circle'
+             else
+               resource.operation[op] ='test-empty'
+
+
     else
       collapsed = Ember.copy(@first(), true)
       for rest in collapsed.rest
         for resource in rest.resource
-          for op in ['read', 'vread', 'update', 'delete', 'history-instance', 'validate', 'history-type', 'create', 'search-type']
+          for op in operationsList
             if resource.operation[op]
               resource.operation[op] = 'test-filled'
             else
