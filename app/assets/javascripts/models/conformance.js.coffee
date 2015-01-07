@@ -62,7 +62,7 @@ Crucible.Conformance = DS.Model.extend
       for resource in rest.resource
         secondResource = secondMap[resource.fhirType]
         for op in ['read', 'vread', 'update', 'delete', 'history-instance', 'validate', 'history-type', 'create', 'search-type']
-          if resource.operation[op] && secondResource.operation[op]
+          if secondResource.operation[op] && resource.operation[op] 
             resource.operation[op] = 'test-filled'
           else if resource.operation[op]
             resource.operation[op] = 'left-circle'

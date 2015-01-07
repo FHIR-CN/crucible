@@ -76,6 +76,10 @@ a{
   &.conformance{
     &.header-data{
       margin-top: 50px;
+      & .info-box{
+        text-align: left;
+        padding-left: 100px;
+      }
     }
   }
 }
