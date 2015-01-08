@@ -1,0 +1,22 @@
+{{#if isMultiple}}
+<div class="row conformance header-data">
+  <div class="col-md-3">
+    <select class="form-control" id="multiserver-selector" {{action 'multiserverSelect' on='change'}}>
+      <option>Server 1 OR Server 2</option>
+      <option>Server 1 AND Server 2</option>
+      <option>Server 1 - EXCLUSIVE</option>
+      <option>Server 2 - EXCLUSIVE</option>      
+    </select>
+  </div>
+  <div class="col-md-8 info-box">
+    <h4 class="conformance">Server 1: {{name}}</h4>
+    <h4 class="conformance">Server 2: {{name2}}</h4>
+  </div>
+</div>
+{{else}}
+<div class="row conformance header-data">
+  <div class="col-md-12">
+    <h4 class="conformance">Server: {{name}}</h4>
+  </div>
+</div>
+{{/if}}
