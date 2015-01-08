@@ -2,9 +2,9 @@
   <!-- BEGIN RESOURCE CHART -->
   <div class="row conformance header-data">
     <div class="col-md-3">
-      <select class="form-control" id="multiserver-selector" {{action 'multiserverSelect'}}>
-        <option>Server 1 AND Server 2</option>
+      <select class="form-control" id="multiserver-selector" {{action 'multiserverSelect' on='change'}}>
         <option>Server 1 OR Server 2</option>
+        <option>Server 1 AND Server 2</option>
         <option>Server 1 - EXCLUSIVE</option>
         <option>Server 2 - EXCLUSIVE</option>      
       </select>
