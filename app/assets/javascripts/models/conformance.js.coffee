@@ -51,26 +51,26 @@ Crucible.Conformance = DS.Model.extend
 
   collapseConformance: ->
     operationsList = ['read', 'vread', 'update', 'delete', 'history-instance', 'validate', 'history-type', 'create', 'search-type']
+
+    #multi server
     if @get('isMultiple')
       collapsed = Ember.copy(@first(), true)
-      collapsed2 = Ember.copy(@first(), true)
-
       secondMap = {}
-      overlappingResources = []
       secondExclusive = {}
+      temp = []
 
-      #populating list of resources of second server
+      # populating list of resources of second server
       for rest in @second().rest
         for resource in rest.resource
           secondMap[resource.fhirType] = resource
-          if !collapsed[resource.fhirType]
-            secondExclusive[resource.fhirType] = resource
+          temp.push resource.fhirType
 
       for rest in collapsed.rest
         for resource in rest.resource
+          if resource.fhirType in temp
+            temp.splice(temp.indexOf(resource.fhirType), 1)
           secondResource = secondMap[resource.fhirType]
           if secondResource
-            overlappingResources.push resource.fhirType
             for op in operationsList
               if resource.operation[op]
                 if secondResource.operation[op]
@@ -87,14 +87,19 @@ Crucible.Conformance = DS.Model.extend
                 resource.operation[op] = 'left-circle'
               else
                 resource.operation[op] ='test-empty'
-         for resource2 in secondExclusive
-           for op in operationsList
-             if resource2.operation[op]
-               resource.operation[op] = 'right-circle'
-             else
-               resource.operation[op] ='test-empty'
+
+        for resourceName in temp
+          resource = secondMap[resourceName]
+          for op in operationsList
+            if resource.operation[op]
+              resource.operation[op] = 'right-circle'
+            else
+              resource.operation[op] ='test-empty'
+          collapsed.rest[0].resource.push resource
 
 
+
+    #one server
     else
       collapsed = Ember.copy(@first(), true)
       for rest in collapsed.rest

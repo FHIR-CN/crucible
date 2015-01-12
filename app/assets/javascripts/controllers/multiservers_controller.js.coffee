@@ -1,5 +1,4 @@
 Crucible.MultiserversShowController = Ember.ObjectController.extend
-
   actions:
     multiserverSelect: ->
       selected = $('#multiserver-selector').val()
@@ -9,4 +8,4 @@ Crucible.MultiserversShowController = Ember.ObjectController.extend
         when "Server 1 OR Server 2" then $('#resource-chart .test-filled, .test-empty, .left-circle, .right-circle').css('visibility', 'visible')
         when "Server 1 - EXCLUSIVE" then $('#resource-chart .left-circle').css('visibility', 'visible')
         when "Server 2 - EXCLUSIVE" then $('#resource-chart .right-circle').css('visibility', 'visible')
-        else console.log '5'
+        else console.log 'Please check selector'
