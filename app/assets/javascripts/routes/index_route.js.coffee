@@ -1,8 +1,16 @@
 Crucible.IndexRoute = Crucible.DefaultRoute.extend
   actions:
     submit: ->
-      server = @get('currentModel')
-      server.save()
-      @transitionTo('servers.show', server)
+      if (@isMultiServer())
+        multiserver = @store.createRecord('multiserver', url1: @currentModel.server1, url2: @currentModel.server2);
+        multiserver.save()
+        @transitionTo('multiservers.show', multiserver)
+      else
+        server = @store.createRecord('server', url: @currentModel.server1);
+        server.save()
+        @transitionTo('servers.show', server)
+  isMultiServer: ->
+    @currentModel.server1? && @currentModel.server2
   model: ->
-    @store.createRecord('server')
+    {server1: null, server2: null}
+    

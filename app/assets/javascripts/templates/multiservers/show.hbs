@@ -1,23 +1,23 @@
-<div class="container main">
+<div class="main-container container">
 
-  <div class="picture">
-    <span class="nav-circle"></span> &nbsp
-    <span class="nav-circle filled"></span> &nbsp
-    <span class="nav-circle"></span>
+  <div class="img-div section-small">
+    <span class="circle-empty"></span> &nbsp
+    <span class="circle-filled"></span> &nbsp
+    <span class="circle-empty"></span>
   </div>
 
-  <div class="row content">
+  <div class="row section-large">
     <div class="col-md-12">
-      <div class="palette report">
+      <div class="palette">
         <div class="row">
           <div class="col-md-10">
-            <h2>Review Conformance and Select Tests</h2>
+            <h2>Review Conformances and Select Tests</h2>
           </div>
           <div class="col-md-2">
             <button type="submit" class="btn orange_btn" {{action "executeTests"}}>RUN</button>
           </div>
         </div>
-        <p class="helper_text">Each FHIR Interface will first generate a conformance statement. Based on the conformance, a given set of recommended tests will be shown to the user.</p>
+        <p class="helper_text">Each of the FHIR Interfaces will first generate conformance statements. Based on the conformances, a given set of recommended interoperability tests will be shown to the user.</p>
         {{#if runningTestCount}}
           <div class="row">
             <div class="progress">
@@ -41,7 +41,7 @@
             <div class="tab-pane active" id="test-data">
               <div class="col-md-12 tab-content-holder">
                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                  {{#each test in tests}}
+{{!--                   {{#each test in tests}}
                     <div class="toggleable panel-heading">
                       <h4 class="panel-title">
                         <label >
@@ -60,7 +60,7 @@
                     </div>
 
                   {{/each}}
-                </div>
+ --}}                </div>
               </div>
             </div>
             <!-- TEST PANEL END -->

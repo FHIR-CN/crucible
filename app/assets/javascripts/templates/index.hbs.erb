@@ -2,18 +2,36 @@
   <div class="picture landing-page">
     <%= image_tag "logo_dark.png" %>
   </div>
-  <div class="row form">
-    <form>
+  <form>
+    <div class="row form">
       <div class="col-md-10">
         <div>
-          {{input value=url class="form-control" placeholder="Please enter FHIR Server URL"}}
+          {{input value=server1 class="form-control" placeholder="Please enter comparison FHIR Server URL"}}
         </div>
       </div>
       <div class="col-md-2">
         <button  {{action "submit"}} class="btn">Begin</button>
       </div>
-    </form>
-  </div>
+    </div>
+    <div class="row form">
+      <div class="col-md-10">
+        <div class="form-group">
+          {{#if multiServer}}
+            {{input value=server2 class="form-control" placeholder="Please enter comparison FHIR Server URL"}}
+          {{/if}}        
+        </div>
+      </div>
+      <div class="col-md-2">
+        {{#if multiServer}}
+          <a {{action 'removeUrl'}} class="toggle-info" >- &nbsp Remove Server</a>
+        {{else}}
+          <a {{action 'addUrl'}} class="toggle-info" >+ &nbsp Add A Server</a>
+        {{/if}}        
+      </div>
+    </div>
+  </form>
+
+
   <div class="row">
     <div class="col-md-12">
       <div id="animation" class="palette"></div>
