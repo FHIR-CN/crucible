@@ -1,2 +1,2 @@
 Crucible.ConformanceView = Ember.View.extend
-  templateName: "conformance"
+  templateName: "conformance/conformance"

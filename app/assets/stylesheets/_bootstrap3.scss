@@ -51,6 +51,16 @@ h2{
   text-align: left;
 }
 
+a{
+  color: $brand-accent;
+  &.toggle-info{
+    font-size: 15px;
+    &:hover{
+      text-decoration: none;
+    }
+  }
+}
+
 .helper_text{
   font-size: 12px;
   text-align: left;
@@ -59,7 +69,20 @@ h2{
   margin-bottom: 10px;
 }
 
-
+.row{
+  &.metadata{
+    background-color: $brand-tertiary;
+  }
+  &.conformance{
+    &.header-data{
+      margin-top: 50px;
+      & .info-box{
+        text-align: left;
+        padding-left: 100px;
+      }
+    }
+  }
+}
 
 
 

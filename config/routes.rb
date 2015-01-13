@@ -68,6 +68,7 @@ Rails.application.routes.draw do
     get 'servers/conformance', to: 'servers#conformance'
     
     resources :servers
+    resources :multiservers
     resources :tests
   end
 
