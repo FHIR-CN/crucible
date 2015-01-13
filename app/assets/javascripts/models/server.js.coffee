@@ -16,8 +16,8 @@ Crucible.Server = DS.Model.extend
     for summary in tests
       for resource, results of summary
         if resource == 'system'
-          conf.rest[0].results = _(conf.rest[0].results).extend(results)
+          conf.get('rest')[0].results = _(conf.get('rest')[0].results).extend(results)
         else
-          _(conf.rest[0].resource).findWhere( fhirType: resource ).results = _(_(conf.rest[0].resource).findWhere( fhirType: resource ).results).extend(results)
+          _(conf.get('rest')[0].resource).findWhere( fhirType: resource ).results = _(_(conf.get('rest')[0].resource).findWhere( fhirType: resource ).results).extend(results)
     @set('conformance', conf)
   ).observes('tests.@each.results') # Replace with 'isComplete' for more performant rendering
