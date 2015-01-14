@@ -3,6 +3,7 @@ Crucible.Test = DS.Model.extend
   author: DS.attr('string')
   description: DS.attr('string')
   resource_class: DS.attr('string')
+  multiserver: DS.attr('string')
   tests: DS.attr()
   results: DS.attr()
   running: DS.attr("boolean", defaultValue: false)

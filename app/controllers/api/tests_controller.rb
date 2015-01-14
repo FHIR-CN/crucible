@@ -20,7 +20,7 @@ module Api
       #   }
       # }
 
-      Crucible::Tests::Executor.list_all.each do |k,v|
+      Crucible::Tests::Executor.list_all(params[:multiserver] == 'true').each do |k,v|
         list << {_id: index+=1}.merge(v)
       end
       tests = {tests: list}
