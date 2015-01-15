@@ -41,6 +41,13 @@
             <div class="tab-pane active" id="test-data">
               <div class="col-md-12 tab-content-holder">
                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <a {{action "selectAll"}}>Select All</a>
+                      |
+                      <a {{action "selectNone"}}>Select None</a>
+                    </div>
+                  </div>
                   {{#each test in tests}}
                     <div class="toggleable panel-heading">
                       <h4 class="panel-title">
