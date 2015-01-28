@@ -102,10 +102,14 @@ class TestsController < ApplicationController
   end
 
   def execute
-    params[:url] ||= 'http://fhir.healthintersections.com.au/open' # valid endpoint, commented to prevent spamming
     params[:title] ||= 'BaseTest'
-    # params[:url] ||= 'http://fhir.healthintersections.com.au/'
-    test = Crucible::Tests.const_get(params[:title]).new(FHIR::Client.new params[:url])
+    url = params[:url] || params[:url1]
+    url ||= 'http://fhir.healthintersections.com.au/open' # valid endpoint, commented to prevent spamming
+    client1 = FHIR::Client.new(url)
+    client2 = FHIR::Client.new(params[:url2]) if params[:url2]
+
+    test = Crucible::Tests.const_get(params[:title]).new(client1, client2)
+
     if params[:resource_class]
       val = { debug: params, results: test.execute(params[:resource_class].constantize) }
     else
