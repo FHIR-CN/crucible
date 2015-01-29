@@ -31,17 +31,18 @@ Crucible.ServersNewRoute = Ember.Route.extend
   model: ->
     @store.createRecord('server')
 
-Crucible.ServersResultsRoute = Ember.Route.extend
+# Use DefaultRoute and handle server.results to prevent Please Wait message
+Crucible.ServersResultsRoute = Crucible.DefaultRoute.extend
     model: (params) ->
       @store.find('server', params.server_id)
     afterModel: (server) ->
       tests = server.get("tests")||[]
-      if tests.length == 0
-        @transitionTo('servers.show', server)
-      for test in tests
-        test.set("results", null)
-        if test.get("active")# and not test.get("results")
-          @execute(test, server)
+      @transitionTo('servers.show', server) if tests.length == 0
+      test.set("results", null) for test in tests
+      # Retain all active tests
+      @executableTests = (test for test in tests when test.get('active'))
+      # Execute the first test, which will execute subsequent tests, if any
+      @execute(@executableTests.shift(), server) if @executableTests.length>0
 
     execute: (test, server) ->
       test.set("running", true)
@@ -51,7 +52,7 @@ Crucible.ServersResultsRoute = Ember.Route.extend
         params.resource_class = test.get('resource_class')
       paramsString = Object.keys(params).map((k) -> (k+"="+params[k])).join("&")
       suitePromise = DS.PromiseObject.create({promise: $.get("/tests/execute/#{test.get("title")}?#{paramsString}")})
-      suitePromise.then(() ->
+      suitePromise.then(() =>
         test.set("running", false)
         res= []
         title = test.get('title')
@@ -59,6 +60,7 @@ Crucible.ServersResultsRoute = Ember.Route.extend
         for testResult in suitePromise.content.results
           res.push(testResult[title])
         test.set("results", res)
+        @execute(@executableTests.shift(), server) if @executableTests.length>0
       )
     actions:
       rerun: ->

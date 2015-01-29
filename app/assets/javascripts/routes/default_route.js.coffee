@@ -1,15 +1,14 @@
 Crucible.DefaultRoute = Ember.Route.extend
-  enter: (router) -> 
+  enter: (router) ->
     $('.login-alert').delay(4200).fadeTo(800,0)
 
   actions:
     loading: ->
-      x = $('#loading-modal').modal(
+      return if @routeName in ['servers.results', 'multiservers.results']
+      loading = $('#loading-modal').modal(
         backdrop: 'static',
         keyboard: false
       )
       this.router.one('didTransition', ->
-        x.modal('hide')
+        loading.modal('hide')
       )
-      
-
