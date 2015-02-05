@@ -13,4 +13,3 @@ Crucible.IndexRoute = Crucible.DefaultRoute.extend
     @currentModel.server1? && @currentModel.server2
   model: ->
     {server1: null, server2: null}
-    

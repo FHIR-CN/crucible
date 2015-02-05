@@ -6,7 +6,7 @@ Crucible.MultiserversShowRoute = Ember.Route.extend
   model: (params) ->
     @store.find('multiserver', params.multiserver_id)
   afterModel: (server) ->
-    server.set("tests", @store.find("test", {multiserver: true}))
+    server.set("tests", @store.find("test", {multiserver: true, url1: server.get('url1'), url2: server.get('url2')}))
 
     conformance1 = DS.PromiseObject.create({promise: $.get("/api/servers/conformance?url=#{server.get("url1")}")})
     conformance1.then(() -> server.set("conformance1", conformance1.content))

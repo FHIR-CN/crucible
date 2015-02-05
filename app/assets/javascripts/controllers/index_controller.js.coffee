@@ -1,5 +1,5 @@
 Crucible.IndexController = Ember.ObjectController.extend
-  multiServer: false,
+  multiServer: false
 
   actions:
     addUrl: ->

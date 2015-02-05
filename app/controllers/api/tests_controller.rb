@@ -19,8 +19,17 @@ module Api
       #      :r004_get_bad_formatted_resource_id_test]
       #   }
       # }
-
-      Crucible::Tests::Executor.list_all(params[:multiserver] == 'true').each do |k,v|
+      if params[:url] || params[:url1]
+        metadata = TEST_METADATA || Crucible::Tests::Executor.generate_metadata
+        if params[:url2]
+          tests_data = Crucible::Tests::Executor.new(FHIR::Client.new(params[:url1]), FHIR::Client.new(params[:url2])).list_all_with_conformance(params[:multiserver] == 'true', metadata)
+        else
+          tests_data = Crucible::Tests::Executor.new(FHIR::Client.new params[:url]).list_all_with_conformance(params[:multiserver] == 'true', metadata)
+        end
+      else
+        tests_data = Crucible::Tests::Executor.list_all(params[:multiserver] == 'true')
+      end
+      tests_data.each do |k,v|
         list << {_id: index+=1}.merge(v)
       end
       tests = {tests: list}
