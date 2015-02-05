@@ -66,7 +66,8 @@ Rails.application.routes.draw do
 
   namespace :api do
     get 'servers/conformance', to: 'servers#conformance'
-    
+
+    resources :testruns
     resources :servers
     resources :multiservers
     resources :tests
