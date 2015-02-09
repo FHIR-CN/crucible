@@ -8,3 +8,4 @@ Crucible.Router.map ()->
     @route 'results', path: ':server_id/results'
   @resource 'multiservers', ->
     @route 'show', path: ':multiserver_id'
+    @route 'results', path: ':multiserver_id/results'

@@ -4,7 +4,7 @@
 }
 
 .container.main{
-  margin-top: 100px;
+  margin-top: 50px;
   margin-bottom: 100px;
 }
 
@@ -18,8 +18,8 @@
 .palette.report{
   padding-left: 100px;
   padding-right: 100px;
-  padding-top: 80px;
-  padding-bottom: 80px;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 .tri-row {
@@ -53,12 +53,9 @@
 
 .picture{
   text-align: center;
-  margin-bottom: 100px;
+  margin-bottom: 40px;
   img{
     padding: 20px;
-  }
-  &.landing-page{
-    margin-bottom: 50px;
   }
 }
 

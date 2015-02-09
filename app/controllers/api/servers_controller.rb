@@ -50,8 +50,8 @@ module Api
         rest['operation'] = rest['operation'].reduce({}) {|memo,operation| memo[operation['code']]=true; memo}
         rest['results'] = rest['operation'].reduce({}) {|memo,code| memo[code[0]]={:passed => [], :failed => [], :status => ""}; memo}
         rest['resource'].each do |resource|
-          resource['operation'] = resource['operation'].reduce({}) {|memo,operation| memo[operation['code']]=true; memo}
-          resource['results'] = resource['operation'].reduce({}) {|memo,code| memo[code[0]]={:passed => [], :failed => [], :status => ""}; memo}
+          resource['operation'] = resource['interaction'].reduce({}) {|memo,operation| memo[operation['code']]=true; memo}
+          resource['results'] = resource['interaction'].reduce({}) {|memo,code| memo[code[0]]={:passed => [], :failed => [], :status => ""}; memo}
         end
       end
       render json: conformance

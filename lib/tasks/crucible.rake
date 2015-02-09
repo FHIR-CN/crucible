@@ -12,4 +12,11 @@ namespace :crucible do
       FileUtils.rm_r dump_extract
     end
   end
+
+  desc 'generate ctl'
+  task :generate_ctl do |t, args|
+    Crucible::Tests::Executor.generate_ctl
+    FileUtils.rm_rf("public/ctl") if Dir.exists?("public/ctl")
+    FileUtils.mv("ctl", "public/ctl")
+  end
 end
