@@ -61,8 +61,8 @@
                       </div>
                       <div id="test{{unbound test.reference}}" class="panel-collapse collapse">
                         <div class="panel-body">
-                          {{test.description}}
-
+                          {{test.description}}<br>
+                          <a href="/ctl/{{unbound test.specificTitle}}.xml" download>Test Definition</a>
                             <div class="row">
                                  <div class="col-md-7">
                                   {{#each result in test.results}}

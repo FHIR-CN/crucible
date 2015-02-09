@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/fhir-crucible/fhir_client.git
-  revision: d570acf2f4d8a1d4cbd5e74a4203e494098b354c
-  branch: dstu2
+  revision: d8d590fee3a50e27320ec36940b517fd122e09ab
+  branch: master
   specs:
     fhir_client (1.0.0)
 
@@ -14,8 +14,8 @@ GIT
 
 GIT
   remote: https://github.com/fhir-crucible/plan_executor.git
-  revision: 19c36b45680f9e61b8d5fda24837e46e548c31a5
-  branch: dstu2
+  revision: 8c35c69eb31afb271c10dcc9efee77b96e6329b2
+  branch: master
   specs:
     plan_executor (1.0.0)
 
