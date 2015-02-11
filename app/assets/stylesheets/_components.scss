@@ -1,26 +1,45 @@
-.container{
-  margin-top: 100px;
-  margin-bottom: 100px;
-}
-
 .container.main{
   margin-top: 50px;
-  margin-bottom: 100px;
 }
 
 .palette{
   text-align: center;
   background-color: $brand-tertiary;
   border-radius: 10px;
-  padding: 60px;
+  padding: 60px; 
+  margin-bottom: 50px;
+  &.report{
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  &.user{
+    &.tab{
+      min-height: 100px;
+      padding: 20px;
+      h1{
+        font-weight: 600;
+        font-size: 38px;
+        margin-bottom: 0px;
+      }
+      p{
+        margin-bottom: 0px;
+      }
+    }
+    &.header{
+      min-height: 200px;
+    }
+    &.analytics{
+      min-height: 200px;
+    }
+    &.dash{
+      min-height: 500px;
+    }
+  }
 }
 
-.palette.report{
-  padding-left: 100px;
-  padding-right: 100px;
-  padding-top: 50px;
-  padding-bottom: 50px;
-}
+
 
 .tri-row {
   text-align: center;
