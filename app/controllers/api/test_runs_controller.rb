@@ -1,25 +1,25 @@
 module Api
-  class TestrunsController < ApplicationController
+  class TestRunsController < ApplicationController
     skip_before_filter :verify_authenticity_token
     respond_to :json
 
     def index
-      render json: Testrun.all
+      render json: TestRun.all
     end
 
     def create
-      run = Testrun.new(request_params)
+      run = TestRun.new(request_params)
       run.date = Time.now
       if run.save
-        respond_with run, location: api_testruns_path
+        respond_with run.as_json({:root => true}), location: api_test_runs_path
       else
         respond_with run, status: 422
       end
     end
 
     def show
-      run = Testrun.find(params[:id])
-      respond_with run
+      run = TestRun.find(params[:id])
+      respond_with run.as_json({:root => true})
     end
 
     def update
@@ -30,7 +30,7 @@ module Api
 
   private
     def request_params
-      params.require(:testrun).permit(:server_id)
+      params.require(:test_run).permit!
     end
 
   end

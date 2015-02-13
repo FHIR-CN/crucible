@@ -7,15 +7,27 @@ Crucible.ServersShowRoute = Ember.Route.extend
     @store.find('server', params.server_id)
   afterModel: (server) ->
     server.set("unsortedTests", (@store.findAll("test", {multiserver: false})))
-    conformance = DS.PromiseObject.create({promise: $.get("/api/servers/conformance?url=#{server.get("url")}")})
-    conformance.then(() => server.set("conformance", @store.createRecord('conformance', json: [conformance.content])))
+    # conformance = DS.PromiseObject.create({promise: $.get("/api/servers/conformance?url=#{server.get("url")}")})
+    # conformance.then(() => server.set("conformance", @store.createRecord('conformance', json: [conformance.content])))
     #
     # tests = DS.PromiseObject.create({promise: $.get("/tests/")})
     # tests.then(() -> server.set("tests", tests.content))
 
   actions:
     executeTests:->
-      @transitionTo('servers.results', @currentModel)
+      tests = []
+      for test in @currentModel.get('tests')
+        if test.get('active')
+          tests.push(@store.createRecord('testResult', {"test": test}))
+      run = @store.createRecord('testRun')
+      run.set('server', @currentModel)
+      run.get('results').pushObjects(tests)
+      # run.set('conformance', @currentModel.get('conformance'))
+      run.set('date', Date.now())
+      debugger
+      run.save()
+
+      # @transitionTo('servers.results', @currentModel)
     selectAll: ->
       @currentModel.get("tests").setEach("active", true)
     selectNone: ->

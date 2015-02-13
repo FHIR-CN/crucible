@@ -9,7 +9,7 @@
 #= require crucible
 #= require_tree .
 #= require bootstrap-sprockets
-#= require d3
+#= require d3/d3
 
 # for more details see: http://emberjs.com/guides/application/
 window.Crucible = Ember.Application.create()
