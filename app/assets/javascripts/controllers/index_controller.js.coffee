@@ -7,3 +7,4 @@ Crucible.IndexController = Ember.ObjectController.extend
     removeUrl: ->
       this.set('multiServer', false)
       @model.server2 = null
+

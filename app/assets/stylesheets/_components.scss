@@ -26,6 +26,20 @@
       p{
         margin-bottom: 0px;
       }
+      &.active{
+        &:after{
+            content:'';
+            position:absolute;
+            width:0px;
+            height:0px;
+            left:50%;
+            top:100px;
+            margin-left:-40px;
+            border-top:25px solid white;
+            border-left:40px solid transparent;
+            border-right:40px solid transparent;
+        }
+      }
     }
     &.header{
       min-height: 200px;
@@ -39,7 +53,9 @@
   }
 }
 
-
+.tab-content{
+  display: none;
+}
 
 .tri-row {
   text-align: center;
@@ -100,3 +116,4 @@
     }    
   }
 }
+
