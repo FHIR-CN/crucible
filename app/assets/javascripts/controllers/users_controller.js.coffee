@@ -1,4 +1,4 @@
-Crucible.UserIndexController = Ember.ObjectController.extend
+Crucible.UsersIndexController = Ember.ObjectController.extend
 
   actions:
 
