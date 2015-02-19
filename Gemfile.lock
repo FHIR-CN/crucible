@@ -227,7 +227,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   date_time_precision
   devise
-  ember-rails
+  ember-rails (~> 0.16.2)
   ember-source
   fhir_client!
   fhir_model!

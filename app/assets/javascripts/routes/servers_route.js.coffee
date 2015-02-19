@@ -24,7 +24,6 @@ Crucible.ServersShowRoute = Ember.Route.extend
       run.get('results').pushObjects(tests)
       # run.set('conformance', @currentModel.get('conformance'))
       run.set('date', Date.now())
-      debugger
       run.save()
 
       # @transitionTo('servers.results', @currentModel)
