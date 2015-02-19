@@ -55,6 +55,9 @@
 
 .tab-content{
   display: none;
+  &.active{
+    display: block;
+  }
 }
 
 .tri-row {

@@ -1,4 +1,11 @@
+
+
 <div class="row auth">
+  <% if resource.errors.present? %>
+    <div class="alert alert-danger">
+      <%= devise_error_messages! %>
+    </div>
+  <%end%>
   <h4 class="login col-md-2">
     <img src="/assets/logo_dark.png"></img>
   </h4>
