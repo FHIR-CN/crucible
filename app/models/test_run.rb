@@ -3,6 +3,6 @@ class TestRun
   belongs_to :server
   field :date, type: Time
   field :conformance
-  embeds_many :TestResult, store_as: "results"
+  embeds_many :testResults, class_name: "TestResult"
 
 end

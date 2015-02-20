@@ -10,6 +10,7 @@ module Api
     def create
       run = TestRun.new(request_params)
       run.date = Time.now
+
       if run.save
         respond_with run.as_json({:root => true}), location: api_test_runs_path
       else

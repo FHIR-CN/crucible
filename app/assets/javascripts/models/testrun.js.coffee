@@ -1,14 +1,14 @@
 Crucible.TestRun = DS.Model.extend
   server: DS.belongsTo('server')
   date: DS.attr()
-  results: DS.hasMany("testResult")
+  testResults: DS.hasMany("testResult")
   conformance: DS.attr()
 
 Crucible.TestResult = DS.Model.extend
   test: DS.belongsTo('test')
 
 
-Crucible.TestRunSerializer = DS.RESTSerializer.extend
+Crucible.TestRunSerializer = DS.ActiveModelSerializer.extend
   primaryKey: (type) ->
     return '_id'
   attrs:
@@ -16,6 +16,7 @@ Crucible.TestRunSerializer = DS.RESTSerializer.extend
 
   serializeHasMany: (snapshot, json, relationship) ->
     json[relationship.key] = {}
-    json[relationship.key]["#{Em.String.pluralize(relationship.type.typeKey)}"] = []
+    json[relationship.key] = []
     for result in snapshot.hasMany(relationship.key)
-      json[relationship.key]["#{Em.String.pluralize(relationship.type.typeKey)}"].push(result.record.toJSON())
+      json[relationship.key].push(result.record.toJSON())
+      # ["#{Em.String.decamelize(Em.String.pluralize(relationship.type.typeKey))}"]
