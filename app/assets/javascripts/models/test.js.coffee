@@ -44,3 +44,7 @@ Crucible.Test = DS.Model.extend
                 summary[res][method]['status'] = 'results-passed' if summary[res][method].passed.length && !summary[res][method].failed.length
     summary
   ).property('results')
+
+
+Crucible.TestSerializer = DS.ActiveModelSerializer.extend
+  primaryKey: "_id"

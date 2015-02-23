@@ -8,7 +8,12 @@ module Api
     end
 
     def create
-      run = TestRun.new(request_params)
+      attributes = request_params
+      attributes['tests'].each do |test|
+        test[:id] = test[:title]
+        test.delete(:title)
+      end
+      run = TestRun.new(attributes)
       run.date = Time.now
 
       if run.save
@@ -31,7 +36,7 @@ module Api
 
   private
     def request_params
-      params.require(:test_run).permit!
+      params.require(:test_run).permit(:server_id, :date, "tests" => [:title] )
     end
 
   end

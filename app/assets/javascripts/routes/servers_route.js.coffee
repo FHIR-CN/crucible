@@ -15,18 +15,17 @@ Crucible.ServersShowRoute = Ember.Route.extend
 
   actions:
     executeTests:->
-      tests = []
+      run = @store.createRecord('testRun')
       for test in @currentModel.get('tests')
         if test.get('active')
-          tests.push(@store.createRecord('testResult', {"test": test}))
-      run = @store.createRecord('testRun')
+          run.get('tests').pushObject(test)
+
       run.set('server', @currentModel)
-      run.get('testResults').pushObjects(tests)
+
       # run.set('conformance', @currentModel.get('conformance'))
       run.set('date', Date.now())
-      run.save()
+      run.save().then(=> @transitionTo('runs.show', @currentModel, run))
 
-      # @transitionTo('servers.results', @currentModel)
     selectAll: ->
       @currentModel.get("tests").setEach("active", true)
     selectNone: ->

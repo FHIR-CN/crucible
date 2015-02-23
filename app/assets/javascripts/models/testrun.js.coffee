@@ -1,18 +1,15 @@
 Crucible.TestRun = DS.Model.extend
   server: DS.belongsTo('server')
   date: DS.attr()
-  testResults: DS.hasMany("testResult")
+  tests: DS.hasMany("test")
   conformance: DS.attr()
 
-Crucible.TestResult = DS.Model.extend
-  test: DS.belongsTo('test')
 
 
-Crucible.TestRunSerializer = DS.ActiveModelSerializer.extend
-  primaryKey: (type) ->
-    return '_id'
+Crucible.TestRunSerializer = DS.ActiveModelSerializer.extend DS.EmbeddedRecordsMixin,
+  primaryKey: '_id'
   attrs:
-    results: {embedded: 'always'}
+    tests: {embedded: 'always'}
 
   serializeHasMany: (snapshot, json, relationship) ->
     json[relationship.key] = {}
