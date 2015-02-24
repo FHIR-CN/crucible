@@ -18,3 +18,6 @@ Crucible.UsersIndexController = Ember.ObjectController.extend
 
       $($tab).addClass('active')
       $($content).show()
+
+
+      

@@ -15,6 +15,12 @@
     padding-bottom: 50px;
   }
   &.user{
+    &.analytics{
+      text-align:left;
+      #addServerInput{
+        display:none;
+      }
+    }
     &.tab{
       min-height: 100px;
       padding: 20px;
@@ -100,6 +106,10 @@
 .word-wrap{
   overflow:hidden;
   word-wrap:break-word;
+}
+
+.add_server{
+  float:right;
 }
 
 .metadata-selector{

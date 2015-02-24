@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-3">
   	  <div class="palette user tab active" {{action 'click' 'tab-1'}} id="tab-1">
-        <h1>2</h1>
+        <h1>{{servers.length}}</h1>
         <p>Servers</p>
       </div>
     </div>
@@ -21,7 +21,7 @@
     <div class="col-md-3">
       <div class="palette user tab" {{action 'click' 'tab-4'}} id="tab-4">
         <h1>12</h1>
-    	  <p>Saved Results</p>    		
+    	  <p>Favorited Results</p>    		
       </div>
     </div>
   </div>
@@ -29,15 +29,17 @@
     <div class="col-md-12">
       <div class="palette user analytics">
         <div class="tab-content active" id="tab-1-content">
-          {{vertical-bar-chart }}
+          <div class="add_server" {{action 'addServer'}}><span class="glyphicon glyphicon-plus" aria-hidden="true">&nbsp</span>Add Server</div>
+          <div id='serverList'>{{#each server in servers}}<p {{action 'serverSelect' server}}>{{server.url}}</p>{{/each}}</div>
+          {{input action="submit" value=url class="form-control" id="addServerInput" placeholder="Please enter FHIR Server URL"}}
         </div>
         <div class="tab-content" id="tab-2-content">
-
+          {{vertical-bar-chart}}
         </div>
         <div class="tab-content" id="tab-3-content">content 3</div>
         <div class="tab-content" id="tab-4-content">content 4</div>
       </div>
     </div>
-  </div>       
-  {{render 'partials/_results'}}    
+  </div>
+  {{render 'servers/show' selectedServer}} 
 </div> 
