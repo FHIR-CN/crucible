@@ -17,7 +17,8 @@ Crucible.ServersShowRoute = Ember.Route.extend
 
   actions:
     executeTests:->
-      @transitionTo('servers.results', @currentModel)
+      debugger
+      # @transitionTo('servers.results', @currentModel)
 
 
 Crucible.ServersNewRoute = Ember.Route.extend

@@ -21,3 +21,7 @@ Crucible.Server = DS.Model.extend
           _(conf.get('rest')[0].resource).findWhere( fhirType: resource ).results = _(_(conf.get('rest')[0].resource).findWhere( fhirType: resource ).results).extend(results)
     @set('conformance', conf)
   ).observes('tests.@each.results') # Replace with 'isComplete' for more performant rendering
+
+
+# Crucible.ServerSerializer = DS.ActiveModelSerializer.extend
+  # normalize: (type, hash, prop) ->
