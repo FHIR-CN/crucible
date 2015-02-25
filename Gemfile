@@ -5,7 +5,7 @@ gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 
-gem 'fhir_model', :git => 'https://github.com/fhir-crucible/fhir_dstu1_models.git', :branch => 'master'
+gem 'fhir_model', :git => 'https://github.com/fhir-crucible/fhir_dstu2_models.git', :branch => 'master'
 gem 'fhir_client', :git => 'https://github.com/fhir-crucible/fhir_client.git', :branch => 'master'
 gem 'plan_executor', :git => 'https://github.com/fhir-crucible/plan_executor.git', :branch => 'master'
 

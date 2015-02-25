@@ -1,25 +1,69 @@
-.container{
-  margin-top: 100px;
-  margin-bottom: 100px;
-}
-
 .container.main{
-  margin-top: 100px;
-  margin-bottom: 100px;
+  margin-top: 50px;
 }
 
 .palette{
   text-align: center;
   background-color: $brand-tertiary;
   border-radius: 10px;
-  padding: 60px;
+  padding: 60px; 
+  margin-bottom: 50px;
+  &.report{
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  &.user{
+    &.analytics{
+      text-align:left;
+      #addServerInput{
+        display:none;
+      }
+    }
+    &.tab{
+      min-height: 100px;
+      padding: 20px;
+      h1{
+        font-weight: 600;
+        font-size: 38px;
+        margin-bottom: 0px;
+      }
+      p{
+        margin-bottom: 0px;
+      }
+      &.active{
+        &:after{
+            content:'';
+            position:absolute;
+            width:0px;
+            height:0px;
+            left:50%;
+            top:100px;
+            margin-left:-40px;
+            border-top:25px solid white;
+            border-left:40px solid transparent;
+            border-right:40px solid transparent;
+        }
+      }
+    }
+    &.header{
+      min-height: 200px;
+    }
+    &.analytics{
+      min-height: 200px;
+    }
+    &.dash{
+      min-height: 500px;
+    }
+  }
 }
 
-.palette.report{
-  padding-left: 100px;
-  padding-right: 100px;
-  padding-top: 80px;
-  padding-bottom: 80px;
+.tab-content{
+  display: none;
+  &.active{
+    display: block;
+  }
 }
 
 .tri-row {
@@ -53,18 +97,19 @@
 
 .picture{
   text-align: center;
-  margin-bottom: 100px;
+  margin-bottom: 40px;
   img{
     padding: 20px;
-  }
-  &.landing-page{
-    margin-bottom: 50px;
   }
 }
 
 .word-wrap{
   overflow:hidden;
   word-wrap:break-word;
+}
+
+.add_server{
+  float:right;
 }
 
 .metadata-selector{
@@ -84,3 +129,4 @@
     }    
   }
 }
+

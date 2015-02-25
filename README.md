@@ -1,4 +1,4 @@
-# Crucible #
+# Crucible # [![Build Status](https://travis-ci.org/fhir-crucible/crucible.svg?branch=master)](https://travis-ci.org/fhir-crucible/crucible)
 
 A simple Rails app for evaluating FHIR.
 
@@ -33,4 +33,3 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
-
