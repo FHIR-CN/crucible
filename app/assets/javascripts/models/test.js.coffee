@@ -9,3 +9,4 @@ Crucible.Test = DS.Model.extend
 
 Crucible.TestSerializer = DS.ActiveModelSerializer.extend
   primaryKey: '_id'
+   

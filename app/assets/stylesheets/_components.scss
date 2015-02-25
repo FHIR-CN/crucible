@@ -6,7 +6,7 @@
   text-align: center;
   background-color: $brand-tertiary;
   border-radius: 10px;
-  padding: 60px; 
+  padding: 60px;
   margin-bottom: 50px;
   &.report{
     padding-left: 100px;
@@ -60,7 +60,6 @@
 }
 
 .tab-content{
-  display: none;
   &.active{
     display: block;
   }
@@ -126,7 +125,6 @@
     }
     &:hover{
       background-color: #eeeeee;
-    }    
+    }
   }
 }
-
