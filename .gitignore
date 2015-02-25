@@ -14,3 +14,9 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+.DS_Store
+*.log
+*.log.*
+
+# Ignore Bower components
+vendor/assets/components/
