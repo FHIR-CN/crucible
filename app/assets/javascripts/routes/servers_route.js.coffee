@@ -24,7 +24,7 @@ Crucible.ServersShowRoute = Ember.Route.extend
 
       # run.set('conformance', @currentModel.get('conformance'))
       run.set('date', Date.now())
-      run.save().then(=> @transitionTo('runs.show', @currentModel, run))
+      # run.save().then(=> @transitionTo('runs.show', run))
 
     selectAll: ->
       @currentModel.get("tests").setEach("active", true)

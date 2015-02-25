@@ -15,5 +15,6 @@ Crucible.TestRunSerializer = DS.ActiveModelSerializer.extend DS.EmbeddedRecordsM
     json[relationship.key] = {}
     json[relationship.key] = []
     for result in snapshot.hasMany(relationship.key)
+      console.log result.record
       json[relationship.key].push(result.record.toJSON())
       # ["#{Em.String.decamelize(Em.String.pluralize(relationship.type.typeKey))}"]

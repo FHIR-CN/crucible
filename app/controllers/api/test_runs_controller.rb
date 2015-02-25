@@ -11,6 +11,7 @@ module Api
       attributes = request_params
       attributes['tests'].each do |test|
         test[:id] = test[:title]
+        test[:server_id] = request_params[:server_id]
         test.delete(:title)
       end
       run = TestRun.new(attributes)
@@ -36,7 +37,7 @@ module Api
 
   private
     def request_params
-      params.require(:test_run).permit(:server_id, :date, "tests" => [:title] )
+      params.require(:test_run).permit(:server_id, :date, :resource_class , "tests" => [:title] )
     end
 
   end

@@ -2,6 +2,22 @@ module Api
   class TestsController < ApplicationController
     respond_to :json
 
+
+    def results
+      server = Server.find(params[:server_id])
+      client1 = FHIR::Client.new(server[:url])
+
+      test = Crucible::Tests.const_get(params[:test_id]).new(client1, nil)
+      binding.pry
+      # if params[:resource_class]
+      #   val = { debug: params, results: test.execute(params[:resource_class].constantize) }
+      # else
+      #   val = { debug: params, results: test.execute }
+      # end
+
+      respond_with JSON.pretty_generate(val)
+    end
+
     def index
       list = []
       index = 0
