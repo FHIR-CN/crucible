@@ -1,16 +1,20 @@
-Crucible.ServersRoute = Crucible.DefaultRoute.extend
+Crucible.ServersIndexRoute = Crucible.DefaultRoute.extend
   model: ->
     @store.findAll('server')
 
 
 Crucible.ServersShowRoute = Ember.Route.extend
   model: (params) ->
-    @store.find('server', params.server_id)
-  afterModel: (server) ->
-    server.set("tests", @store.findAll("test"))
-
-    conformance = DS.PromiseObject.create({promise: $.get("/api/servers/conformance?url=#{server.get("url")}")})
-    conformance.then(() => server.set("conformance", @store.createRecord('conformance', json: [conformance.content])))
+    Ember.RSVP.hash(
+      server: @store.find('server', params.server_id)
+      tests: @store.findAll("test")
+    )
+  # afterModel: (server) ->
+    # window.store = @store
+    # server.set("tests", @store.findAll("test"))
+    #
+    # conformance = DS.PromiseObject.create({promise: $.get("/api/servers/conformance?url=#{server.get("url")}")})
+    # conformance.then(() => server.set("conformance", @store.createRecord('conformance', json: [conformance.content])))
     #
     # tests = DS.PromiseObject.create({promise: $.get("/tests/")})
     # tests.then(() -> server.set("tests", tests.content))
@@ -18,6 +22,12 @@ Crucible.ServersShowRoute = Ember.Route.extend
   actions:
     executeTests:->
       debugger
+      run = @store.createRecord('testRun', {'conformance': @currentModel.get('conformance'), 'server': @currentModel})
+      for test in @currentModel.tests
+        if test.get('selected')
+          run.get('testResults').push(@store.createRecord('testResult', {'test': test}))
+
+
       # @transitionTo('servers.results', @currentModel)
 
 
