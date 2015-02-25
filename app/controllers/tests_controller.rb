@@ -108,7 +108,8 @@ class TestsController < ApplicationController
     client1 = FHIR::Client.new(url)
     client2 = FHIR::Client.new(params[:url2]) if params[:url2]
 
-    test = Crucible::Tests.const_get(params[:title]).new(client1, client2)
+    executor = Crucible::Tests::Executor.new(client1, client2)
+    test = executor.find_test(params[:title])
 
     if params[:resource_class]
       val = { debug: params, results: test.execute(params[:resource_class].constantize) }
