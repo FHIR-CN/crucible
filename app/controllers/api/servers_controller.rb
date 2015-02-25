@@ -15,6 +15,7 @@ module Api
     def create
       server = Server.new(server_params)
       server.user = current_user
+
       if server.save
         respond_with server, location: api_servers_path
       else

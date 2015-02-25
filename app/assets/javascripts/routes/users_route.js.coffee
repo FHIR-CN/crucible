@@ -10,10 +10,10 @@ Crucible.UsersIndexRoute = Crucible.DefaultRoute.extend
       currentServer = selection
 
     submit: ->
-      server = @get('currentModel')
-      @store.createRecord('server')
-      $('#addServerInput').hide()
-      $('#serverList').append('<p {{action \'serverSelect\'' + server + '}}>' + server.url + '</p>')
+      server = @store.createRecord('server', url: @currentModel.url);
+      server.save()
 
+      $('#addServerInput').hide()
+     
     addServer: ->
     	$('#addServerInput').show()
