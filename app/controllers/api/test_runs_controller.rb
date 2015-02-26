@@ -26,7 +26,7 @@ module Api
 
     private
     def run_params
-      params.require(:test_run).permit(:date, :conformance, :server, "test_results" => [:has_run, :test_id])
+      params.require(:test_run).permit(:date, :conformance, :server_id, "test_results" => [:has_run, :test_id])
     end
   end
 end

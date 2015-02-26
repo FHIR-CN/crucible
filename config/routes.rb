@@ -66,11 +66,11 @@ Rails.application.routes.draw do
 
   namespace :api do
     get 'servers/conformance', to: 'servers#conformance'
-
     resources :servers
     resources :multiservers
     resources :tests
     resources :test_runs
+    get '/test_results/:id/result' => 'test_results#result', defaults: { format: :json }
   end
 
 end

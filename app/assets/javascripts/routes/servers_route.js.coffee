@@ -20,11 +20,9 @@ Crucible.ServersShowRoute = Ember.Route.extend
 
   actions:
     executeTests:->
-      run = @store.createRecord('testRun', {'conformance': @currentModel.server.get('conformance'), 'server': @currentModel.server})
+      run = @store.createRecord('testRun', {'server': @currentModel.server})
       run.get('testResults').pushObjects(@currentModel.tests.filterBy('selected').map((test) => @store.createRecord('testResult', {'test': test})))
       run.save().then(=> @transitionTo('test_runs.show', run))
-
-      # @transitionTo('servers.results', @currentModel)
 
 Crucible.ServersNewRoute = Ember.Route.extend
   actions:
