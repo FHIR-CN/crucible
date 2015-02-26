@@ -11,8 +11,10 @@ module Api
       run = TestRun.new(run_params)
       run.date = Time.now
       if run.save()
+        run = {:test_run => run}
         respond_with run, location: api_test_runs_path
       else
+        run = {:test_run => run}
         respond_with run, status: 422
       end
     end
