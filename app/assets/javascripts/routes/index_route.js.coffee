@@ -7,10 +7,9 @@ Crucible.IndexRoute = Crucible.DefaultRoute.extend
         @transitionTo('multiservers.show', multiserver)
       else
         server = @store.createRecord('server', url: @currentModel.server1);
-        server.save()
-        @transitionTo('servers.show', server)
+        server.save().then(=> @transitionTo('servers.show', server))
+
   isMultiServer: ->
     @currentModel.server1? && @currentModel.server2
   model: ->
     {server1: null, server2: null}
-    
