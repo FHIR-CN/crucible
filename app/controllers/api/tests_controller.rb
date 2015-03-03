@@ -6,5 +6,8 @@ module Api
       @tests = Test.all
       render json:{test: @tests}
     end
+    def show
+      render json: {test:Test.find(params[:id])}
+    end
   end
 end

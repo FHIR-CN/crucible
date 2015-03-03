@@ -52,7 +52,7 @@
 <ul>
   {{#each}}
     <li>
-      <span><span class="label label-default">{{title}}{{#if resource_class}}: {{resource_class}}{{/if}}</span> <small>{{description}}</small> <button class="btn btn-xs btn-primary" {{action 'execute'}}>Run test</button>
+      <span><span class="label label-default">{{title}}{{#if resource_class}}: {{resource_class}}{{/if}}</span></span> <small>{{description}}</small> <button class="btn btn-xs btn-primary" {{action 'execute'}}>Run test</button>
     </li>
       {{#each results}}
           <div class="panel panel-{{../panelStatus this}}" id="{{../panelAnchor this}}">
