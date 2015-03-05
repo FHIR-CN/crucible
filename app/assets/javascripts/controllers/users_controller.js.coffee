@@ -1,10 +1,10 @@
 Crucible.UsersIndexController = Ember.ObjectController.extend
 
   actions:
-
     click: (selection) ->
       $tab = '#' + selection
       $content = $tab + "-content"
+      $details = $tab + "-details"
 
       $('#tab-1').removeClass('active')
       $('#tab-2').removeClass('active')
@@ -16,8 +16,11 @@ Crucible.UsersIndexController = Ember.ObjectController.extend
       $('#tab-3-content').hide()
       $('#tab-4-content').hide()
 
+      $('#tab-1-details').hide()
+      $('#tab-2-details').hide()
+      $('#tab-3-details').hide()
+      $('#tab-4-details').hide()
+
       $($tab).addClass('active')
       $($content).show()
-
-
-      
+      $($details).show()
