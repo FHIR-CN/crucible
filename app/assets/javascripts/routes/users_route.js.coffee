@@ -5,18 +5,16 @@ Crucible.UsersIndexRoute = Crucible.DefaultRoute.extend
       servers: @store.findAll('server')
       testRuns:  @store.findAll('testRun')
       currentServer: null
-      testRuns: @store.findAll('test_run')
     )
 
   actions:
     serverSelect: (selection) ->
       @currentModel.currentServer = selection
-      this.model.reload()
 
     submit: ->
       server = @store.createRecord('server', url: @currentModel.url);
       server.save()
       $('#addServerInput').hide()
-      
+
     addServer: ->
     	$('#addServerInput').show()
