@@ -9,19 +9,19 @@
     <div class="col-md-3">
       <div class="palette user tab" {{action 'click' 'tab-2'}} id="tab-2">
         <h1>234</h1>
-    	  <p>Tests</p>    		
+    	  <p>Tests</p>
       </div>
     </div>
     <div class="col-md-3">
       <div class="palette user tab" {{action 'click' 'tab-3'}} id="tab-3">
         <h1>68</h1>
-    	  <p>Tests Against</p>    		
+    	  <p>Tests Against</p>
       </div>
     </div>
     <div class="col-md-3">
       <div class="palette user tab" {{action 'click' 'tab-4'}} id="tab-4">
         <h1>12</h1>
-    	  <p>Favorited Results</p>    		
+    	  <p>Favorited Results</p>
       </div>
     </div>
   </div>
@@ -34,12 +34,12 @@
           {{input action="submit" value=url class="form-control" id="addServerInput" placeholder="Please enter FHIR Server URL"}}
         </div>
         <div class="tab-content" id="tab-2-content">
-          {{vertical-bar-chart}}
+          {{histogram-chart data=testRuns binningField="date" timeSpan="hour" bandPadding=0.1 byDate=true rollupBy="testResults.length"}}
         </div>
         <div class="tab-content" id="tab-3-content">content 3</div>
         <div class="tab-content" id="tab-4-content">content 4</div>
       </div>
     </div>
   </div>
-  {{render 'partials/_results' currentServer}} 
-</div> 
+  {{render 'partials/_results' currentServer}}
+</div>

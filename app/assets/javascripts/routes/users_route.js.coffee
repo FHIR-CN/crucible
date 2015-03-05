@@ -2,6 +2,7 @@ Crucible.UsersIndexRoute = Crucible.DefaultRoute.extend
   model: ->
     Ember.RSVP.hash(
       servers: @store.findAll('server')
+      testRuns:  @store.findAll('testRun')
       currentServer: null
     )
 
@@ -14,6 +15,6 @@ Crucible.UsersIndexRoute = Crucible.DefaultRoute.extend
       server.save()
 
       $('#addServerInput').hide()
-     
+
     addServer: ->
     	$('#addServerInput').show()
