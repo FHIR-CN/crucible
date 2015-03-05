@@ -15,13 +15,13 @@
     <div class="col-md-3">
       <div class="palette user tab" {{action 'click' 'tab-3'}} id="tab-3">
         <h1>68</h1>
-    	  <p>Tests Against</p>    		
+    	  <p>Tests Against</p>
       </div>
     </div>
     <div class="col-md-3">
       <div class="palette user tab" {{action 'click' 'tab-4'}} id="tab-4">
         <h1>12</h1>
-    	  <p>Favorited Results</p>    		
+    	  <p>Favorited Results</p>
       </div>
     </div>
   </div>
@@ -34,7 +34,7 @@
           {{input action="submit" value=url class="form-control" id="addServerInput" placeholder="Please enter FHIR Server URL"}}
         </div>
         <div class="tab-content" id="tab-2-content">
-          {{vertical-bar-chart data=histogramOfTestRuns}}
+          {{histogram-chart data=testRuns binningField="date" timeSpan="hour" bandPadding=0.1 byDate=true rollupBy="testResults.length"}}
         </div>
         <div class="tab-content" id="tab-3-content">content 3</div>
         <div class="tab-content" id="tab-4-content">content 4</div>
@@ -42,43 +42,38 @@
     </div>
   </div>
 
-    <div class="tab-details active" id="tab-1-details">
-      {{render 'partials/_results' currentServer}} 
-    </div>
-    <div class="tab-details palette" id="tab-2-details">
+  <div class="tab-details active" id="tab-1-details">
+    {{render 'partials/_results' currentServer}} 
+  </div>
+  <div class="tab-details palette" id="tab-2-details">
 
-      <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-        {{#each test_run in testRuns}}
-            <div class="toggleable panel-heading">
-              <h4 class="panel-title">
-                <label >
-                  {{test_run.server.url}}
-                </label>
-                <label >
-                  {{test_run.date}}
-                </label>
-                <a class="collapsed" data-toggle="collapse" data-target="#test1" aria-expanded="false" >
-                <small>(more)</small></a>
-              </h4>
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+      {{#each test_run in testRuns}}
+          <div class="toggleable panel-heading">
+            <h4 class="panel-title">
+              <label >
+                {{test_run.server.url}}
+              </label>
+              <label >
+                {{test_run.date}}
+              </label>
+              <a class="collapsed" data-toggle="collapse" data-target="#test1" aria-expanded="false" >
+              <small>(more)</small></a>
+            </h4>
+          </div>
+          <div id="test1" class="panel-collapse collapse">
+            <div class="panel-body">
+              {{#each test_result in test_run.testResults}}
+                <p>{{test_result.result}}</p>
+              {{/each}}
             </div>
-            <div id="test1" class="panel-collapse collapse">
-              <div class="panel-body">
-                {{#each test_result in test_run.testResults}}
-                  <p>{{test_result.result}}</p>
-                {{/each}}
-              </div>
-            </div>
-        {{/each}}
-      </div>
-
+          </div>
+      {{/each}}
     </div>
 
-    <div class="tab-details palette" id="tab-3-details">details 3</div>
-    <div class="tab-details palette" id="tab-4-details">details 4</div>
-</div> 
+  </div>
 
-
-
-
-
+  <div class="tab-details palette" id="tab-3-details">details 3</div>
+  <div class="tab-details palette" id="tab-4-details">details 4</div>
+</div>
 

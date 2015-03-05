@@ -3,6 +3,7 @@ Crucible.UsersIndexRoute = Crucible.DefaultRoute.extend
   model: ->
     Ember.RSVP.hash(
       servers: @store.findAll('server')
+      testRuns:  @store.findAll('testRun')
       currentServer: null
       testRuns: @store.findAll('test_run')
     )

@@ -9,9 +9,8 @@ module Api
       else
         client1 = FHIR::Client.new(run.server.url)
         test = Crucible::Tests.const_get(result.test.title).new(client1, nil)
-
-        if params[:resource_class]
-          val = { debug: params, results: test.execute(run.test.resource_class.constantize) }
+        if result.test.resource_class?
+          val = { debug: params, results: test.execute(result.test.resource_class.constantize) }
         else
           val = { debug: params, results: test.execute }
         end
