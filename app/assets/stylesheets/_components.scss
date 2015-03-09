@@ -15,65 +15,20 @@
     padding-bottom: 50px;
   }
   &.user{
+    text-align: left;
     &.analytics{
-      text-align:left;
       #addServerInput{
         display:none;
       }
+      min-height: 200px;
     }
-/*    &.tab{
-      min-height: 100px;
-      padding: 20px;
-      h1{
-        font-weight: 600;
-        font-size: 38px;
-        margin-bottom: 0px;
-      }
-      p{
-        margin-bottom: 0px;
-      }
-      &.active{
-        &:after{
-            content:'';
-            position:absolute;
-            width:0px;
-            height:0px;
-            left:50%;
-            top:100px;
-            margin-left:-40px;
-            border-top:25px solid white;
-            border-left:40px solid transparent;
-            border-right:40px solid transparent;
-        }
-      }
-      &.disabled{
-        background-color: #eeeeee;
-      }
-    }*/
     &.header{
       min-height: 200px;
     }
-    &.analytics{
-      min-height: 200px;
-    }
+
     &.dash{
       min-height: 500px;
     }
-  }
-}
-
-.tab-content{
-  display: none;
-  &.active{
-    display: block;
-  }
-}
-
-.tab-details{
-  text-align: left;
-  display: none;
-  &.active{
-    display: block;
   }
 }
 
