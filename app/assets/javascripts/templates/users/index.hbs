@@ -6,7 +6,7 @@
           <div class="add_server_button" {{action 'addServer'}}><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add Server</div>
           <div id='serverList' class="col-md-10">
             <h1>My Servers</h1>
-            {{#each server in servers}}<p class="clickable-list-item" {{action 'serverSelect' server}}>{{server.url}} <button class="btn">Run Test</button></p> {{/each}}
+            {{#each server in servers}}<p class="clickable-list-item" {{action 'serverSelect' server}}>{{server.url}} <button {{action 'runTest' server}} class="btn">Run Test</button></p> {{/each}}
           </div>
           {{input action="submit" value=url class="form-control" id="addServerInput" placeholder="Please enter FHIR Server URL"}}
           <div class="chart" {{action 'sideChart'}}></div>

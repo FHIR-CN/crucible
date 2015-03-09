@@ -16,5 +16,8 @@ Crucible.UsersIndexRoute = Crucible.DefaultRoute.extend
       server.save()
       $('#addServerInput').hide()
 
+    runTest: (server) ->
+      @transitionTo('servers.show', server)
+
     addServer: ->
       $('#addServerInput').toggle()
