@@ -17,4 +17,4 @@ Crucible.UsersIndexRoute = Crucible.DefaultRoute.extend
       $('#addServerInput').hide()
 
     addServer: ->
-    	$('#addServerInput').show()
+      $('#addServerInput').toggle()

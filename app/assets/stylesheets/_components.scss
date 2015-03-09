@@ -21,7 +21,7 @@
         display:none;
       }
     }
-    &.tab{
+/*    &.tab{
       min-height: 100px;
       padding: 20px;
       h1{
@@ -46,7 +46,10 @@
             border-right:40px solid transparent;
         }
       }
-    }
+      &.disabled{
+        background-color: #eeeeee;
+      }
+    }*/
     &.header{
       min-height: 200px;
     }
@@ -116,8 +119,36 @@
   word-wrap:break-word;
 }
 
-.add_server{
+
+.add_server_button{
   float:right;
+  &:hover{
+    font-size: 20px;
+  }
+}
+
+#serverList{
+  font-size: 16px;
+  color: $brand-primary;
+  & .btn{
+    width: 100px;
+    height: 25px;
+    padding: 0px;
+    display: none;
+  }  
+  & .clickable-list-item{
+    &:hover{
+      font-weight: bold;
+      font-size: 20px;
+      & .btn{
+        display: inline-block;
+      }  
+    }
+    &.selected{
+      font-weight: bold;
+      font-size: 20px;
+    }
+  }
 }
 
 .metadata-selector{
