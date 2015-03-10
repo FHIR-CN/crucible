@@ -15,66 +15,20 @@
     padding-bottom: 50px;
   }
   &.user{
+    text-align: left;
     &.analytics{
-      text-align:left;
       #addServerInput{
         display:none;
       }
-    }
-    &.tab{
-      min-height: 100px;
-      padding: 20px;
-      h1{
-        font-weight: 600;
-        font-size: 38px;
-        margin-bottom: 0px;
-      }
-      p{
-        margin-bottom: 0px;
-      }
-      &.active{
-        &:after{
-            content:'';
-            position:absolute;
-            width:0px;
-            height:0px;
-            left:50%;
-            top:100px;
-            margin-left:-40px;
-            border-top:25px solid white;
-            border-left:40px solid transparent;
-            border-right:40px solid transparent;
-        }
-      }
+      min-height: 200px;
     }
     &.header{
       min-height: 200px;
     }
-    &.analytics{
-      min-height: 200px;
-    }
+
     &.dash{
       min-height: 500px;
     }
-  }
-}
-
-
-// This should move to the user page
-// We should figure out why it's required and what's causing the SVG to bleed through
-.user {
-  .tab-content{
-    display: none;
-    &.active{
-      display: block;
-    }
-  }
-}
-.tab-details{
-  text-align: left;
-  display: none;
-  &.active{
-    display: block;
   }
 }
 
@@ -120,8 +74,36 @@
   word-wrap:break-word;
 }
 
-.add_server{
+
+.add_server_button{
   float:right;
+  &:hover{
+    font-size: 20px;
+  }
+}
+
+#serverList{
+  font-size: 16px;
+  color: $brand-primary;
+  & .btn{
+    width: 100px;
+    height: 25px;
+    padding: 0px;
+    display: none;
+  }  
+  & .clickable-list-item{
+    &:hover{
+      font-weight: bold;
+      font-size: 20px;
+      & .btn{
+        display: inline-block;
+      }  
+    }
+    &.selected{
+      font-weight: bold;
+      font-size: 20px;
+    }
+  }
 }
 
 .metadata-selector{

@@ -3,9 +3,9 @@ Crucible.HistogramChartComponent = Ember.Component.extend
   data: []
   # What field are we binning by, defaults to id
   binningField: null
-  # If we're working by dates
+  # If we are working by dates
   byDate: false
-  # If we ARE working by dates, this is the bin width
+  # If we are working by dates, this is the bin width
   # Options include all d3 time intervals defined at https://github.com/mbostock/d3/wiki/Time-Intervals#intervals
   timeSpan: 'day'
 

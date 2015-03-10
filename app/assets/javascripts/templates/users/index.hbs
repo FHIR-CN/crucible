@@ -1,79 +1,50 @@
 <div class="container main">
   <div class="row">
-    <div class="col-md-3">
-  	  <div class="palette user tab active" {{action 'click' 'tab-1'}} id="tab-1">
-        <h1>{{servers.length}}</h1>
-        <p>Servers</p>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="palette user tab" {{action 'click' 'tab-2'}} id="tab-2">
-        <h1>{{testRuns.length}}</h1>
-    	  <p>Test(s)</p>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="palette user tab" {{action 'click' 'tab-3'}} id="tab-3">
-        <h1>68</h1>
-    	  <p>Tests Against</p>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="palette user tab" {{action 'click' 'tab-4'}} id="tab-4">
-        <h1>12</h1>
-    	  <p>Favorited Results</p>
+    <div class="col-md-12">
+      <div class="palette user analytics">
+        <div class="row">
+          <div class="add_server_button" {{action 'addServer'}}><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add Server</div>
+          <div id='serverList' class="col-md-10">
+            <h1>My Servers</h1>
+            {{#each server in servers}}<p class="clickable-list-item" {{action 'serverSelect' server}}>{{server.url}} <button {{action 'runTest' server}} class="btn">Run Test</button></p> {{/each}}
+          </div>
+          {{input action="submit" value=url class="form-control" id="addServerInput" placeholder="Please enter FHIR Server URL"}}
+          <div class="chart" {{action 'sideChart'}}></div>
+        </div>
       </div>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-12">
-      <div class="palette user analytics">
-        <div class="tab-content active" id="tab-1-content">
-          <div class="add_server" {{action 'addServer'}}><span class="glyphicon glyphicon-plus" aria-hidden="true">&nbsp</span>Add Server</div>
-          <div id='serverList'>{{#each server in servers}}<p {{action 'serverSelect' server}}>{{server.url}}</p>{{/each}}</div>
-          {{input action="submit" value=url class="form-control" id="addServerInput" placeholder="Please enter FHIR Server URL"}}
-        </div>
-        <div class="tab-content" id="tab-2-content">
-          {{histogram-chart data=testRuns binningField="date" timeSpan="hour" bandPadding=0.1 byDate=true rollupBy="testResults.length"}}
-        </div>
-        <div class="tab-content" id="tab-3-content">content 3</div>
-        <div class="tab-content" id="tab-4-content">content 4</div>
+    <div class="palette user col-md-12">
+      {{histogram-chart data=testRuns binningField="date" timeSpan="hour" bandPadding=0.1 byDate=true rollupBy="testResults.length"}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="palette user col-md-12">
+      <h1>My Tests</h1>
+      <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+        {{#each test_run in testRuns}}
+            <div class="toggleable panel-heading">
+              <h4 class="panel-title">
+                <label >
+                  {{test_run.server.url}}
+                </label>
+                <label >
+                  {{test_run.date}}
+                </label>
+                <a class="collapsed" data-toggle="collapse" data-target="#test1" aria-expanded="false" >
+                <small>(more)</small></a>
+              </h4>
+            </div>
+            <div id="test1" class="panel-collapse collapse">
+              <div class="panel-body">
+                {{#each test_result in test_run.testResults}}
+                  <p>{{test_result.result}}</p>
+                {{/each}}
+              </div>
+            </div>
+        {{/each}}
       </div>
     </div>
   </div>
-
-  <div class="tab-details active" id="tab-1-details">
-    {{currentServer.url}}
-    {{render 'servers.show' currentServer}}
-  </div>
-  <div class="tab-details palette" id="tab-2-details">
-
-    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-      {{#each test_run in testRuns}}
-          <div class="toggleable panel-heading">
-            <h4 class="panel-title">
-              <label >
-                {{test_run.server.url}}
-              </label>
-              <label >
-                {{test_run.date}}
-              </label>
-              <a class="collapsed" data-toggle="collapse" data-target="#test1" aria-expanded="false" >
-              <small>(more)</small></a>
-            </h4>
-          </div>
-          <div id="test1" class="panel-collapse collapse">
-            <div class="panel-body">
-              {{#each test_result in test_run.testResults}}
-                <p>{{test_result.result}}</p>
-              {{/each}}
-            </div>
-          </div>
-      {{/each}}
-    </div>
-
-  </div>
-
-  <div class="tab-details palette" id="tab-3-details">details 3</div>
-  <div class="tab-details palette" id="tab-4-details">details 4</div>
 </div>

@@ -13,11 +13,13 @@ Crucible.UsersIndexRoute = Crucible.DefaultRoute.extend
       console.log selection.get('url')
       Ember.set(@currentModel, 'currentServer', selection)#Em.RSVP.hash(server: selection, tests: this.currentModel.tests))
 
-
     submit: ->
       server = @store.createRecord('server', url: @currentModel.url);
       server.save()
       $('#addServerInput').hide()
 
+    runTest: (server) ->
+      @transitionTo('servers.show', server)
+
     addServer: ->
-    	$('#addServerInput').show()
+      $('#addServerInput').toggle()
