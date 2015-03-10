@@ -1,4 +1,4 @@
-Crucible.TestResult = DS.Model.extend
+Crucible.TestResult = DS.Model.extend Crucible.Tabbable,
   test: DS.belongsTo('test', {async: true})
   testRun: DS.belongsTo('testRun')
   results: DS.hasMany('result', {async: true})
@@ -11,7 +11,7 @@ Crucible.TestResult = DS.Model.extend
 
 
 
-Crucible.Result = DS.Model.extend
+Crucible.Result = DS.Model.extend Crucible.Tabbable, 
   code: DS.attr()
   # data: DS.attr()
   description: DS.attr()

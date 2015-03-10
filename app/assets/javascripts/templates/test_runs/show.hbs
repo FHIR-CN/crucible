@@ -40,7 +40,7 @@
                           <label >
                             {{result.test.name}}
                           </label>
-                          <a class="collapsed" data-toggle="collapse" {{bind-attr data-target="result.test.id"}} aria-expanded="false" >
+                          <a class="collapsed" data-toggle="collapse" {{bind-attr data-target="result.selector"}} aria-expanded="false" >
                           <small>(more)</small></a>
                           {{#if test.hasResults}}
                             <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate tests"></span>
@@ -50,7 +50,7 @@
 
                         </h4>
                       </div>
-                      <div {{bind-attr id="result.test.id"}} class="panel-collapse">
+                      <div {{bind-attr id="result.data_selector"}} class="panel-collapse collapse">
                         {{result.test.description}}<br>
                       <div class="row">
                         <div class="col-md-7">
@@ -76,8 +76,11 @@
                             </tbody>
                           </table>
                         </div>
+                        <div class="col-md-5 tab-content details">
+
+                        </div>
                       </div>
-                      </div>
+                    </div>
                   {{/each}}
                 </div>
               </div>
