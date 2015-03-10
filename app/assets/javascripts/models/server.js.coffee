@@ -2,6 +2,7 @@ Crucible.Server = DS.Model.extend
   url: DS.attr("string")
   conformance: DS.attr()
   unsortedTests: DS.attr()
+  selected: DS.attr("boolean")
   activeTestCount: (-> @get('tests').filterBy('active', true).getEach('tests').getEach('length').reduce(((s,t) -> s + t),0)).property('tests.@each.active')
   completedTestCount: (-> @get('tests').filterBy('completed', true).filterBy('active', true).getEach('tests').getEach('length').reduce(((s,t) -> s + t),0)).property('tests.@each.active', 'tests.@each.completed')
   executionProgress: (-> parseInt( @get('completedTestCount') / Math.max(@get('activeTestCount'),1) * 100) ).property('activeTestCount', 'completedTestCount')

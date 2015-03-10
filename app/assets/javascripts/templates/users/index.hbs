@@ -6,7 +6,7 @@
           <div class="add_server_button" {{action 'addServer'}}><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add Server</div>
           <div id='serverList' class="col-md-10">
             <h1>My Servers</h1>
-            {{#each server in servers}}<p class="clickable-list-item" {{action 'serverSelect' server}}>{{server.url}} <button {{action 'runTest' server}} class="btn">Run Test</button></p> {{/each}}
+            {{#each server in  proxiedServers}}<p {{bind-attr class="server.selected:active :clickable-list-item"}} {{action 'toggleServer' server}}>{{server.content.url}}<button {{action 'runTest' server}} class="btn">Run Test</button></p>{{/each}}
           </div>
           {{input action="submit" value=url class="form-control" id="addServerInput" placeholder="Please enter FHIR Server URL"}}
           <div class="chart" {{action 'sideChart'}}></div>
@@ -16,7 +16,11 @@
   </div>
   <div class="row">
     <div class="palette user col-md-12">
+
       {{histogram-chart data=testRuns binningField="date" timeSpan="hour" bandPadding=0.1 byDate=true rollupBy="testResults.length"}}
+
+      {{currentServers}}
+      
     </div>
   </div>
   <div class="row">
@@ -25,7 +29,7 @@
       <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
         {{#each test_run in testRuns}}
             <div class="toggleable panel-heading">
-              <h4 class="panel-title">
+              <h4 class="pal-title">
                 <label >
                   {{test_run.server.url}}
                 </label>
