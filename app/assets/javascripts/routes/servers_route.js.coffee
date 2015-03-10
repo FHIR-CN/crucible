@@ -4,6 +4,7 @@ Crucible.ServersIndexRoute = Crucible.DefaultRoute.extend
 
 Crucible.ServersShowRoute = Ember.Route.extend
   model: (params) ->
+    console.log "Test"
     Ember.RSVP.hash(
       server: @store.find('server', params.server_id)
       tests: @store.findAll("test")

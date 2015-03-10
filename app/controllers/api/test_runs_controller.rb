@@ -10,6 +10,7 @@ module Api
     def create
       run = TestRun.new(run_params)
       run.date = Time.now
+      run.user = current_user
       if run.save()
         run = {:test_run => run}
         respond_with run, location: api_test_runs_path
@@ -20,7 +21,11 @@ module Api
     end
 
     def index
-      @runs = TestRun.all
+      @runs = []
+
+      if not current_user.nil?
+        @runs = current_user.test_runs
+      end
       render json:{test_runs: @runs}
     end
 

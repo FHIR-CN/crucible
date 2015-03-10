@@ -9,7 +9,7 @@
     <div class="col-md-3">
       <div class="palette user tab" {{action 'click' 'tab-2'}} id="tab-2">
         <h1>{{testRuns.length}}</h1>
-    	  <p>Test(s)</p> 		
+    	  <p>Test(s)</p>
       </div>
     </div>
     <div class="col-md-3">
@@ -43,7 +43,8 @@
   </div>
 
   <div class="tab-details active" id="tab-1-details">
-    {{render 'servers.show' currentServer}} 
+    {{currentServer.url}}
+    {{render 'servers.show' currentServer}}
   </div>
   <div class="tab-details palette" id="tab-2-details">
 
@@ -76,4 +77,3 @@
   <div class="tab-details palette" id="tab-3-details">details 3</div>
   <div class="tab-details palette" id="tab-4-details">details 4</div>
 </div>
-

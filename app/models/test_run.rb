@@ -4,4 +4,5 @@ class TestRun
   field :conformance
   field :date, type: DateTime
   belongs_to :server
+  belongs_to :user
 end

@@ -59,13 +59,17 @@
   }
 }
 
-.tab-content{
-  display: none;
-  &.active{
-    display: block;
+
+// This should move to the user page
+// We should figure out why it's required and what's causing the SVG to bleed through
+.user {
+  .tab-content{
+    display: none;
+    &.active{
+      display: block;
+    }
   }
 }
-
 .tab-details{
   text-align: left;
   display: none;

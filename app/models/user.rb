@@ -35,4 +35,5 @@ class User
   # field :locked_at,       type: Time
 
   has_many :servers
+  has_many :test_runs
 end

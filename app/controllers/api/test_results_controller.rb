@@ -9,16 +9,17 @@ module Api
       else
         client1 = FHIR::Client.new(run.server.url)
         test = Crucible::Tests.const_get(result.test.title).new(client1, nil)
+        val = nil
         if result.test.resource_class?
-          val = { debug: params, results: test.execute(result.test.resource_class.constantize) }
+          val = test.execute(result.test.resource_class.constantize)[0]["#{result.test.title}_#{result.test.resource_class.split("::")[1]}"][:tests]
         else
-          val = { debug: params, results: test.execute }
+          val = test.execute[0][result.test.name.to_sym][:tests]
         end
 
         result.has_run = true
-        result.result = {id: params[:id], result: val}
+        result.result = val
         result.save()
-        render json: {result: result.result}
+        render json: {results: result.result}
       end
     end
 
