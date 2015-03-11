@@ -16,8 +16,11 @@
   </div>
   <div class="row">
     <div class="palette user col-md-12">
+      {{#each run in currentTestRuns}}
+        {{run}}
+      {{/each}}
 
-      {{histogram-chart data=testRuns binningField="date" timeSpan="hour" bandPadding=0.1 byDate=true rollupBy="testResults.length"}}
+      {{histogram-chart data=currentTestRuns binningField="date" timeSpan="hour" bandPadding=0.1 byDate=true rollupBy="testResults.length"}}
 
       {{currentServers}}
       
