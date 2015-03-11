@@ -8,7 +8,7 @@ Crucible.UsersIndexController = Ember.ObjectController.extend
 
   currentTestRuns: (->
     @get('testRuns').filter(( (testRun) -> 
-      debugger
+      # return true if this.length == 0
       @mapBy('id').indexOf(testRun.get('server.id')) > -1
     ), @get('currentServers'))
   ).property('currentServers')
