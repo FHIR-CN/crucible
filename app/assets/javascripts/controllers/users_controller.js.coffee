@@ -6,6 +6,13 @@ Crucible.UsersIndexController = Ember.ObjectController.extend
     @get('proxiedServers').filterBy('selected', true).mapBy('content')
   ).property('proxiedServers.@each.selected')
 
+  currentTestRuns: (->
+    @get('testRuns').filter(( (testRun) -> 
+      # return true if this.length == 0
+      @mapBy('id').indexOf(testRun.get('server.id')) > -1
+    ), @get('currentServers'))
+  ).property('currentServers')
+
   actions:
     toggleServer: (server) ->
       server.toggleProperty('selected')
