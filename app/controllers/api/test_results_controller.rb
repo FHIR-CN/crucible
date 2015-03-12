@@ -13,7 +13,7 @@ module Api
         if result.test.resource_class?
           val = test.execute(result.test.resource_class.constantize)[0]["#{result.test.title}_#{result.test.resource_class.split("::")[1]}"][:tests]
         else
-          val = test.execute[0][result.test.name.to_sym][:tests]
+          val = test.execute()[0][result.test.name.to_sym][:tests]
         end
 
         result.has_run = true

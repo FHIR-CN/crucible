@@ -9,6 +9,7 @@ module Api
 
     def create
       run = TestRun.new(run_params)
+      run.conformance = params['test_run']['conformance']
       run.date = Time.now
       run.user = current_user
       if run.save()

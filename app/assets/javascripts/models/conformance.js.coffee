@@ -1,7 +1,7 @@
 Crucible.Conformance = DS.Model.extend
   json: DS.attr()
-  
-  rest: (-> 
+
+  rest: (->
     @collapseConformance().rest
   ).property('json')
 
@@ -42,7 +42,7 @@ Crucible.Conformance = DS.Model.extend
   document2: (-> @second()?.document).property('document')
 
   isMultiple: (-> @get('json').length > 1).property('json')
-  
+
   first: ->
   	@get('json')[0]
 
@@ -113,5 +113,7 @@ Crucible.Conformance = DS.Model.extend
 
   operations: (-> ['Read','VRead','Update','Delete','History-Instance','Validate','History-Type','Create','Search-Type']).property()
 
-
-
+Crucible.ConformanceSerializer = DS.ActiveModelSerializer.extend
+  normalize: (type, hash, prop) ->
+    hash.id = Em.generateGuid(hash, "conformance")
+    @_super(type, hash, prop)
