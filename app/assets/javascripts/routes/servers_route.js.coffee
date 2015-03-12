@@ -10,8 +10,8 @@ Crucible.ServersShowRoute = Ember.Route.extend
       tests: @store.findAll("test")
     )
   afterModel: (model) ->
-    conformance = DS.PromiseObject.create({promise: $.get("/api/servers/conformance?url=#{model.server.get("url")}")})
-    conformance.then(() => model.server.set("conformance", @store.createRecord('conformance', json: [conformance.content])))
+    # conformance = DS.PromiseObject.create({promise: $.get("/api/servers/conformance?url=#{model.server.get("url")}")})
+    # conformance.then(() => model.server.set("conformance", @store.createRecord('conformance', json: [conformance.content])))
 
   actions:
     executeTests:->

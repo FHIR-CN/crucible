@@ -6,7 +6,7 @@
       <option>Server 1 OR Server 2</option>
       <option>Server 1 AND Server 2</option>
       <option>Server 1 - EXCLUSIVE</option>
-      <option>Server 2 - EXCLUSIVE</option>      
+      <option>Server 2 - EXCLUSIVE</option>
     </select>
   </div>
   <div class="col-md-8 info-box">
@@ -47,15 +47,15 @@
             <h4 class="panel-title">
               <a class="collapsed" data-toggle="collapse" data-parent="#accordion" aria-expanded="false" data-target="#resource{{unbound res.fhirType}}">{{res.fhirType}}</a>
               <span class="test-circle-holder">
-                <span {{bind-attr class=":glyphicon res.operation.read :conformance-test-badge res.results.read.status"}} aria-hidden="true">{{#if res.results.read.status}}{{#bootstrap-popover title="'''''" tagName="span"}}{{render 'partials/_conformancePopover' res.results.read}}{{/bootstrap-popover}}{{/if}}</span>
-                <span {{bind-attr class=":glyphicon res.operation.vread :conformance-test-badge res.results.vread.status"}} aria-hidden="true">{{#if res.results.vread.status}}{{#bootstrap-popover title="'''''" tagName="span"}}{{render 'partials/_conformancePopover' res.results.vread}}{{/bootstrap-popover}}{{/if}}</span>
-                <span {{bind-attr class=":glyphicon res.operation.update :conformance-test-badge res.results.update.status"}} aria-hidden="true">{{#if res.results.update.status}}{{#bootstrap-popover title="'''''" tagName="span"}}{{render 'partials/_conformancePopover' res.results.update}}{{/bootstrap-popover}}{{/if}}</span>
-                <span {{bind-attr class=":glyphicon res.operation.delete :conformance-test-badge res.results.delete.status"}} aria-hidden="true">{{#if res.results.delete.status}}{{#bootstrap-popover title="'''''" tagName="span"}}{{render 'partials/_conformancePopover' res.results.delete}}{{/bootstrap-popover}}{{/if}}</span>
-                <span {{bind-attr class=":glyphicon res.operation.history-instance :conformance-test-badge res.results.history-instance.status"}} aria-hidden="true">{{#if res.results.history-instance.status}}{{#bootstrap-popover title="'''''" tagName="span"}}{{render 'partials/_conformancePopover' res.results.history-instance}}{{/bootstrap-popover}}{{/if}}</span>
-                <span {{bind-attr class=":glyphicon res.operation.validate :conformance-test-badge res.results.validate.status"}} aria-hidden="true">{{#if res.results.validate.status}}{{#bootstrap-popover title="'''''" tagName="span"}}{{render 'partials/_conformancePopover' res.results.validate}}{{/bootstrap-popover}}{{/if}}</span>
-                <span {{bind-attr class=":glyphicon res.operation.history-type :conformance-test-badge res.results.history-type.status"}} aria-hidden="true">{{#if res.results.history-type.status}}{{#bootstrap-popover title="'''''" tagName="span"}}{{render 'partials/_conformancePopover' res.results.history-type}}{{/bootstrap-popover}}{{/if}}</span>
-                <span {{bind-attr class=":glyphicon res.operation.create :conformance-test-badge res.results.create.status"}} aria-hidden="true">{{#if res.results.create.status}}{{#bootstrap-popover title="'''''" tagName="span"}}{{render 'partials/_conformancePopover' res.results.create}}{{/bootstrap-popover}}{{/if}}</span>
-                <span {{bind-attr class=":glyphicon res.operation.search-type :conformance-test-badge res.results.search-type.status"}} aria-hidden="true">{{#if res.results.search-type.status}}{{#bootstrap-popover title="'''''" tagName="span"}}{{render 'partials/_conformancePopover' res.results.search-type}}{{/bootstrap-popover}}{{/if}}</span>
+                <span {{bind-attr class=":glyphicon res.read :conformance-test-badge res.results.read.status"}} aria-hidden="true">{{res.read}}{{#if res.results.read.status}}{{#bootstrap-popover title="'''''" tagName="span"}}{{render 'partials/_conformancePopover' res.results.read}}{{/bootstrap-popover}}{{/if}}</span>
+                <span {{bind-attr class=":glyphicon res.vread :conformance-test-badge res.results.vread.status"}} aria-hidden="true">{{res.vread}}{{#if res.results.vread.status}}{{#bootstrap-popover title="'''''" tagName="span"}}{{render 'partials/_conformancePopover' res.results.vread}}{{/bootstrap-popover}}{{/if}}</span>
+                <span {{bind-attr class=":glyphicon res.update :conformance-test-badge res.results.update.status"}} aria-hidden="true">{{res.update}}{{#if res.results.update.status}}{{#bootstrap-popover title="'''''" tagName="span"}}{{render 'partials/_conformancePopover' res.results.update}}{{/bootstrap-popover}}{{/if}}</span>
+                <span {{bind-attr class=":glyphicon res.delete :conformance-test-badge res.results.delete.status"}} aria-hidden="true">{{res.delete}}{{#if res.results.delete.status}}{{#bootstrap-popover title="'''''" tagName="span"}}{{render 'partials/_conformancePopover' res.results.delete}}{{/bootstrap-popover}}{{/if}}</span>
+                <span {{bind-attr class=":glyphicon res.historyInstance :conformance-test-badge res.results.history-instance.status"}} aria-hidden="true">{{res.validate}}{{#if res.results.history-instance.status}}{{#bootstrap-popover title="'''''" tagName="span"}}{{render 'partials/_conformancePopover' res.results.history-instance}}{{/bootstrap-popover}}{{/if}}</span>
+                <span {{bind-attr class=":glyphicon res.validate :conformance-test-badge res.results.validate.status"}} aria-hidden="true">{{res.historyInstance}}{{#if res.results.validate.status}}{{#bootstrap-popover title="'''''" tagName="span"}}{{render 'partials/_conformancePopover' res.results.validate}}{{/bootstrap-popover}}{{/if}}</span>
+                <span {{bind-attr class=":glyphicon res.historyType :conformance-test-badge res.results.history-type.status"}} aria-hidden="true">{{res.historyType}}{{#if res.results.history-type.status}}{{#bootstrap-popover title="'''''" tagName="span"}}{{render 'partials/_conformancePopover' res.results.history-type}}{{/bootstrap-popover}}{{/if}}</span>
+                <span {{bind-attr class=":glyphicon res.create :conformance-test-badge res.results.create.status"}} aria-hidden="true">{{res.searchType}}{{#if res.results.create.status}}{{#bootstrap-popover title="'''''" tagName="span"}}{{render 'partials/_conformancePopover' res.results.create}}{{/bootstrap-popover}}{{/if}}</span>
+                <span {{bind-attr class=":glyphicon res.searchType :conformance-test-badge res.results.search-type.status"}} aria-hidden="true">{{res.create}}{{#if res.results.search-type.status}}{{#bootstrap-popover title="'''''" tagName="span"}}{{render 'partials/_conformancePopover' res.results.search-type}}{{/bootstrap-popover}}{{/if}}</span>
               </span>
             </h4>
           </div>

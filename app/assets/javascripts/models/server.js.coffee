@@ -1,6 +1,6 @@
 Crucible.Server = DS.Model.extend
   url: DS.attr("string")
-  conformance: DS.attr()
+  conformance: DS.belongsTo('conformance', {async: 'true'})
   unsortedTests: DS.attr()
   selected: DS.attr("boolean")
   activeTestCount: (-> @get('tests').filterBy('active', true).getEach('tests').getEach('length').reduce(((s,t) -> s + t),0)).property('tests.@each.active')
@@ -25,5 +25,7 @@ Crucible.Server = DS.Model.extend
   ).observes('tests.@each.results') # Replace with 'isComplete' for more performant rendering
 
 
-# Crucible.ServerSerializer = DS.ActiveModelSerializer.extend
-  # normalize: (type, hash, prop) ->
+Crucible.ServerSerializer = DS.ActiveModelSerializer.extend
+  normalize: (type, hash, prop) ->
+    hash.links = {conformance: 'conformance'}
+    @_super(type,hash,prop)
