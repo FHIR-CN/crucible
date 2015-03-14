@@ -33,6 +33,7 @@ gem 'mongoid-history'
 gem 'active_model_serializers'
 gem 'pry'
 gem 'underscore-rails'
+gem 'simple_token_authentication', '~> 1.8.0'
 
 group :development do
   gem 'pry-byebug'

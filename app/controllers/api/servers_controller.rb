@@ -1,7 +1,5 @@
 module Api
   class ServersController < ApplicationController
-    # before_action :authenticate_user!
-    skip_before_filter :verify_authenticity_token
     respond_to :json
 
     def index
@@ -59,10 +57,10 @@ module Api
       render json: {conformance: conformance}
     end
 
-  private
+    private
+
     def server_params
       params.require(:server).permit(:url)
     end
-
   end
 end
