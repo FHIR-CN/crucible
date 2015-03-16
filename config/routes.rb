@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  devise_for :users
-
   get 'tests/execute_all' => 'tests#execute_all', defaults: { format: :json }
   get 'tests/execute/:title' => 'tests#execute', defaults: { format: :json }
   get 'tests/conformance' => 'tests#conformance', defaults: { format: :json }
@@ -64,12 +62,20 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  namespace :api do
-    get 'servers/conformance', to: 'servers#conformance'
-    
+  scope :api, module: :api do
+    devise_for :users, controllers: {
+      sessions: 'api/sessions',
+      registrations: 'api/registrations'
+    }
+  end
+
+  namespace :api, format: :json do
+    get 'servers/:id/conformance', to: 'servers#conformance'
     resources :servers
     resources :multiservers
     resources :tests
+    resources :test_runs
+    get '/test_results/:id/result' => 'test_results#result', defaults: { format: :json }
   end
 
 end

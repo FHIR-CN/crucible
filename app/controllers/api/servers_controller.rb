@@ -1,7 +1,5 @@
 module Api
   class ServersController < ApplicationController
-    # before_action :authenticate_user!
-    skip_before_filter :verify_authenticity_token
     respond_to :json
 
     def index
@@ -15,6 +13,7 @@ module Api
     def create
       server = Server.new(server_params)
       server.user = current_user
+
       if server.save
         respond_with server, location: api_servers_path
       else
@@ -45,7 +44,8 @@ module Api
     end
 
     def conformance
-      conformance = JSON.parse(FHIR::Client.new(params[:url]).conformanceStatement.to_json)
+      server = Server.find(params[:id])
+      conformance = JSON.parse(FHIR::Client.new(server.url).conformanceStatement.to_json)
       conformance['rest'].each do |rest|
         rest['operation'] = rest['operation'].reduce({}) {|memo,operation| memo[operation['code']]=true; memo}
         rest['results'] = rest['operation'].reduce({}) {|memo,code| memo[code[0]]={:passed => [], :failed => [], :status => ""}; memo}
@@ -54,13 +54,13 @@ module Api
           resource['results'] = resource['interaction'].reduce({}) {|memo,code| memo[code[0]]={:passed => [], :failed => [], :status => ""}; memo}
         end
       end
-      render json: conformance
+      render json: {conformance: conformance}
     end
 
-  private
+    private
+
     def server_params
       params.require(:server).permit(:url)
     end
-
   end
 end
