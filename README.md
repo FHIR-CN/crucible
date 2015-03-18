@@ -7,16 +7,28 @@ A simple Rails app for evaluating FHIR.
   - Rails 4.1+
   - Devise
   - Bootstrap
-  - Ember.js
+  - Ember CLI
   - MongoDB
+  - Bundler
+  - Node
+  - Bower
 
 ## Getting Started ##
 
 ### OSX ###
-- Checkout Crucible:
+
+#### API Server
+- Checkout Crucible: ```git clone https://github.com/fhir-crucible/crucible.git```
 - Install dependencies with Bundler: ```bundle install```
 - Start MongoDB: ```mongod```
 - Launch the Rails server: ```bundle exec rails server```
+
+#### Client
+- Checkout Crucible Frontend (Ember CLI): ```git clone https://github.com/fhir-crucible/crucible-frontend.git```
+- Setup Node: ```npm install```
+- Setup Bower: ```bower install```
+- Serve client via ember-cli: ```ember server --proxy http://localhost:3000```
+- View client: ```http://localhost:4200```
 
 # License
 
