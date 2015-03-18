@@ -19,16 +19,16 @@ A simple Rails app for evaluating FHIR.
 
 #### API Server
 - Checkout Crucible: ```git clone https://github.com/fhir-crucible/crucible.git```
-- Install dependencies with Bundler: ```bundle install```
+- Install Ruby dependencies with Bundler: ```bundle install```
 - Start MongoDB: ```mongod```
 - Launch the Rails server: ```bundle exec rails server```
 
 #### Client
 - Checkout Crucible Frontend (Ember CLI): ```git clone https://github.com/fhir-crucible/crucible-frontend.git```
-- Setup Node: ```npm install```
-- Setup Bower: ```bower install```
+- Install Node dependencies: ```npm install```
+- Install Bower dependencies: ```bower install```
 - Serve client via ember-cli: ```ember server --proxy http://localhost:3000```
-- View client: ```http://localhost:4200```
+- View application: ```http://localhost:4200```
 
 # License
 
