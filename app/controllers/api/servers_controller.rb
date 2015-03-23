@@ -60,7 +60,7 @@ module Api
     private
 
     def server_params
-      params.require(:server).permit(:url)
+      params.require(:server).permit(:url, :name)
     end
   end
 end
