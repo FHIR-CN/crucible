@@ -1,3 +1,3 @@
 class ServerSerializer < ActiveModel::Serializer
-  attributes :id, :url
+  attributes :id, :url, :name
 end
