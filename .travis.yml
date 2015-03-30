@@ -8,3 +8,8 @@ notifications:
     recipients:
       - healthcare-ci@googlegroups.com
     on_failure: change
+
+notifications:
+  slack: mitre-crucible:A1c8nXacZlK4NVoOcPFTI6Sc
+
+travis encrypt "mitre-crucible:A1c8nXacZlK4NVoOcPFTI6Sc" --add notifications.slack
