@@ -1,6 +1,6 @@
 language: ruby
 rvm:
-  - "2.0.0"
+- 2.0.0
 services: mongodb
 script: bundle exec rake test
 notifications:
@@ -8,8 +8,5 @@ notifications:
     recipients:
       - healthcare-ci@googlegroups.com
     on_failure: change
-
-notifications:
-  slack: mitre-crucible:A1c8nXacZlK4NVoOcPFTI6Sc
-
-travis encrypt "mitre-crucible:A1c8nXacZlK4NVoOcPFTI6Sc" --add notifications.slack
+  slack:
+    secure: h789m+M4TofoMct3WEvoQORDZ/eXP07bc/99qHpAV4r6GiB9OlZDSFiVOOQy7sA9Vu7Clu6aLbYF8PnmRAQ94NigBub1OX13T6mski1UjPQG+iNjjmVg/uDddiXibRYBzs1KAD974KYb7mX8ToasQVTJcP2M9OvvCkprZ150IEE=
