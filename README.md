@@ -1,4 +1,4 @@
-# Crucible # [![Build Status](https://travis-ci.org/fhir-crucible/crucible.svg?branch=master)](https://travis-ci.org/fhir-crucible/crucible)
+# Crucible Server [![Build Status](https://travis-ci.org/fhir-crucible/crucible.svg?branch=master)](https://travis-ci.org/fhir-crucible/crucible)
 
 A simple Rails app for evaluating FHIR.
 
@@ -17,6 +17,16 @@ A simple Rails app for evaluating FHIR.
 
 ### OSX ###
 
+#### Dependencies
+- Install [Homebrew](http://brew.sh/)
+- Install [RVM](https://rvm.io/)
+- Install Ruby 2.0.0+ via ```rvm install 2.0.0```
+- Install [MongoDB](https://www.mongodb.org/) via ```brew install mongodb```
+- Install [Bundler](http://bundler.io/) via ```gem install bundler```
+- Install [Node](https://nodejs.org/) via ```brew install node```
+- Install [Bower](http://bower.io/) via ```npm install -g bower```
+- Install [Ember CLI](http://www.ember-cli.com/) via ```npm install -g ember-cli```
+
 #### API Server
 - Checkout Crucible: ```git clone https://github.com/fhir-crucible/crucible.git```
 - Install Ruby dependencies with Bundler: ```bundle install```
@@ -25,8 +35,7 @@ A simple Rails app for evaluating FHIR.
 
 #### Client
 - Checkout Crucible Frontend (Ember CLI): ```git clone https://github.com/fhir-crucible/crucible-frontend.git```
-- Install Node dependencies: ```npm install```
-- Install Bower dependencies: ```bower install```
+- Install Node & Bower dependencies: ```ember install```
 - Serve client via ember-cli: ```ember server --proxy http://localhost:3000```
 - View application: ```http://localhost:4200```
 
