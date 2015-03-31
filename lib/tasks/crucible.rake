@@ -38,7 +38,15 @@ namespace :crucible do
       "5515fbbc4d4d311e4ffe0b00" => 2,
       "55198d9f4d4d3130e62f0600" => 1,
       "551998904d4d3130e6cc1800" => 1,
-      "5519a00a4d4d3130e60b1f00" => 0
+      "5519a00a4d4d3130e60b1f00" => 0,
+      "551abacd4d4d3141ee2e0600" => 10,
+      "551abb1d4d4d3141ee310600" => 8,
+      "551abbc24d4d3141ee350600" => 7,
+      "551abd054d4d3141ee3a1200" => 9,
+      "551abd4d4d4d3141ee3c1200" => 7,
+      "551abe3e4d4d3141ee3e1e00" => 12,
+      "551abef44d4d3141ee481e00" => 9,
+      "551ac05f4d4d3141ee7b2400" => 11
     }
 
     TestRun.all.each do |test_run|
