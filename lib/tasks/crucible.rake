@@ -51,11 +51,7 @@ namespace :crucible do
 
     TestRun.all.each do |test_run|
       if days_offset[test_run.id.to_s]
-        shifted_date = test_run.date.change({
-          year: today.year,
-          month: today.month,
-          day: ( today - (days_offset[test_run.id.to_s]).days).day
-        })
+        shifted_date = today - (days_offset[test_run.id.to_s]).days
         puts "Shifting #{test_run.id.to_s} from #{test_run.date} to #{shifted_date}."
         test_run.date = shifted_date
         test_run.save!
