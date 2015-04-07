@@ -10,6 +10,11 @@ module Api
     def create
       run = TestRun.new(run_params)
       run.conformance = params['test_run']['conformance']
+      if params['test_run']['destination_server_id']
+        run.destination_server = Server.find( params['test_run']['destination_server_id'] )
+        run.destination_conformance = params['test_run']['destination_conformance']
+        run.is_multiserver = true
+      end
       run.date = Time.now
       run.user = current_user
       if run.save()
@@ -32,7 +37,8 @@ module Api
 
     private
     def run_params
-      params.require(:test_run).permit(:date, :conformance, :server_id, "test_results" => [:has_run, :test_id])
+      params.require(:test_run).permit(:date, :conformance, :destination_server,
+        :destination_conformance, :server_id, "test_results" => [:has_run, :test_id])
     end
   end
 end

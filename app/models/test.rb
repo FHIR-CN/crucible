@@ -8,5 +8,6 @@ class Test
   field :validates
   field :requires
   field :links
+  field :multiserver, type: Boolean, default: false
   field :methods, type: Array
 end

@@ -8,7 +8,8 @@ module Api
         render json: {result: result.result}
       else
         client1 = FHIR::Client.new(run.server.url)
-        test = Crucible::Tests.const_get(result.test.title).new(client1, nil)
+        client2 = FHIR::Client.new(run.destination_server.url) if run.is_multiserver
+        test = Crucible::Tests.const_get(result.test.title).new(client1, client2)
         val = nil
         if result.test.resource_class?
           val = test.execute(result.test.resource_class.constantize)[0]["#{result.test.title}_#{result.test.resource_class.split("::")[1]}"][:tests]
